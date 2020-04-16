@@ -1,0 +1,50 @@
+<div class="custom-tab">
+  <div id="tab-map" [ngClass]="current == 'overview' ? 'custom-tab-active': ''" class="custom-tab-item" (click)="changeToOverViewPage()">
+    <div>
+      <img *ngIf="current != 'overview'" src="assets/images/icon-design/icon-10.png"/>
+      <img *ngIf="current == 'overview'" src="assets/images/icon-design/icon-11.png"/>
+      <span>
+        {{'tab.overview' | translate}}
+      </span>
+    </div>
+  </div>
+  <div id="tab-home" [ngClass]="current == 'wishlist' ? 'custom-tab-active': ''" class="custom-tab-item" (click)="changeToWishListPage()">
+    <div>
+      <img *ngIf="current != 'wishlist'" src="assets/images/icon-design/icon-12.png"/>
+      <img *ngIf="current == 'wishlist'" src="assets/images/icon-design/icon-13.png"/>
+      <span>
+        {{'tab.mysaved' | translate}}
+      </span>
+    </div>
+  </div>
+
+  <div id="tab-plan" [ngClass]="current == 'plan' ? 'custom-tab-active': ''" class="custom-tab-item" (click)="changeToPlanPage()">
+    <div>
+      <img *ngIf="current != 'plan'" src="assets/images/icon-design/icon-14.png"/>
+      <img *ngIf="current == 'plan'" src="assets/images/icon-design/icon-15.png"/>
+      <span>
+        {{'tab.plan' | translate}}
+      </span>
+    </div>
+  </div>
+  
+  <div id="tab-map" [ngClass]="current == 'map' ? 'custom-tab-active': ''" class="custom-tab-item" (click)="changeToMapPage()">
+    <div>
+      <img *ngIf="current != 'map'" src="assets/images/icon-design/icon-16.png"/>
+      <img *ngIf="current == 'map'" src="assets/images/icon-design/icon-17.png"/>
+      <span>
+        {{'tab.map' | translate}}
+      </span>
+    </div>
+  </div>
+  
+  <div id="tab-lookup" [ngClass]="current == 'user' ? 'custom-tab-active': ''" class="custom-tab-item" (click)="changeToUserpPage()">
+    <div>
+      <img *ngIf="current != 'user'" src="assets/images/icon-design/icon-18.png"/>
+      <img *ngIf="current == 'user'" src="assets/images/icon-design/icon-19.png"/>
+      <span>
+        {{'tab.account' | translate}}
+      </span>
+    </div>
+  </div>
+</div>

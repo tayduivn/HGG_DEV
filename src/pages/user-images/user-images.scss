@@ -1,0 +1,29 @@
+page-user-images {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    bottom: 5%;
+    padding-right: 7px;
+    font-size: 1em;
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 0.7em;
+    position: absolute;
+    padding-right: 7px;
+    bottom: 0%;
+    width: 100%;
+    color: #fff;
+    text-align: right;
+  }
+
+}

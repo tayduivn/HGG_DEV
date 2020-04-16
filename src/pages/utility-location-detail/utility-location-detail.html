@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LocationMapShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>LocationMapShow</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="item-image">
+    <img src="{{utility.imgURL}}" onerror="this.src='assets/iconImages/noimage.png'" />
+    <div class="item-name">
+      {{utility.name}}
+    </div>
+    <button ion-button class="btn-show-direction" (click)="showDirection()"><ion-icon name="redo"></ion-icon>&nbsp;Chỉ đường</button>
+  </div>
+  <div class="decoration-bar"><ion-icon name="keypad"></ion-icon></div>
+  
+  <div class="item-info">
+    <p><ion-icon name="pin"></ion-icon>&nbsp;{{utility.address}}</p>
+    <p><ion-icon name="call"></ion-icon>&nbsp;{{utility.phone}}</p>
+  </div>
+  <div class="decoration-bar"><ion-icon name="keypad"></ion-icon></div>
+
+  <div class="item-description">
+    {{utility.description}}
+  </div>
+</ion-content>

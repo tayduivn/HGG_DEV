@@ -1,0 +1,45 @@
+page-register {
+    ion-header {
+        .toolbar-background {
+            background: rgba(0,0,0,.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .scroll-content {
+        margin: 0 !important;
+        background: #cadcea;
+    }
+
+    .login-page-header {
+        padding-top: 80px;
+        background: #206aa7;
+        padding-bottom: 50px;
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0; 
+    }
+
+    input[type=text], input[type=number], input[type=password], input[type=email], input[type=tel] {
+        text-align: right;
+    }
+
+    .title-head {
+        font-size: 1.2em;
+        color: #bd0000;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-left: 10px;
+        text-align: center;
+    }
+    button {
+        margin: 0!important;
+        min-height: 45px;
+    }
+}

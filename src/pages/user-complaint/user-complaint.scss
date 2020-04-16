@@ -1,0 +1,82 @@
+page-user-complaint {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+  ion-title {
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    bottom: 5%;
+    padding-right: 7px;
+    font-size: 1em;
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 0.7em;
+    position: absolute;
+    padding-right: 7px;
+    bottom: 0%;
+    width: 100%;
+    color: #fff;
+    text-align: right;
+  }
+  .tips {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    .tips-content {
+        position: relative;
+        img {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            }
+    .popup-tooltips {
+        position: absolute;
+        bottom: -50px;
+        right: 55px;   
+    .popup-tooltips-content {
+        position: relative;
+        width: 200px;
+        height: 150px;
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 10px;
+      }
+      p {
+        font-size: 14px;
+        width: 180px;
+        height: 150px;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        margin: 0;
+        color: #fff;
+        text-align: justify;
+        text-indent: 30px;
+            img{
+            width: 25px;
+            height: 25px;
+            top: 4px;
+        }
+      }
+    }
+    }
+    } 
+  }
+}

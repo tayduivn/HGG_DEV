@@ -1,0 +1,27 @@
+<!--
+  Generated template for the PlanChoice page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'pc.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="list-plan">
+    <div class="list-item" (click)="createNewPlan()">
+      <h5>{{'pc.createnew' | translate}}</h5>
+      <p class="sub-title">{{'pc.createnewtoadd' | translate}}</p>
+    </div>
+    <div class="list-item" *ngFor="let item of listShow" (click)="gotochooseDayPlan(item)">
+      <h5>{{item.Name}}</h5>
+      <p class="sub-title">{{getSubtitle(item)}}</p>
+    </div>
+  </div>
+</ion-content>

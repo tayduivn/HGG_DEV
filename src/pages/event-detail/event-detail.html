@@ -1,0 +1,97 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ current_event.TITLE }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="news-header">
+    <ion-slides pager="true">
+      <ion-slide *ngFor="let imagelink of listImage">
+        <img src="{{ imagelink }}" onerror="this.src='assets/iconImages/noimage_event.png'" />
+      </ion-slide>
+    </ion-slides> 
+    
+    <div *ngIf="!isUserWish" class="love" (click)="toggleSaveWishList()">
+      <img style="display:inline" class="heart" [src]="bookId == 0?'assets/iconImages/heart1.png':'assets/iconImages/heart2.png'"
+      />
+      <span [style.color]="bookId == 0?'#27BBF2':'#F58387'" class="count-love">{{current_event?.COUNT_LIKE}}</span>
+    </div>
+    <h3 class="news-name">{{current_event.TITLE}}</h3>
+
+    <div class="ultilityBox">
+      <button ion-button (click)="note()">
+        <img src="assets/images/icon-note.png" />&nbsp;{{ 'toolbox.note' | translate }}</button>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="toolbox">
+    <div class="button-list">
+      <!--<a *ngIf="current_event?.phonenumber != null && hotel?.phonenumber != ''" class="btn" href="tel:{{hotel?.phonenumber}}">
+            <div class="image"><ion-icon name="call"></ion-icon></div>
+            <div class="text">Gọi</div>
+        </a>-->
+      <div class="btn" (click)="gotoRate()">
+        <div class="image">
+          <ion-icon name="text"></ion-icon>
+        </div>
+        <div class="text">{{ 'toolbox.rate' | translate }}</div>
+      </div>
+
+      <!--<div class="btn" (click)="gotoUserImage()">
+        <div class="image">
+          <ion-icon name="camera"></ion-icon>
+        </div>
+        <div class="text">{{ 'toolbox.contribute' | translate }}</div>
+      </div>-->
+      <div class="btn" (click)="gotoLocation()">
+        <div class="image">
+          <ion-icon name="pin"></ion-icon>
+        </div>
+        <div class="text">{{ 'toolbox.route' | translate }}</div>
+      </div>
+      <!--<div class="btn" (click)="gotoHotelBooking()">
+          <div class="image"><ion-icon name="cart"></ion-icon></div>
+          <div class="text">Đặt ngay</div>
+        </div>-->
+    </div>
+  </div>
+  <div class="arrow-down arrow-blue"></div>
+  <div class="clearfix"></div>
+  <div class="news-content">
+    <div class="full-row">
+      <h5>{{ 'ed.introduction' | translate }}</h5>
+    </div>
+    <div class="arrow-down arrow-orange-2"></div>
+    <div class="info-area">
+      <p class="info-row">
+        <span class="label">{{ 'ed.address' | translate }}</span>
+        <span class="detail-content on-row">{{ current_event.ADDRESS }}</span>
+      </p>
+      <div class="clearfix"></div>
+      <p class="info-row">
+        <span class="label">{{ 'ed.occur' | translate }}</span>
+        <span class="detail-content">
+          {{ 'ed.from' | translate }} {{ current_event.START_DATE | dateFormat: "DD/MM/YYYY HH:mm" }}
+          <br/> {{ 'ed.to' | translate }} {{ current_event.END_DATE | dateFormat: "DD/MM/YYYY HH:mm" }}
+        </span>
+      </p>
+      <p class="info-row">
+        <span class="label">{{ 'ed.operationtime' | translate }}</span>
+        <span class="detail-content on-row">{{ current_event.START_TIME | dateFormat: "HH:mm" }} - {{ current_event.END_TIME | dateFormat: "HH:mm" }}</span>
+      </p>
+    </div>
+    <div class="arrow-down arrow-gray"></div>
+    <div class="clearfix"></div>
+
+    <div class="full-row">
+      <h4>{{ 'ed.content' | translate }}</h4>
+    </div>
+    <div class="arrow-down arrow-orange"></div>
+    <div id="news-message">
+      <span [innerHTML]="current_event.CONTENT"></span>
+    </div>
+  </div>
+</ion-content>

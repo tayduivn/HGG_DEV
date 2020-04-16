@@ -1,0 +1,388 @@
+page-plan-add-location {
+
+    .scroll-content {
+        background: #eeeeee;
+        height: 100%;
+    }
+    // .list-item {
+    //     position: relative;
+    //     margin-bottom: 1px;
+    //     min-height: 240px;
+    //     background-image: url('../assets/iconImages/noimage.png');
+    //     background-repeat: no-repeat;
+    //     background-size: 100% 100%;
+    //     img {
+    //         display: block;
+    //     }
+    //     .item-name {
+    //         margin: 0;
+    //         font-size: 1em;
+    //         color: #fff;
+    //         position: absolute;
+    //         top: 0px;
+    //         width: 100%;
+    //         padding: 10px;
+    //         background: rgba(0,0,0,.4);
+    //     }
+    //     .list-item-info {
+    //         position: absolute;
+    //         bottom: 0;
+    //         width: 100%;
+    //         .item-action {
+    //             position: absolute;
+    //             bottom: 0px;
+    //             width: 100%;
+    //             left: 0;
+    //             background: rgba(0,0,0,.4);
+    //             padding: 10px;
+    //             text-align: right;
+    //             button {
+    //                 color: #fff;
+    //             }
+    //         }
+            
+    //     }
+    // }
+    
+    .list-item {
+        margin: 5px 10px 0 10px;
+        position: relative;
+        padding: 8px;
+        display: inline-block;
+        width: calc(100% - 20px);
+        background: #fff;
+        .item-image {
+            width: 120px;
+            height: 80px;
+            float: left;
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                border-radius: 2px;
+            }
+        }
+        .item-info {
+            width: calc(100% - 130px);
+            float: right;
+            .item-action {
+                position: absolute;
+                width: calc(100% - 146px);
+                bottom: 5px;
+                button {
+                    padding: 0;
+                    color: #2CBCF3;
+                }
+                .btn-view {
+                    line-height: 30px;
+                    font-size: 11px;
+                    background: transparent;
+                }
+                .btn-add {
+                    font-size: 1.1em;
+                    color: #fff;
+                    background: #bd0000;
+                    width: 30px;
+                    height: 30px;
+                    float: right;
+                }
+            }
+            .item-name {
+                font-size: 1.1em;
+                margin: 0;
+                color: #2C8DEA;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 0;
+            }
+            .item-address {
+                font-size: .8em;
+                margin: 0;
+                color: #8b8b8b;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                &.blue {
+                    color: #2C8DEA;
+                }
+                &.red {
+                    color: #bd0000;
+                }
+            }
+        }
+    }
+    .list-item::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .list-item:first-child {
+        margin-top: 0;
+    }
+    
+    .text-input-ios {
+        margin: 11px 8px 11px 8px;
+    }
+
+    // .list-area {
+    //     width: 100px;
+    //     float: right;
+    //     height: 41px;
+    //     margin-right: 2px;
+    //     margin-top: 3px;
+    //     background: #fff;
+    //     font-size: .8em;
+    // }
+
+    .scroll-tab-bar {
+        display: block;
+        height: 43px;
+        overflow-y: hidden;
+        padding: 0;
+        margin: 3px 10px 5px 0;
+        position: relative;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: scroll;
+        // border-top: 1px #dadada solid;
+        background-color: #fff;
+        width: calc(100% - 20px);
+        float: right;
+        .tab-type {
+            display: inline-block;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            .tab-type-item {
+                display: inline-block;
+                line-height: 40px;
+                height: 40px;
+                margin: 0;
+                padding: 0px 16px;
+                text-align: center;
+                color: #8b8b8b;
+                font-weight: 600;
+            }
+            .tab-type-item.active {
+                border-bottom: 3px solid #23bdfe;
+                color: #23bdfe;
+            }
+        }
+    }
+    
+    .text-area {
+        margin: 0 10px;
+        background-color: #fff;
+        height: 41px;
+        .btn-search {
+            width: 41px;
+            height: 41px;
+            float: right;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .text-input-box {
+            position: relative;
+            width: calc(100% - 45px);
+            display: inline-block;
+            input {
+                box-shadow: none!important;
+            }
+            ion-searchbar {
+                padding: 0!important;
+                background: #fff!important;
+            }
+            // ion-input { width: 100%; float: left; margin-left: 1px; background: #fff; height: 41px; }
+            // ion-icon {
+            //     position: absolute;
+            //     right: 10px;
+            //     top: 16px;
+            // }
+
+        }
+    }
+    .text-auto-update {
+       margin-left: 10px; margin-right: 10px;
+       color: #8b8b8b;
+       width: calc(100% - 20px);
+       padding: 10px;
+       position: relative;
+       border-bottom: 1px solid #ebebeb;
+       background: #fff;
+       .fright {
+            position: absolute;
+            right: 10px;
+        }
+    }
+    #searchListToAdd {
+        position: relative;
+        .text-auto-update-area {
+            position: absolute;
+            width: 100%;
+            top: 90px;
+            left: 0;
+            z-index: 99;
+        }
+    }
+    
+    #searchListToAdd, #savedListToAdd, #mustSeeListToAdd {
+        margin-bottom: 50px;
+    }
+    #alert-popup {
+        // left: 0;
+        // top: 0;
+        
+        position: fixed;
+        // z-index: 1000;
+        // height: 100%;
+        // display: inline-block;
+        // width: 100%;
+        
+        // background-color: rgba(0,0,0,.4);
+
+        // border: 5px solid #2C8DEA;
+
+        background-color: rgba(0,0,0,.4);
+        // z-index: 1010;
+        // position: fixed;
+        // top: 0;
+        // left: 0;
+        // width: 240px;
+        // height: 140px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        contain: content;
+
+        // #background-popup {
+        //     // background: rgba(0,0,0,.4);
+        //     // position: fixed;
+        //     // top: 0;
+        //     // left: 0;
+        //     // bottom: 0;
+        //     // right: 0;
+        //     // z-index: 1000;
+        //     // width: 100vw;
+        //     // height: 100%;
+        //     left: 0;
+        //     top: 0;
+        //     position: absolute;
+        //     z-index: 1005;
+        //     display: block;
+        //     width: 100%;
+        //     height: 100%;
+            
+        //     -webkit-transform: translateZ(0);
+        //     transform: translateZ(0);
+        // }
+        
+    }
+
+    ion-label {
+        text-overflow: initial;
+        font-size: .75em;
+    }
+    .select-text {
+        min-width: 3px;
+        display: none;
+    }
+    .select-ios .select-icon, .select-md .select-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    #popupDateTime {
+        background: #fff;
+        z-index: 1010;
+        position: fixed;
+        top: calc(50% - 99px);
+        left: calc(50% - 120px);
+        // width: 240px;
+        // height: 140px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 240px;
+        height: 140px;
+        contain: content;
+        .chosen-place-name {
+            color: #bd0000;
+            background: #009788;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            display: block;
+            padding: 10px 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: #009788 1px solid;
+            margin-bottom: 20px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .date-choose {
+            text-align: center;
+            font-size: 40px;
+            color: #bd8844;
+            border: #009788 1px solid;
+            background: #009788;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            margin: 0 calc(50% - 30px);
+            ion-icon {
+                line-height: 60px;
+            }
+        }
+        .datetime-text {
+            display: none;
+        }
+    }
+    
+    
+    .large {
+        font-size: 2.5em;
+    }
+    .red {
+        color: #bd0000;
+    }
+    .tab-menu-list {
+        width: calc(100% - 20px);
+        margin: 10px 10px 1px 10px;
+        background: #fff;
+        
+        .tab-menu-list-item {
+            width: calc(33.33% - 1px);
+            float: left;
+            margin-right: 1px;
+            text-align: center;
+            background: #387ef5;
+            color: #fff;
+            padding: 10px;
+            &.active {
+                background: #f27346;
+            }
+        }
+        .tab-menu-list-item:first-child {
+            width: calc(33.33% - 1px);
+            float: left;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+page-user-booking {
+    .booking {
+        border-bottom: 1px solid #dadada;
+        padding: 10px;
+        min-height: 60px;
+        .name { font-size: 1.2em; color: #bd0000; }
+        .location { font-size: 1em; }
+    }
+}

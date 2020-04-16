@@ -1,0 +1,166 @@
+weather-page {
+    .weather {
+        background: url(../assets/images/weather/18733-sunny-wallpapers_43564.jpg) 30%;
+        background-attachment: fixed;
+        background-size: cover;
+        color: #fff;
+    }
+    .center-txt {
+        text-align: center;
+        img {
+            width: 1.3em;
+            height: 1.3em;
+        }
+        &.img {
+            img {
+                width: 3.5em;
+                height: 3.5em;
+            }
+        }
+    }
+    .temp {
+        font-size: calc(2em + 1vw);
+        font-weight: bold;
+    }
+    .current-weather {
+        p {
+            margin: 0;
+        }
+        .f-p {
+            margin: 15px 0 0 0;
+        }
+    }
+    .row-odd {
+        background: rgba(255,255,255,.3);
+    }
+    .row-even {
+        background: rgba(0,0,0,.6);
+    }
+    .listForeCast {
+        img {
+            position: relative;
+            top: -10px;
+        }
+    }
+    .listForeCast .col, .da_t, .we_tt {
+        font-weight: bold;
+    }
+    .row_t {
+        position: relative;
+        top: -24px;
+        font-weight: bold;
+    }
+    .wea_oC {
+        font-size: 1.4em
+    }
+    .cu_img {
+        width: 150px;
+    }
+    .da_t_2 {
+        font-size: 0.8em;
+    }
+    .da_t, .da_t_2 {
+        display: block;
+    }
+    .lst_img img {
+        width: 64px;
+    }
+    .cu_da {
+        font-size: 0.8em
+    }
+    .list-date {
+        padding: 5px;
+        .item-date {
+            padding: 10px;
+            background: rgba(0,0,0,.3);
+            margin: 15px 0;
+            .item-title {
+                font-size: calc(.7em + 1vw);
+                padding: 0 10px 10px 10px;
+            }
+        }
+        .item-weather {
+            font-size: calc(.6em + 1vw);
+            height: 4em;
+        }
+    }
+
+    .item {
+        height: 4em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .item-time {
+        width: 18%;
+        float: left;
+        text-align: center;
+        padding: 4px;
+    }
+    .item-weather-name {
+        width: 10%;
+        float: left;
+        text-align: center;
+        padding: 4px;
+        img {
+            width: 1.5em;
+            height: 1.5em;
+        }
+    }
+    .item-temp {
+        width: 18%;
+        float: left;
+        text-align: center;
+        padding: 4px;
+    }
+    .item-humidity {
+        width: 18%;
+        float: left;
+        text-align: center;
+        padding: 4px;
+    }
+    .item-wind {
+        width: 18%;
+        float: left;
+        text-align: center;
+        padding: 4px;
+    }
+    .item-weather-icon {
+        width: 18%;
+        float: left;
+        text-align: center;
+        padding: 4px;
+        img {
+            width: 2.5em;
+            height: 2.5em;
+        }
+    }
+    .item-header {
+        img {
+            width: 1.8em;
+            height: 1.8em;
+        }
+        .item-weather {
+            padding: 5px 0;
+            height: calc(1.8em + 18px);
+        }
+    }
+
+    @media screen and (min-width: 500px) {
+        .cu_img {
+            width: 250px;
+        }
+        .str_t {
+            font-size: 1.8em;
+        }
+        .we_tt, .da_t, .lst_in {
+            font-size: 1.6em;
+        }
+        .da_t_2 {
+            font-size: 1.3em;
+        }
+        .lst_img img {
+            width: 80px
+        }
+    }
+}

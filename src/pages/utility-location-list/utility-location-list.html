@@ -1,0 +1,50 @@
+<!--
+  Generated template for the LocationMapShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'ull.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="list">
+    <div class="bg-top">
+    
+    </div>
+    <div class="image-presentative">
+      <div class="contain-image">
+        <img src="{{utility?.imgURL | imageUrl}}" />
+      </div>
+      <div class="image-title">{{utility?.name}}</div>
+    </div>
+    <div class="lists">
+      <div class="list-item" *ngFor="let item of listLocation">
+        <div class="info" (click)="showDirection(item)">
+          <div class="location-name">{{item.name}}</div>
+          <div class="location-address"><ion-icon name="pin"></ion-icon>&nbsp;{{item.address}}</div>
+          <div class="location-range"><ion-icon name="git-branch"></ion-icon>&nbsp;{{item.range}}</div>
+        </div>
+        <div class="utility-box">
+          <div class="show-way" *ngIf="item.phone != null" (click)="showDirection(item)">
+            <ion-icon name="pin"></ion-icon>&nbsp;{{'ull.route' | translate}}
+          </div>
+          <div class="show-way full-row" *ngIf="item.phone == null" (click)="showDirection(item)">
+            <ion-icon name="pin"></ion-icon>&nbsp;{{'ull.route' | translate}}
+          </div>
+          <div class="call" *ngIf="item.phone != null">
+            <a href="tel:{{item.phone}}" class="button button-positive">{{item.phone}}</a>
+            <!--<ion-icon name="call"></ion-icon>&nbsp;{{item.phone}}-->
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</ion-content>

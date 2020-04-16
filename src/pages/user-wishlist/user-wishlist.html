@@ -1,0 +1,105 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'mysaved.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="clearfix"></div>
+
+  <div class="custom-tab-wishlist">
+    <div class="custom-tab-wishlist">
+      <div class="custom-tab-item-wishlist" [ngClass]="current_tab == 'yt' ? 'custom-tab-item-wishlist-active' : ''" (click)="changeListItem('yt')">
+        {{'mysaved.mysaved' | translate}}
+      </div>
+      <div class="custom-tab-item-wishlist" [ngClass]="current_tab == 'gy' ? 'custom-tab-item-wishlist-active' : ''" (click)="changeListItem('gy')">
+        {{'mysaved.mustsee' | translate}}
+      </div>
+      
+    </div>
+  </div>
+  
+  <ion-list class="list-loc" *ngFor="let love of listWishList">
+    <ion-item-sliding>
+      <ion-item class="loc-item item" (click)="gotoDetail(love)">
+        <div class="loc-img">
+          <img src="{{love?.IMAGE | imageUrl}}" onerror="this.src='assets/iconImages/noimage.png'" />
+        </div>
+        <div class="loc-info">
+          <div class="name">
+            {{love?.NAME}}
+          </div>
+          <div class="address">
+            <!-- <ion-icon name="pin"></ion-icon> -->
+            <div class="text-add">{{'mysaved.address' | translate}}:</div>
+            <span class="text-add">{{love?.ADDRESS}}</span>
+          </div>
+          <div class="action">
+            <img class="img" src="assets/images/icon-design/icon-30.png"/>
+            <span class="distance"> 
+              {{love.Distance * 1.3 | number:'1.0-0' }}m
+            </span>
+            <span class="direction" (click)="directionMap($event,love)">
+              <ion-icon name="navigate"></ion-icon>
+              {{'mysaved.direction' | translate}}
+            </span>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item-options *ngIf="current_tab == 'yt'">
+        <button ion-button (click)="removeWishList(love)">
+          <img src="assets/iconImages/heart3.png" />
+          <span class="broken-heart">{{'mysaved.remove' | translate}}</span>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!--<ion-list class="list-loc" [virtualScroll]="listWishList" approxItemHeight="80px">
+    <ion-item-sliding *virtualItem="let love;let index = index">
+      <ion-item *ngIf="index==0" [hidden]="!0">
+      </ion-item>
+      <ion-item *ngIf="index>0" class="loc-item item" (click)="gotoDetail(love)">
+        <div class="loc-img">
+          <ion-img (cache)="true" src="{{love?.Image_Url | imageUrl}}"></ion-img>
+        </div>
+        <div class="loc-info">
+          <div class="name">
+            {{love?.Location_Name}}
+          </div>
+          <div class="address">
+            <ion-icon name="pin"></ion-icon>
+            <span class="text-ad">{{love?.Location_Address}}</span>
+          </div>
+          <div class="action">
+            <span class="distance"> 
+              {{love.Distance_Sort * 1.3 | number:'1.0-0' }}m
+            </span>
+            <span class="direction" (click)="directionMap($event,love.Google_Location)">
+              <ion-icon name="navigate"></ion-icon>
+              Chỉ đường
+            </span>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button (click)="removeWishList(love)">
+          <img src="assets/iconImages/heart3.png" />
+          <span class="broken-heart">Hủy</span>
+        </button>
+      </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>-->
+
+  <!-- <div class="full-height" *ngIf="listWishList.length==0">
+    <h2><ion-icon name="cart"></ion-icon> Không tìm thấy kết quả phù hợp</h2>
+  </div> -->
+  
+</ion-content>
+<ion-custom-nav-bot [navCtrl]="navCtrl" currentPage="wishlist" [modalCtrl]="modalCtrl"></ion-custom-nav-bot>

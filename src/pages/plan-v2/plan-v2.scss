@@ -1,0 +1,133 @@
+page-plan-v2 {
+
+    .header-button {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        padding: 10px;
+        background: #3474e1;
+        color: #fff;
+        border-radius: 10px;
+    }
+
+    /*mvbinh*/
+    .chooseHobby {
+        padding: 0 12px;
+    }
+
+    .listHobby {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        display: inline-block;
+        margin: 0;
+    }
+
+    .listHobby li {
+        float: left;
+        padding: 5px 10px;
+        background: #999999;
+        text-align: center;
+        margin: 2px 2px;
+        border-radius: 4px;
+        color: #fff;
+    }
+
+    .listHobby li.hobby-active {
+        background: #00BE7D
+    }
+
+    .chooseHobby { 
+        .title {
+            font-size: 1.15em;
+            color: #FF8000;
+            font-weight: normal;
+        }
+        .item {
+            ion-checkbox { 
+                margin-right: 12px!important;
+                margin-left: 0px!important;
+            }
+        }
+    }
+    ion-input input.text-input{ margin: 0; }
+    ion-input { text-align: right; }
+    .button-area {
+        // position: absolute;
+        width: 100%;
+        // bottom: 40px;
+        button {
+            position: absolute;
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            left: 0;
+            right: 0;
+            margin-bottom: 10px;
+        }
+    }
+    input[type="text"] {
+        text-align: right;
+    }
+
+    .type {
+        margin: 0px 0px 10px 0px;
+        padding: 0px 10px;
+        display: inline-block;
+        width: 100%;
+        .choice {
+            height: 40px;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            width: calc(33% - 5px);
+            margin-left: 5px;
+            float: left;
+            text-align: center;
+            border: #dadada 1px solid;
+            border-radius: 3px;
+        }
+        .choice-active {
+            background-color: #FFB900;
+            color: #fff;
+            border: 0;
+        }
+        .title {
+            font-size: 1.15em;
+            color: #FF8000;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+    }
+    .range-container {
+        padding: 10px 10px 0px 10px;
+    }
+    .range-container h4 {
+        display: inline;
+    }
+    .range-container .choose-option {
+        float: right;
+        margin: 0px 2px;
+        padding: 2px 5px;
+        border-radius: 3px;
+        color: #fff;
+        background: #999999;
+        text-align: center;
+    }
+
+    .range-container .option-active {
+        background: #FFB900;
+    }
+
+    .range-knob-handle .range-knob {
+        background: #FC551B;
+    }
+
+    .range-md .range-knob {
+        width: 32px;
+        height: 32px;
+        top: 6px;
+    }
+    .range-md.range-has-pin, .range-ios.range-has-pin {
+        padding-top: 0;
+    }
+}

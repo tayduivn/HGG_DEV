@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>{{'ucp.title' | translate}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+    <form [formGroup]="todo" (ngSubmit)="submit()">
+        <!-- <input type="hidden" formControlName="Feedback_Type" />
+        <input type="hidden" formControlName="Feedback_Parent_Id" /> -->
+        <ion-item>
+            <ion-label>{{'ucp.subtitle' | translate}}</ion-label>
+            <ion-input type="text" formControlName="SUBJECT"></ion-input>
+        </ion-item>
+        <!-- <ion-item>
+            <ion-label>{{'ucp.placetoreport' | translate}}</ion-label>
+            <ion-textarea type="text" formControlName="Location" row="3"></ion-textarea>
+        </ion-item> -->
+        <ion-item>
+            <ion-label>{{'ucp.content' | translate}}</ion-label>
+            <ion-textarea type="text" formControlName="CONTENT" rows="5"></ion-textarea>
+        </ion-item>
+        <ion-row *ngIf="!platformios">
+            <ion-col col-3 *ngFor="let image of listImages">
+                <img [src]="image" style="width:100%" />
+            </ion-col>
+            <ion-col col-3>
+                <img src="assets/images/icon-design/icon-47.png" (click)="chooseCamera()" />
+            </ion-col>
+        </ion-row>
+        <button ion-button full type="submit" [disabled]="!todo.valid">{{'ucp.post' | translate}}</button>
+    </form>
+    <div class="tips">
+        <div class="tips-content">
+            <span (click)="tipsOn = !tipsOn"><img class="tip tip-img" src="assets/images/icon-design/icon-44.png"/></span>
+            <div class="popup-tooltips" *ngIf="tipsOn == true">
+                <div class="popup-tooltips-content">
+                    <img src="assets/images/icon-design/icon-46.png"/>
+                    <p><img src="assets/images/icon-design/icon-45.png"/>{{'ucp.clue' | translate}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

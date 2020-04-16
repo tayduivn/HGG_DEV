@@ -1,0 +1,248 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+body, span, div, a, p, ul, li, ol, h1, h2, h3, h4, h5, h6, section, input[type="text"], button {
+    /*font-family: 'Cabin Condensed', sans-serif;*/
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-weight: 400;
+    font-family: 'utmavo' !important;
+}
+body, span, div, a, p, ul, li, ol, section, input[type="text"], button {
+    font-size: 1em;
+}
+h1, h2, h3, h3, h5, h6 { font-weight: bold; }
+h1 {
+    font-size: 1.8em;
+}
+h2 {
+    font-size: 1.6em;
+}
+h3 {
+    font-size: 1.4em;
+}
+h4 {
+    font-size: 1.2em;
+}
+button {
+    line-height: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 { padding: 0 5px; }
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+ 
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #00f; 
+}
+.toolbar-title { color: #fff; font-size: 1.25em; padding: 0; }
+.toolbar-background { background: #2CBCF3; }
+.menu-inner .toolbar-background { background: #2CBCF3; }
+.version-code {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+ion-navbar.toolbar { min-height: 50px; }
+ion-navbar button.bar-button  { color: #fff;  }
+ion-navbar .button-back {
+    float: left;
+    color: #fff;
+}
+.toolbar-content {
+    display: flex;
+    font-size: .9em;
+    
+    ion-title {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+    }
+}
+.custom-title {
+    float: right;
+    width: calc(100% - 70px);
+    margin: 0 0 2px 0;
+}
+.clearfix { clear: both; }
+.custom-tab { position: fixed; bottom: 0; width: 100%; height: 53px; background: #2CBCF3;  z-index:1; }
+.custom-tab-item { width: 20%; color: #fff; float: left; text-align: center; height:100%; display: flex; align-items: center; justify-content: center; border-left: 1px solid #ccc; background: rgba(255,255,255,.1); cursor: pointer; }
+.custom-tab-item img { width: 25px; height: 25px; margin-top: 5px; }
+.custom-tab-item span { display: block; font-size: .8em; }
+.custom-tab-active { font-weight: bold; color: #8c3106; }
+ion-content.has-nav-bot .scroll-content { margin-bottom: 55px; }
+ion-content.p-a .scroll-content { padding-top: 5px; padding-bottom: 5px; }
+.hidden { display: none; }
+.danger { color: #ff0000; }
+ion-item {
+    .checkbox-checked { 
+        background: #2CBCF3!important;
+        border-color: #2CBCF3!important;
+    }
+}
+.btn-area button {
+    background: #2CBCF3;
+}
+.button-area .btn, button.btn { background: #2CBCF3; }
+ion-item.item.item-input.ng-valid.input-has-value .item-inner {
+    border-bottom: 1px solid #dedede!important;
+    box-shadow: none!important;
+}
+.toolbox button { background: #2CBCF3; margin-left: 5px; }
+button.normal-link { background: transparent; }
+ion-loading {
+    .loading-wrapper {
+        max-width: 40%!important;
+        padding: 0!important;
+        background: none!important;
+        box-shadow: none!important;
+        .loading-content {
+            width: 100%;
+            height: 100%;
+            display: block!important;;
+            z-index: 100000!important;
+            border: 4px solid #3DAEF9;
+            border-radius: 15px;
+            img {
+                display: block;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+.toast-message {
+    background-color: rgba(0,0,0,.8);
+}
+.image-avatar {
+    width: 60px;
+    height:60px;
+    margin: 5px;
+    float: left;
+    border-radius: 50%;
+    background: #fff;
+    img {
+        border-radius: 50%;
+        width: 60px;
+        height:60px;
+    }
+}
+.user-name, .user-email {
+    margin: 0;
+    float: left;
+    padding: 3px 10px;
+    font-size: .9em;
+}
+.user-email {
+    font-size: .7em;
+}
+.menu-inner ion-header .toolbar-ios {
+    height: 100px;
+}
+.toolbar-ios ion-title {
+}
+ion-menu ion-header .toolbar-ios ion-title {
+    padding: 0 10px 0;
+}
+.toolbar-title-ios {
+    text-align: left;
+}
+.back-button.show-back-button {
+    z-index: 99;
+}
+ion-header::after {
+    background-image: none!important;
+}
+ion-menu .menu-inner ion-list ion-item {
+    padding-left: 0;
+    .item-inner {
+        padding-right: 0!important;
+        padding-left: 10px;
+        img.menu-icon {
+            position: relative;
+            top: 3px;
+            width: 22px;
+        }
+    }
+}
+.custom-menu{
+    .custom-menu-item {
+        padding: 10px;
+        
+        border-bottom: 1px solid #ddd;
+        .custom-menu-item-title {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-weight: bold;
+            font-size: 1.25em;
+        }
+        img.menu-icon {
+            top: 3px;
+            width: 22px;
+        }
+        .f-r-c { position: absolute; right: 5px; top: .5em; }
+        .sub-menu {
+            padding-top: 5px;
+            .sub-menu-item {
+                padding: 10px;
+                border-top: 1px solid #ccc;
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
+    }
+}
+.ios {
+    .custom-title {
+        float: right;
+        width: calc(100% - 30px);
+        margin: -2px 0 0 0;
+    }
+
+    #menu-side-box {
+        .toolbar-title {
+            margin-top: 5px;
+        }
+    }
+    ion-menu {
+        .menu-inner {
+            ion-header {
+                .toolbar.statusbar-padding:first-child {
+                    ion-title {
+                        height: unset;
+                    }
+                }
+            } 
+        } 
+    } 
+}
+@media screen and (min-width: 1024px){
+    .custom-tab { position: fixed; bottom: 0; width: 100%; height: 70px; background: #2CBCF3;  z-index:1; }
+    .custom-tab-item { width: 20%; color: #fff; float: left; text-align: center; height:100%; display: flex; align-items: center; justify-content: center; border-left: 1px solid #ccc; background: rgba(255,255,255,.1); cursor: pointer; }
+    .custom-tab-item img { width: 40px; height: 40px; }
+    .custom-tab-item span { display: block; font-size: 1.1em; }
+    ion-content.has-nav-bot .scroll-content { margin-bottom: 75px; }
+}

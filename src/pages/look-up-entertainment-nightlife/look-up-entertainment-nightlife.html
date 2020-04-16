@@ -1,0 +1,140 @@
+<!--
+  Generated template for the LookUp page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div id="filter" class="headerFilter" *ngIf="checkType != null && checkType != '7' && !isEntertained">
+    <div class="list-filter col-3" [ngClass]="[locationMenu? 'active': '']">
+      <div class="title location-arrow" (click)="showContentList($event, 'location')">
+        {{'lctlk.area' | translate}}
+      </div>
+      <div id="location" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" (click)="allArea()">
+            <div class="choice" [ngClass]="{'selected': listChoiceAreaId.length == 0 }">{{'lctlk.all' | translate}}</div>
+          </div>
+          <div class="content-row" *ngFor="let itemArea of listArea" (click)="chooseArea(itemArea.id)">
+            <div class="choice" [ngClass]="{'selected': listChoiceAreaId[0] == itemArea.id }">{{itemArea.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-filter col-3" [ngClass]="[priceMenu? 'active': '',  checkType == '9' ? 'block' : 'hidden']">
+      <div class="title price-arrow" (click)="showContentList($event, 'price')">
+        {{'lctlk.type' | translate}}
+      </div>
+      <div id="price" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" *ngFor="let itemPlace of listPlaces" (click)="updatePlaceChoice(itemPlace)">
+            <div class="choice" [ngClass]="{'selected': ItemPlace == itemPlace.value }">{{itemPlace.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-filter col-3" [ngClass]="[priceMenu? 'active': '',  checkType == '8' ? 'block' : 'hidden']">
+      <div class="title price-arrow" (click)="showContentList($event, 'price')">
+        {{'lctlk.session' | translate}}
+      </div>
+      <div id="service" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" *ngFor="let itemSession of listSession" (click)="updatePlaceService(itemSession)">
+            <div class="choice" [ngClass]="{'selected': itemservice == itemSession.value }">{{itemSession.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- dùng cho giải trí -->
+    <div class="list-filter col-3" [ngClass]="[categoryMenu? 'active': '',checkType == '8'? 'block' : 'hidden']">
+      <div class="title category-arrow" (click)="showContentList($event, 'category')">
+        {{'lctlk.type' | translate}}
+      </div>
+      <div id="category" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" *ngFor="let itemS of listServicesChoice">
+            <div class="choice active-choice" (click)="updateChoice(itemS)" *ngIf="itemS.checked == true"><p class="service-name">{{itemS.name}}</p><img class="active-choice" src="assets/images/icon-design/icon-38.png" width="15px" /></div>
+            <div class="choice" (click)="updateChoice(itemS)" *ngIf="itemS.checked == false"><p class="service-name">{{itemS.name}}</p><img class="active-choice" src="assets/images/icon-design/icon-37.png" width="15px" /> </div>
+          </div>
+        </div>
+        <div class="button">
+          <div class="reset" (click)="resetEntertainmentChoice()"><img class="active-choice" src="assets/images/icon-design/icon-39.png" />Reset</div>
+          <div class="search" (click)="updateEntertainmentChoice()"><img class="active-choice" src="assets/images/icon-design/icon-40.png"/>Tìm kiếm</div>
+        </div>
+      </div>
+    </div>
+    <!-- dùng cho về đêm -->
+    <div class="list-filter col-3" [ngClass]="[categoryMenu? 'active': '',checkType == '9'? 'block' : 'hidden']">
+      <div class="title category-arrow" (click)="showContentList($event, 'category')">
+        {{'lctlk.service' | translate}}
+      </div>
+      <div id="category" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" *ngFor="let itemS of listServicesChoice">
+            <div class="choice active-choice" (click)="updateChoice(itemS)" *ngIf="itemS.checked == true"><p class="service-name">{{itemS.name}}</p><img class="active-choice" src="assets/images/icon-design/icon-38.png" width="15px" /></div>
+            <div class="choice" (click)="updateChoice(itemS)" *ngIf="itemS.checked == false"><p class="service-name">{{itemS.name}}</p><img class="active-choice" src="assets/images/icon-design/icon-37.png" width="15px" /> </div>
+          </div>
+        </div>
+        <div class="button">
+          <div class="reset" (click)="resetServiceChoice()"><img class="active-choice" src="assets/images/icon-design/icon-39.png" />Reset</div>
+          <div class="search" (click)="updateServiceChoice()"><img class="active-choice" src="assets/images/icon-design/icon-40.png"/>Tìm kiếm</div>
+        </div>
+      </div>
+    </div> 
+  </div>
+  <div class="clearfix"></div>
+  <div class="list-loc" *ngIf="listlocation.length > 0">
+    <div class="loc-item item" *ngFor="let location of listlocation" (click)="gotoDetail(location)">
+      <div class="marked-seen" [ngClass]="location.seen ? 'active' : ''">
+        <div class="rms-container">
+          <img class="rms" src="assets/images/icon-seen.png" />
+          <span class="rms-text">{{'lctlk.seen' | translate}}</span>
+        </div>
+      </div>
+      <div class="loc-img">
+        <img src="{{location?.imgURL}}" onerror="this.src='assets/iconImages/noimage.png'" />
+        <!--<ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>-->
+        <div class="img-name">
+          {{location?.name}}
+        </div>
+      </div>
+      
+      <div class="loc-info">
+        <div class="name">
+          {{location?.name}}
+        </div>
+        <div class="address">
+          <!--{{'lctlk.address' | translate}}:-->
+          <span class="text-add"><ion-icon name="pin"></ion-icon> {{location?.address}}</span>
+        </div>
+        <div class="action">
+            <img class="img" src="assets/images/icon-design/icon-30.png"/>
+            <div class="distance">
+              {{location.distance | number:'1.' }}m
+            </div>
+            <div class="direction" (click)="directionMap($event,location.googlemap, location.type)">
+              <ion-icon name="navigate"></ion-icon>
+              {{'lctlk.route' | translate}}
+            </div>
+            <img (click)="toggleSaveWishList($event,location)" [src]="location.book_id == 0?'assets/iconImages/heart1.png':'assets/iconImages/heart2.png'" class="heart" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll *ngIf="total == 10" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <!-- <div class="full-height" *ngIf="listlocation.length == 0">
+    <h2>
+      <ion-icon name="cart"></ion-icon>&nbsp;Không tìm thấy kết quả phù hợp</h2>
+  </div> -->
+</ion-content>

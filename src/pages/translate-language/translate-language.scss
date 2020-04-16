@@ -1,0 +1,150 @@
+page-translate-language {
+    textarea {
+        width: 100%;
+        border-radius: 4px;
+    }
+    .output-translate{
+        position: relative;
+    }
+    .output-translate button{
+        position: absolute;
+        bottom: 5px;
+        right: 4px;
+    }
+
+    .language-label {
+        font-weight: 600;
+        padding: 5px 0;
+        width: 100%;
+    }
+    .scroll-content {
+        margin-bottom: 60px;
+    }
+    .language-toolbox {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #2cbcf3;
+    }
+    .lang-from {
+        width: calc(50% - 30px);
+        float: left;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        
+    }
+    .lang-record {
+        width: 60px;
+        float: left;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #bd2345;
+        border: 1px solid #fff;
+        padding: 3px;
+        border-radius: 50%;
+    }
+    .lang-to {
+        width: calc(50% - 30px);
+        float: right;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+    .lang-name {
+        float: right;
+    }
+    .half-row {
+        width: 50%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        
+        .revert {
+            width: 50px;
+            height: 50px;
+            background: #407ff3;
+            padding: 10px;
+            border-radius: 50%;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .translateLanguage {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    #popup-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,.6);
+        z-index: 49;
+    }
+    #popup {
+        position: fixed;
+        top: 15%;
+        right: 15%;
+        width: 70%;
+        height: 70%;
+        z-index: 50;
+        .popup-title {
+            background: #009788;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            height: 40px;
+        }
+        .popup-content {
+            height: calc(100% - 80px);
+            background: #fff;
+            overflow: scroll;
+            .item {
+                width: 100%;
+                border-bottom: 1px solid #dadada;
+                height: 50px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #6754ff;
+                font-weight: bold;
+                &.active {
+                    color: #fff;
+                    background: #009788;
+                }
+            }
+        }
+        .popup-footer {
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            .popup-footer-btn {
+                background: #009788;
+                width: 100%;
+                float: left;
+                padding: 10px;
+                
+                height: 40px;
+                
+            }
+        }
+    }
+}

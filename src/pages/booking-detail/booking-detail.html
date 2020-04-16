@@ -1,0 +1,59 @@
+<!--
+  Generated template for the LocationMapShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'bkhtdt.title' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+
+  <div class="general-info">
+    <div>
+      <div class="booking-name">{{item.NAME}}</div>
+      <div class="booking-time">
+        <div *ngIf="item.NAME != null">
+          <span *ngIf="item.PLACE_CODE=='HOTEL'">{{item.FROM_DATE | dateFormat:  "DD/MM/YYYY" }} - {{ showDays(item.FROM_DATE, item.TO_DATE) }}</span>
+          <span *ngIf="item.PLACE_CODE=='RESTAURANT'">{{item.FROM_DATE | dateFormat:  "DD/MM/YYYY" }} - {{item.FROM_DATE | dateFormat:  "HH:mm"}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="booking-info-label">{{ 'bkhtdt.contact' | translate }}</h5>
+
+  <div class="detail-info">
+    <div class="info-row"><span class="label">{{ 'bkhtdt.customer_name' | translate }}:</span> <span class="value">{{item.GUEST_NAME}}</span></div>
+    <div class="info-row"><span class="label">{{ 'bkhtdt.phoneno' | translate }}:</span> <span class="value">{{item.GUEST_PHONE}}</span></div>
+    <div class="info-row"><span class="label">{{ 'bkhtdt.email' | translate }}:</span> <span class="value">{{item.GUEST_EMAIL}}</span></div>
+  </div>
+
+  <div *ngIf="item.NAME != null">
+    <h5 class="booking-info-label">{{ 'bkhtdt.bkinfo' | translate }}</h5>
+    <div class="detail-info" *ngIf= "item.PLACE_CODE=='RESTAURANT'">
+      <div class="info-row"><span class="label">{{ 'bkhtdt.time' | translate }}:</span> <span class="value"> {{item.FROM_DATE | dateFormat:  "DD/MM/YYYY" }} - {{item.FROM_DATE | dateFormat:  "HH:mm"}}</span></div>
+      <div class="info-row"><span class="label">{{ 'bkhtdt.place' | translate }}:</span> <span class="value"> {{item.NAME}}</span></div>
+      <div class="info-row"><span class="label">{{ 'bkhtdt.nocustomer' | translate }}:</span> <span class="value"> {{item.ADULTS}}</span></div>
+      <div class="info-row"><span class="label">{{ 'bkhtdt.createtime' | translate }}:</span> <span class="value"> {{item.DATE_CREATE | dateFormat:  "DD/MM/YYYY hh:mm" }}</span></div>
+      <div class="info-row" *ngIf="item.BOOKING_POINT.length !=0 && item.BOOKING_POINT[0].PRICE !=0"><span class="label">{{ 'bkhtdt.price' | translate }}:</span> <span class="value"> {{item.BOOKING_POINT[0].PRICE}}</span></div>
+      <div class="info-row"  *ngIf="item.BOOKING_SERVICE.length !=0 && item.BOOKING_SERVICE[0].PRICE !=0"><span class="label">{{ 'bkhtdt.serviceprice' | translate }}:</span> <span class="value"> {{item.BOOKING_SERVICE[0].PRICE}}</span></div>
+      <div class="info-row"  *ngIf="item.PLACE_BILL.length !=0 && item.PLACE_BILL[0].TOTAL !=0"><span class="label">{{ 'bkhtdt.total' | translate }}:</span> <span class="value"> {{item.PLACE_BILL[0].TOTAL}}</span></div>
+    </div>
+  </div>
+  <div *ngIf="item.NAME != null">
+    <div class="detail-info" *ngIf="item.PLACE_CODE=='HOTEL'">
+      <div class="info-row"><span class="label">{{ 'bkhtdt.time' | translate }}:</span> <span class="value"> {{item.FROM_DATE | dateFormat:  "DD/MM/YYYY" }} - {{ showDays(item.FROM_DATE,item.TO_DATE) }}</span></div>
+      <div class="info-row"><span class="label">{{ 'bkhtdt.place' | translate }}:</span> <span class="value"> {{item.NAME}}</span></div>
+       <div class="info-row" *ngIf="item.BOOKING_POINT.length !=0"><span class="label">{{ 'bkhtdt.noroom' | translate }}:</span> <span class="value"> {{item.BOOKING_POINT.length}}</span></div>
+      <div class="info-row"><span class="label">{{ 'bkhtdt.createtime' | translate }}:</span> <span class="value"> {{item.DATE_CREATE | dateFormat:  "DD/MM/YYYY hh:mm" }}</span></div>
+      <div class="info-row" *ngIf="item.BOOKING_POINT.length !=0 && item.BOOKING_POINT[0].PRICE !=0"><span class="label">{{ 'bkhtdt.price' | translate }}:</span> <span class="value"> {{item.BOOKING_POINT[0].PRICE}}</span></div>
+    </div>
+  </div>
+
+
+</ion-content>

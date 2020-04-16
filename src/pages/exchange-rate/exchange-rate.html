@@ -1,0 +1,83 @@
+<!--
+  Generated template for the LocationMapShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'er.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+   <!-- <ion-searchbar (ionInput)="searchListRates($event)"></ion-searchbar>  -->
+
+  <ion-grid id="list_rates">
+    <ion-row>
+      <ion-col text-left>{{'er.currency' | translate}}</ion-col>
+      <ion-col text-right>{{'er.transfer' | translate}}</ion-col>
+    </ion-row>
+
+    <ion-row [ngClass]="{'selected': rate.selected }" class="item" (click)="showKeyBoard(rate)" *ngFor="let rate of listRatesFilters">
+      <ion-col text-left>
+        <img onerror="this.src='assets/images/eu.png'" src="{{rate.Flag}}" />
+      </ion-col>
+      <ion-col text-center>
+        {{rate.CurrencyCode}}
+      </ion-col>
+      <ion-col text-right>
+        {{rate.Transfer | number:'1.'}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-grid [hidden]="isShowPannel" id="container_exchange">
+    <ion-row>
+      <ion-col item-start>
+        <img [hidden]="result >= 100000000" width="40" height="29" float-left id="current_flag" onerror="this.src='assets/images/eu.png'" src="{{currentRate.Flag}}" />
+        <ion-note float-right>
+          <div class="text_key">{{valueExchange}}</div>
+          <div id="current_code">{{currentRate.CurrencyCode}}</div>
+        </ion-note>
+      </ion-col>
+      <ion-col col-1 text-center (click)="revertExchange()">
+        <img width="18" src="assets/images/exchange-arrows.png" />
+      </ion-col>
+      <ion-col item-end>
+        <ion-note float-left>
+          <div class="text_key">{{result == ""?"0":result | number: '1.'}}</div>
+          <div id="vn_code">{{vietNamDong.CurrencyCode}}</div>
+        </ion-note>
+        <img [hidden]="result >= 100000000" width="40" height="29" float-right id="vn_flag" onerror="this.src='assets/images/eu.png'" src="{{vietNamDong.Flag}}" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="key_board">
+      <ion-col (click)="numberClick($event)">1</ion-col>
+      <ion-col (click)="numberClick($event)">2</ion-col>
+      <ion-col (click)="numberClick($event)">3</ion-col>
+    </ion-row>
+    <ion-row class="key_board">
+      <ion-col (click)="numberClick($event)">4</ion-col>
+      <ion-col (click)="numberClick($event)">5</ion-col>
+      <ion-col (click)="numberClick($event)">6</ion-col>
+    </ion-row>
+    <ion-row class="key_board">
+      <ion-col (click)="numberClick($event)">7</ion-col>
+      <ion-col (click)="numberClick($event)">8</ion-col>
+      <ion-col (click)="numberClick($event)">9</ion-col>
+    </ion-row>
+    <ion-row class="key_board">
+       <ion-col (click)="clearNumberClick()" class="bottom_col">
+        <ion-icon name="backspace"></ion-icon>
+      </ion-col> 
+      <ion-col class="bottom_col" (click)="numberClick($event)">0</ion-col>
+      <ion-col class="bottom_col" (click)="numberClick($event)">.</ion-col>
+    </ion-row>
+  </ion-grid>

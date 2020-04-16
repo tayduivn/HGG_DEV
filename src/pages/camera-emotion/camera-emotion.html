@@ -1,0 +1,29 @@
+<ion-fab center bottom>
+    <button ion-fab color="secondary" (click)="changeEffect()">
+        <ion-icon name="md-add-circle"></ion-icon>
+    </button>
+</ion-fab>
+
+
+
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ 'cameraemotion.title' | translate }}</ion-title>
+
+        <ion-buttons end>
+            <button ion-button (click)="takePicture()">
+                <ion-icon name="md-image" ></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="has-nav-bot">
+    <img [src]="base64Image" />
+</ion-content>

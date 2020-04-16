@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>{{'ufd.title' | translate}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+    <form [formGroup]="todo" (ngSubmit)="submit()">
+        <ion-item>
+            <ion-label>{{typeName}}</ion-label>
+            <ion-input type="text" [readonly]="true" formControlName="Subject" value="{{typeValue}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>{{'ufd.content' | translate}}</ion-label>
+            <ion-input type="text" formControlName="Content"></ion-input>
+        </ion-item>
+        <ion-row *ngIf="!platformios">
+            <ion-col col-3 *ngFor="let image of listImages">
+                <img [src]="image" style="width:100%" />
+            </ion-col>
+            <ion-col col-3>
+                <img src="assets/images/camera.png" (click)="chooseCamera()" />
+            </ion-col>
+        </ion-row>
+        <button ion-button full type="submit" [disabled]="!todo.valid">{{'ufd.post' | translate}}</button>
+    </form>
+</ion-content>
+<!--
+<ion-fab left top style="margin-top: 64px;">
+    <button ion-fab color="primary" (click)="takePicture()">
+        <ion-icon name="md-camera"></ion-icon>
+    </button>
+</ion-fab>-->

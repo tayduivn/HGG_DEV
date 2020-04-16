@@ -1,0 +1,111 @@
+<!--
+  Generated template for the MapRoute page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'uci.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div class="tab-choice-title">
+        {{'uci.tabtitle' | translate}}
+    </div>
+    <div class="tab-choice">
+        <div class="tab-choice-button" [ngClass]="option=='changeinfo' ? 'active' : ''" (click)="changeTab('changeinfo')">{{'uci.changeinfo' | translate}}</div>
+        <div class="tab-choice-button" [ngClass]="option=='changepwd' ? 'active' : ''" (click)="changeTab('changepwd')">{{'uci.changepwd' | translate}}</div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-change-info" *ngIf="option=='changeinfo'">
+        <p class="title-head"><ion-icon name="person"></ion-icon> {{'uci.changeinfo' | translate}}</p>
+        <div class="field half-field">
+            <div class="field-title">
+                {{'uci.fname' | translate}}
+            </div>
+            <ion-item>
+                <ion-input type="text" [(ngModel)]="model.FirstName" placeholder="{{'uci.fname' | translate}}"></ion-input>
+            </ion-item>
+        </div>
+        <div class="field half-field">
+            <div class="field-title">
+                {{'uci.lname' | translate}}
+            </div>
+            <ion-item>
+                <ion-input type="text" [(ngModel)]="model.LastName" placeholder="{{'uci.lname' | translate}}"></ion-input>
+            </ion-item>
+        </div>
+
+        <div class="field">
+            <div class="field-title">
+                {{'uci.address' | translate}}
+            </div>
+            <ion-item>
+                <ion-input type="text" [(ngModel)]="model.Address" placeholder="{{'uci.address' | translate}}"></ion-input>
+            </ion-item>
+        </div>
+
+        <div class="field">
+            <div class="field-title">
+                {{'uci.phoneno' | translate}}
+            </div>
+            <ion-item>
+                <ion-input type="tel" [(ngModel)]="model.Phone" placeholder="{{'uci.phoneno' | translate}}"></ion-input>
+            </ion-item>
+        </div>
+
+        <div class="field">
+            <div class="field-title">
+                {{'register.logForm.LanguageId' | translate}}
+            </div>
+            <ion-item>
+                <ion-select [(ngModel)]="model.LanguageId">
+                    <ion-option value="vi">{{'menu.setting-language.Vi' | translate}}</ion-option>
+                    <ion-option value="en">{{'menu.setting-language.En' | translate}}</ion-option>
+                </ion-select>
+            </ion-item>
+        </div>
+
+        <button ion-button type="submit" (click)="changeUserInfo()">{{'uci.modify' | translate}}</button>
+    
+    </div>
+    
+    <!-- Change pass -->
+
+    <div class="form-change-info" *ngIf="option=='changepwd'">
+        <p class="title-head"><ion-icon name="key"></ion-icon> {{'uci.changepwd' | translate}}</p>
+        <div class="field">
+            <div class="field-title">
+                {{'uci.oldpwd' | translate}}
+            </div>
+            <ion-item>
+                <ion-input type="password" [(ngModel)]="changepassModel.OldPassword" placeholder="{{'uci.oldpwd' | translate}}"></ion-input>
+            </ion-item>
+        </div>
+        
+        <div class="field">
+            <div class="field-title">
+                {{'uci.newpwd' | translate}}
+            </div>
+            <ion-item>
+                <ion-input type="password" [(ngModel)]="changepassModel.NewPassword" placeholder="{{'uci.newpwd' | translate}}"></ion-input>
+            </ion-item>
+        </div>
+        
+        <div class="field">
+            <div class="field-title">
+                {{'uci.confirmnewpwd' | translate}}
+            </div>
+            <ion-item>
+                <ion-input type="password" [(ngModel)]="changepassModel.ConfirmPassword" placeholder="{{'uci.confirmnewpwd' | translate}}"></ion-input>
+            </ion-item>
+        </div>
+        
+        <button [disabled]="changepassModel.ConfirmPassword!=changepassModel.NewPassword || changepassModel.ConfirmPassword==''" ion-button type="submit" (click)="changePassword()">{{'uci.btnchangepwd' | translate}}</button>
+    </div>
+</ion-content>

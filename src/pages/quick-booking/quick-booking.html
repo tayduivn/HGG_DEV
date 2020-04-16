@@ -1,0 +1,85 @@
+<!--
+  Generated template for the BookingHotel page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+           <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{'quickbooking.title'| translate}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <h5>{{'quickbooking.form.title'| translate}}</h5>
+    <ion-item>
+        <ion-label>{{'quickbooking.form.toDate'| translate}}</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [disabled]="true" [(ngModel)]="model.checkin" max="2030-12-31" min="{{getNow()}}"
+            placeholder="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>{{'quickbooking.form.fromDate'| translate}}</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="model.checkout" max="2030-12-31" min="{{getNow()}}" placeholder="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>{{'quickbooking.form.roomFormat'| translate}}</ion-label>
+        <ion-select [(ngModel)]="model.roomFormat">
+            <ion-option *ngFor="let category of listRoomFormat" value="{{category.ID}}">{{category.NAME}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>{{'quickbooking.form.roomType'| translate}}</ion-label>
+        <ion-select [(ngModel)]="model.roomType">
+            <ion-option *ngFor="let roomType of listRoomType" value="{{roomType.ID}}">{{roomType.NAME}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>{{'quickbooking.form.roomNumber'| translate}}</ion-label>
+        <ion-input type="number" min="1" max="20" class="quantity-input" placeholder="Số lượng phòng" [(ngModel)]="model.roomQuantity"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>{{'quickbooking.form.price'| translate}}</ion-label>
+        <ion-select [(ngModel)]="model.price">
+            <ion-option *ngFor="let roomType of listPrices" value="{{roomType.value}}">{{roomType.text}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>{{'quickbooking.form.distance'| translate}}</ion-label>
+        <ion-select [(ngModel)]="model.distance">
+            <ion-option *ngFor="let distance of distances" value="{{distance}}">{{distance}} m</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>{{'quickbooking.form.location'| translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="model.location" [readonly]="true" (click)="showMap()"></ion-input>
+    </ion-item>
+
+    <h5>{{'quickbooking.form.userInfoTitle'| translate}}</h5>
+    <ion-item>
+        <ion-label>{{'quickbooking.form.fullName'| translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="model.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>{{'quickbooking.form.phone'| translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="model.telephone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>{{'quickbooking.form.email'| translate}}</ion-label>
+        <ion-input type="email" [(ngModel)]="model.email"></ion-input>
+    </ion-item>
+    <p class="danger" *ngFor="let item of error">{{item | translate}}</p>
+    <div padding>
+        <button block ion-button (click)="submit()">{{'quickbooking.form.submit'| translate}}</button>
+    </div>
+</ion-content>

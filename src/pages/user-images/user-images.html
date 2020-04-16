@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>{{'ui.title' | translate}} {{name}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+
+    <ion-card *ngFor="let image of list">
+        <img [src]="image.Url | imageUrl: ip" />
+        <div class="card-title">{{image.User_Name}}</div>
+        <div class="card-subtitle">{{image.Date_String}}</div>
+    </ion-card>
+
+</ion-content>
+
+<ion-fab left top style="margin-top: 64px;">
+    <button ion-fab color="primary" (click)="takePicture()" >
+        <ion-icon name="md-camera"></ion-icon>
+    </button>
+</ion-fab>

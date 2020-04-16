@@ -1,0 +1,45 @@
+<!--
+  Generated template for the LookUp page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'sl.title' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div id="search-box-custom-2">
+    <form (ngSubmit)="searchDestination()">
+      <ion-item class="search-location">
+        <ion-input type="text" [(ngModel)]="search" name="search" placeholder="{{'sl.searchplace' | translate}}Địa điểm cần tra cứu"></ion-input>  
+      </ion-item>
+      <button ion-button type="submit" block class="btn-search-location">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="list-location" *ngIf="listlocation.length > 0">
+    <div class="location-info" *ngFor="let location of listlocation" (click)="gotoDetail(location)">
+      <div class="present-img">
+        <img src="{{location.Image_Url | imageUrl}}" />
+        <div class="name">
+          {{location.Location_Name}}
+        </div>
+        <div class="view-more">
+          <button class="normal-link"><ion-icon name="eye"></ion-icon>&nbsp;{{'sl.seemore' | translate}}</button>
+        </div>
+        <div id="location-id" class="hidden">{{location.Location_Id}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="full-height" *ngIf="listlocation.length == 0">
+    <h2><ion-icon name="cart"></ion-icon>&nbsp;{{'sl.notfound' | translate}}p</h2>
+  </div>
+</ion-content>

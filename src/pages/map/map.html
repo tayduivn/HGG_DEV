@@ -1,0 +1,344 @@
+<!--
+  Generated template for the Map page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'map.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="has-nav-bot">
+  <div class="tab-panel-top-bar" *ngIf="tabActive == true">
+    <div class="tab-unit tab-active">{{'map.map' | translate}}</div>
+    <div class="tab-unit" (click)="gotoCameraView()">{{'map.cammode' | translate}}</div>
+  </div>
+  <div class="simple-filter">
+    <div class="see">
+      <div class="filter-label col-3" [ngClass]="[filterOption.see && !(filterOption.shop && filterOption.see && filterOption.eat && filterOption.stay && filterOption.entertainment) ? 'active' : '', useGT ? 'v6': 'v5']" (click)="chooseFilter('see')">
+        <div class="filter-inside"><img src="assets/images/icon-design/icon-02.png" /><span class="inner-text">{{'map.see' | translate}}</span></div> 
+      </div>
+    </div>
+    <div class="eat">
+      <div class="filter-label col-3" [ngClass]="[filterOption.eat && !(filterOption.shop && filterOption.see && filterOption.eat && filterOption.stay && filterOption.entertainment) ? 'active' : '', useGT ? 'v6': 'v5']" (click)="chooseFilter('eat')">
+        <div class="filter-inside"><img src="assets/images/icon-design/icon-01.png" /><span class="inner-text">{{'map.eat' | translate}}</span></div>
+      </div>
+    </div>
+    <div class="stay">
+      <div class="filter-label col-3" [ngClass]="[filterOption.stay && !(filterOption.shop && filterOption.see && filterOption.eat && filterOption.stay && filterOption.entertainment) ? 'active' : '', useGT ? 'v6': 'v5']" (click)="chooseFilter('stay')">
+        <div class="filter-inside"><img src="assets/images/icon-design/icon-05.png" /><span class="inner-text">{{'map.stay' | translate}}</span></div>
+      </div>
+    </div>
+    <div class="shop">
+      <div class="filter-label col-3" [ngClass]="[filterOption.shop && !(filterOption.shop && filterOption.see && filterOption.eat && filterOption.stay && filterOption.entertainment) ? 'active' : '', useGT ? 'v6': 'v5']" (click)="chooseFilter('shop')">
+        <div class="filter-inside"><img src="assets/images/icon-design/icon-03.png" /><span class="inner-text">{{'map.shop' | translate}}</span></div>
+      </div>
+    </div>
+    <div class="entertainment" *ngIf="useGT">
+      <div class="filter-label col-3" [ngClass]="[filterOption.entertainment && !(filterOption.entertainment && filterOption.see && filterOption.eat && filterOption.stay && filterOption.shop) ? 'active' : '', useGT ? 'v6': 'v5']" (click)="chooseFilter('entertainment')">
+        <div class="filter-inside"><img src="assets/images/icon-design/icon-57.png" /><span class="inner-text">{{'overview.entertainment' | translate}}</span></div>
+      </div>
+    </div>
+    <div class="all">
+      <div class="filter-label col-2" [ngClass]="[(filterOption.shop && filterOption.see && filterOption.eat && filterOption.stay && filterOption.entertainment) ? 'active' : '', useGT ? 'v6': 'v5']" (click)="chooseFilter('all')">
+        <div class="filter-inside"><img src="assets/iconImages/plan.png" /><span class="inner-text">{{'map.all' | translate}}</span> </div>
+      </div>
+    </div>
+    <!--<div class="other">
+      <div *ngIf="filterOption.other" class="filter-label col-2 active" (click)="chooseFilter('other')">
+        <div class="filter-inside"><ion-icon name="options"></ion-icon><span class="inner-text">{{'map.other' | translate}}</span> </div>
+      </div>
+      <div *ngIf="!filterOption.other" class="filter-label col-2" (click)="chooseFilter('other')">
+        <div class="filter-inside"><ion-icon name="options"></ion-icon><span class="inner-text">{{'map.other' | translate}}</span></div>
+      </div>
+    </div>-->
+  </div>
+  <div class="clearfix"></div>
+
+  <div #map id="map" [ngClass]="tabActive == true ? '': 'inactive'"></div>
+  <div class="openPopupSearch">
+    <button class="btn-open-popup" (click)="openPopUpSearch()"><ion-icon name="search"></ion-icon></button>
+  </div>
+  
+  <div id="current-button">
+    <button (click)='moveToLocation()'>
+      <ion-icon name="pin"></ion-icon>
+    </button>
+  </div>
+
+  <div id="filterChoice">
+    <button (click)='choosingFilterPopUpOpen()'>
+      <ion-icon name="funnel"></ion-icon>
+    </button>
+  </div>
+
+  <div class="popup" id="searchPopUp" style="display:none">
+    <div class="closepopup">
+      <button ion-button (click)="closePopUpSearch()" class="btn-back"><ion-icon name="arrow-back"></ion-icon></button>
+      <h2>{{'map.search' | translate}}</h2>
+      <div class="show-all-area">
+        <button class="btn-show-all" (click)="showAll()">
+          <ion-icon name="list"></ion-icon>&nbsp;<span>{{'map.showall' | translate}}</span>
+        </button>
+      </div>
+      <div class="clearfix"></div>
+      
+    </div>
+    <div class="searchBody">
+      <div class="searchBox">
+        <ion-input type="text" [(ngModel)]="search" name="search" placeholder="{{'map.searchingplace' | translate}}" (keyup)="updateListHint()"></ion-input>  
+        <div class="clearText" (click)="clearText()"><ion-icon name="close"></ion-icon></div>
+        <button ion-button class="searchButton" (click)="searchAction()"><ion-icon name="search"></ion-icon></button>
+        <div class="clearfix"></div>
+        <div class="text-auto-update" *ngFor="let item of listUpdate" (click)="changeMainText(item.LOCATION_NAME)">
+          <ion-icon name="search"></ion-icon>&nbsp;{{item.LOCATION_NAME}}
+          <span class="fright">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </span>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="searchResult">
+        <div class="search-item" *ngFor="let item of listResult" (click)="gotoLocation(item)">
+          <div class="img-presentive">
+            <img src="{{getImageForType(item?.locationType.slug)}}" />
+          </div>
+          <div class="info">
+            <p class="name">{{item?.name}}</p>
+            <!-- <p class="type">{{item?.locationType}}</p> -->
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" id="choosingMethod" style="display: none;">
+    <!--<div class="before-btn-area" (click)="closePopUpChoosingMethod()"></div>-->
+    <!--<div class="btn-area">
+      <button ion-button (click)="gotoDetail()">Xem chi tiết</button>
+      <button ion-button (click)="showNearby()">Hiển thị địa điểm xung quanh</button>
+    </div>-->
+    <div class="info-boxmap" (click)="closePopUpChoosingMethod()">
+      <div class="close-info-boxmap"><ion-icon name="close"></ion-icon></div>
+      <div class="thumb-image">
+        <img src="{{currentClick.imgURL}}" onerror="this.src='assets/iconImages/noimage.png'" />
+      </div>
+      <div class="place-info">
+        <div class="box-uti">
+          <div class="box-uti-info">
+            <div class="place-name">
+              {{currentClick.name}}
+            </div>
+            <div class="place-detail">
+              <div class="place-address">{{'map.address' | translate}}: {{currentClick.address}} </div>
+              <span *ngIf="currentClick.range != ''">{{'map.distance' | translate}}: {{currentClick.range}}</span>
+            </div>
+          </div>
+          <div class="box-uti-btn">
+            <div class="btn-flat btn-view-detail" (click)="gotoDetail()">{{'map.seemore' | translate}}</div>
+            <div class="btn-flat btn-show-nearby" (click)="showNearby()">{{'map.nearby' | translate}}</div>
+            <div class="btn-flat btn-show-way" (click)="showWay()">{{'map.route' | translate}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup p-5" id="choosingFilter" style="display: none;">
+    <div class="closepopup">
+      <button ion-button (click)="closePopUpChoosingFilter()" class="btn-back"><ion-icon name="arrow-back"></ion-icon></button>
+      <h2>{{'map.direction' | translate}}</h2>
+      
+      <div class="clearfix"></div>
+    </div>
+    <div class="scroll-down">
+      <div class="filter-area">
+        <h4 class="filter-name p-5">{{'map.type' | translate}}</h4>
+        <div class="filter-content p-5">
+          <span *ngIf="filterOption.see" class="btn-filter active"><button ion-button (click)="chooseFilterOnPopUp('see')"><ion-icon name="reverse-camera"></ion-icon>&nbsp;{{'map.see' | translate}}</button></span>
+          <span *ngIf="!filterOption.see" class="btn-filter"><button ion-button (click)="chooseFilterOnPopUp('see')"><ion-icon name="reverse-camera"></ion-icon>&nbsp;{{'map.see' | translate}}</button></span>
+          <span *ngIf="filterOption.eat" class="btn-filter active"><button ion-button (click)="chooseFilterOnPopUp('eat')"><ion-icon name="restaurant"></ion-icon>&nbsp;{{'map.eat' | translate}}</button></span>
+          <span *ngIf="!filterOption.eat" class="btn-filter"><button ion-button (click)="chooseFilterOnPopUp('eat')"><ion-icon name="restaurant"></ion-icon>&nbsp;{{'map.eat' | translate}}</button></span>
+          <span *ngIf="filterOption.stay" class="btn-filter active"><button ion-button (click)="chooseFilterOnPopUp('stay')"><ion-icon name="home"></ion-icon>&nbsp;{{'map.stay' | translate}}</button></span>
+          <span *ngIf="!filterOption.stay" class="btn-filter"><button ion-button (click)="chooseFilterOnPopUp('stay')"><ion-icon name="home"></ion-icon>&nbsp;{{'map.stay' | translate}}</button></span>
+          
+          <span *ngIf="filterOption.shop" class="btn-filter active"><button ion-button (click)="chooseFilterOnPopUp('shop')"><ion-icon name="briefcase"></ion-icon>&nbsp;{{'map.shop' | translate}}</button></span>
+          <span *ngIf="!filterOption.shop" class="btn-filter"><button ion-button (click)="chooseFilterOnPopUp('shop')"><ion-icon name="briefcase"></ion-icon>&nbsp;{{'map.shop' | translate}}</button></span>
+          
+          <span *ngIf="filterOption.entertainment" class="btn-filter active"><button ion-button (click)="chooseFilterOnPopUp('entertainment')"><ion-icon name="videocam"></ion-icon>&nbsp;{{'overview.entertainment' | translate}}</button></span>
+          <span *ngIf="!filterOption.entertainment" class="btn-filter"><button ion-button (click)="chooseFilterOnPopUp('entertainment')"><ion-icon name="videocam"></ion-icon>&nbsp;{{'overview.entertainment' | translate}}</button></span>
+          
+          <span *ngIf="filterOption.see && filterOption.eat && filterOption.stay && filterOption.other" class="btn-filter active"><button ion-button (click)="chooseFilterOnPopUp('all')"><ion-icon name="browsers"></ion-icon>&nbsp;{{'map.all' | translate}}</button></span>
+          <span *ngIf="!filterOption.see || !filterOption.eat || !filterOption.stay || !filterOption.other" class="btn-filter"><button ion-button (click)="chooseFilterOnPopUp('all')"><ion-icon name="browsers"></ion-icon>&nbsp;{{'map.all' | translate}}</button></span>
+          <!--<span *ngIf="filterOption.other" class="btn-filter active"><button ion-button (click)="chooseFilterOnPopUp('other')"><ion-icon name="options"></ion-icon>&nbsp;{{'map.other' | translate}}</button></span>
+          <span *ngIf="!filterOption.other" class="btn-filter"><button ion-button (click)="chooseFilterOnPopUp('other')"><ion-icon name="options"></ion-icon>&nbsp;{{'map.other' | translate}}</button></span>-->
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="filter-area">
+        <h4 class="filter-name p-5">{{'map.range' | translate}}</h4>
+        <div class="filter-content p-5">
+          <ion-item>
+            <ion-label>{{'map.distance' | translate}}</ion-label>
+            <ion-select [(ngModel)]="filterOption.range" multiple="false">
+              <ion-option value="0.4">500m</ion-option>
+              <ion-option value="0.8">1 Km</ion-option>
+              <ion-option value="1.6">2 Km</ion-option>
+              <ion-option value="2.4">3 Km</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="filter-area">
+        <h4 class="filter-name p-5">{{'map.hobby' | translate}}</h4>
+        <div class="filter-content p-5">
+            <p class="p-title" *ngIf="listHobiesChoice2.length > 0">{{'map.eat' | translate}}</p>
+            <div class="item-service" *ngFor="let item of listHobiesChoice2" (click)="changeValue(item)">
+              <div class="full-width-height" *ngIf="item.checked != true">{{item?.name}}</div>
+              <div class="full-width-height full-width-height-checked" *ngIf="item.checked == true">{{item?.name}}</div>
+            </div>
+            <!--<ion-item *ngFor="let item of listHobiesChoice2">
+              <ion-label>{{item?.name}}</ion-label>
+              <ion-checkbox [checked]="item.checked" (ionChange)="changeValue(item)"></ion-checkbox>
+            </ion-item>-->
+
+            <p class="p-title" *ngIf="listHobiesChoice3.length > 0">{{'map.see' | translate}}</p>
+            <div class="item-service" *ngFor="let item of listHobiesChoice3" (click)="changeValue(item)">
+              <div class="full-width-height" *ngIf="item.checked != true">{{item?.name}}</div>
+              <div class="full-width-height full-width-height-checked" *ngIf="item.checked == true">{{item?.name}}</div>
+            </div>
+            <!--<ion-item *ngFor="let item of listHobiesChoice3">
+              <ion-label>{{item?.name}}</ion-label>
+              <ion-checkbox [checked]="item.checked" (ionChange)="changeValue(item)"></ion-checkbox>
+            </ion-item>-->
+        </div>
+      </div>
+
+      <div class="filter-area">
+        <h4 class="filter-name p-5">{{'map.service' | translate}}</h4>
+        <div class="filter-content p-5">
+            <p class="p-title">{{'map.stay' | translate}}</p>
+            <div class="item-service" *ngFor="let item of listServicesChoice1" (click)="changeValue(item)">
+              <div class="full-width-height" *ngIf="item.checked != true">{{item?.name}}</div>
+              <div class="full-width-height full-width-height-checked" *ngIf="item.checked == true">{{item?.name}}</div>
+            </div>
+            <!--<ion-item *ngFor="let item of listServicesChoice1">
+              <ion-label></ion-label>
+              <ion-checkbox [checked]="item.checked" (ionChange)="changeValue(item)"></ion-checkbox>
+            </ion-item>-->
+            <p class="p-title">{{'map.eat' | translate}}</p>
+            <div class="item-service" *ngFor="let item of listServicesChoice2" (click)="changeValue(item)">
+              <div class="full-width-height" *ngIf="item.checked != true">{{item?.name}}</div>
+              <div class="full-width-height full-width-height-checked" *ngIf="item.checked == true">{{item?.name}}</div>
+            </div>
+            <!--<ion-item *ngFor="let item of listServicesChoice2">
+              <ion-label>{{item?.name}}</ion-label>
+              <ion-checkbox [checked]="item.checked" (ionChange)="changeValue(item)"></ion-checkbox>
+            </ion-item>-->
+            <p class="p-title">{{'map.see' | translate}}</p>
+            <div class="item-service" *ngFor="let item of listServicesChoice3" (click)="changeValue(item)">
+              <div class="full-width-height" *ngIf="item.checked != true">{{item?.name}}</div>
+              <div class="full-width-height full-width-height-checked" *ngIf="item.checked == true">{{item?.name}}</div>
+            </div>
+            <!--<ion-item *ngFor="let item of listServicesChoice3">
+              <ion-label>{{item?.name}}</ion-label>
+              <ion-checkbox [checked]="item.checked" (ionChange)="changeValue(item)"></ion-checkbox>
+            </ion-item>-->
+        </div>
+      </div>
+
+      <div class="filter-area">
+        <h4 class="filter-name p-5">{{'map.rateofgam' | translate}}</h4>
+        <div class="filter-content p-5">
+            <ion-item>
+            <ion-label>{{'map.pointrange' | translate}}</ion-label>
+            <ion-select [(ngModel)]="filterOption.rating" multiple="false">
+              <ion-option value="0">{{'map.any' | translate}}</ion-option>
+              <ion-option value="1">0-5</ion-option>
+              <ion-option value="2">5-7</ion-option>
+              <ion-option value="3">7-9</ion-option>
+              <ion-option value="4">9-10</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+
+      <div class="filter-area" *ngIf="listPrices != null && listPrices.length > 0">
+        <h4 class="filter-name p-5">{{'map.price' | translate}}</h4>
+        <div class="filter-content p-5">
+            <ion-item>
+              <ion-label>{{'map.pricerange' | translate}}</ion-label>
+              <ion-select [(ngModel)]="filterOption.money" multiple="false">
+                <ion-option *ngFor="let item of listPrices" value="{{item.value}}">{{item.name}}</ion-option>
+                <!--<ion-option value="0">Bất kì</ion-option>
+                <ion-option value="1">Dưới 500 000VND</ion-option>
+                <ion-option value="2">500 000VND - 1 000 000 VND</ion-option>
+                <ion-option value="3">1 000 000VND - 3 000 000 VND</ion-option>
+                <ion-option value="4">3 000 000VND - 5 000 000 VND</ion-option>
+                <ion-option value="5">5 000 000VND - 10 000 000 VND</ion-option>
+                <ion-option value="6">Trên 10 000 000 VND</ion-option>-->
+              </ion-select>
+            </ion-item>
+        </div>
+      </div>
+    </div>
+    <div class="btn-area">
+      <button ion-button (click)="submit()">{{'map.startsearch' | translate}}</button>
+    </div>
+  </div>
+</ion-content>
+<ion-custom-nav-bot [navCtrl]="navCtrl" currentPage="map" [modalCtrl]="modalCtrl"></ion-custom-nav-bot>
+<!--<div class="custom-tab">
+  <div id="tab-map" class="custom-tab-item" (click)="changeToOverViewPage()">
+    <div>
+      <ion-icon name="bookmark"></ion-icon>
+      <span>
+        Tổng quan
+      </span>
+    </div>
+  </div>
+  <div id="tab-home" class="custom-tab-item" (click)="changeToHomePage()">
+    <div>
+      <ion-icon name="cube"></ion-icon>
+      <span>
+        Sự kiện
+      </span>
+    </div>
+  </div>
+  <div id="tab-plan" class="custom-tab-item" (click)="changeToPlanPage()">
+    <div>
+      <ion-icon name="clipboard"></ion-icon>
+      <span>
+        Lịch trình
+      </span>
+    </div>
+  </div>
+  <div id="tab-map" class="custom-tab-item custom-tab-active">
+    <div>
+      <ion-icon name="map"></ion-icon>
+      <span>
+        Bản đồ
+      </span>
+    </div>
+  </div>
+  
+  <div id="tab-lookup" class="custom-tab-item" (click)="changeToUserPage()">
+    <div>
+      <ion-icon name="person"></ion-icon>
+      <span>
+        Tài khoản
+      </span>
+    </div>
+  </div>
+</div>-->

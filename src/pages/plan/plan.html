@@ -1,0 +1,80 @@
+<!--
+  Generated template for the Plan page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'plan.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="has-nav-bot">
+  <ion-item>
+    <ion-label>Địa điểm du lịch</ion-label>
+    <ion-input type="text" [(ngModel)]="plan.placename" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Ngày bắt đầu</ion-label>
+    <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="plan.checkindate" (ionChange)="changeCheckoutDate()"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Ngày kết thúc</ion-label>
+    <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="plan.checkoutdate" (ionChange)="changeCheckinDate()"></ion-datetime>
+  </ion-item>
+  <!--<ion-item>
+    <ion-label>Số ngày</ion-label>
+    <ion-input type="text" [(ngModel)]="plan.numberofday" readonly></ion-input>
+  </ion-item>-->
+  <!--<ion-item>
+    <ion-label>Ngân sách</ion-label>
+    <ion-select [(ngModel)]="plan.budget">
+      <ion-option value="-1">Bất kỳ</ion-option>
+      <ion-option value="100000">100.000VND</ion-option>
+      <ion-option value="150000">150.000VND</ion-option>
+      <ion-option value="200000">200.000VND</ion-option>
+      <ion-option value="250000">250.000VND</ion-option>
+      <ion-option value="300000">300.000VND</ion-option>
+    </ion-select>
+  </ion-item>-->
+
+  <div class="chooseHobby" padding>
+    <h4 class="title">Sở thích du lịch</h4>
+    <div class="item-service" *ngFor="let item of listHobbiesChoice" (click)="changeValue(item)">
+      <div class="full-width-height" *ngIf="item.checked != true">{{item?.name}}</div>
+      <div class="full-width-height full-width-height-checked" *ngIf="item.checked == true">{{item?.name}}</div>
+    </div>
+    <!--<ion-item *ngFor="let item of listHobbiesChoice">
+      <ion-label>{{item?.name}}</ion-label>
+      <ion-checkbox [checked]="item.checked" (ionChange)="changeValue(item)"></ion-checkbox>
+    </ion-item>-->
+  </div>
+
+  <div class="type">
+    <h4 class="title">Loại tour</h4>
+    <div class="btn-type-choice" (click)="setPlanType(1)">
+      <div class="choice choice-active" *ngIf="plan.type == 1">Thư giãn</div>
+      <div class="choice" *ngIf="plan.type != 1">Thư giãn</div>
+    </div>
+    <div class="btn-type-choice" (click)="setPlanType(2)">
+      <div class="choice choice-active" *ngIf="plan.type == 2">Bình thường</div>
+      <div class="choice" *ngIf="plan.type != 2">Bình thường</div>
+    </div>
+    <div class="btn-type-choice" (click)="setPlanType(3)">
+      <div class="choice choice-active" *ngIf="plan.type == 3">Đầy đủ</div>
+      <div class="choice" *ngIf="plan.type != 3">Đầy đủ</div>
+    </div>
+  </div>
+
+  <div class="button-area">
+    <button class="btn" ion-button (click)="submit()">Tạo lịch trình</button>
+  </div>
+</ion-content>
+<ion-custom-nav-bot [navCtrl]="navCtrl" currentPage="plan" [modalCtrl]="modalCtrl"></ion-custom-nav-bot>

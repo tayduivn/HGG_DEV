@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+    <div class="header-toolbox-custom" *ngIf="Types.length > 0">
+        <div class="type-top-choice">
+            <div class="title" (click)="showContentList($event,'type')">
+                {{selectType | translate}}&nbsp;<img src="assets/images/icon-design/icon-28.png" />
+            </div>
+            <div id="type" class="type-top-list" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+                <div class="type-top-row" (click)="updateType(null)">
+                    <div class="choice">{{'lctlk.all' | translate}}</div>
+                </div>
+                <div class="type-top-row" *ngFor='let type of Types' (click)="updateType(type)">
+                        <div class="choice">{{type.NAME}}</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div id="search-box-custom">
+        <form (ngSubmit)="searchNews()">
+            <div class="text-input-box">
+                <ion-item class="search-location">
+                    <ion-input type="text" [(ngModel)]="search" name="search" placeholder="&nbsp;{{'lctlk.search' | translate}}"></ion-input>
+                </ion-item>
+                <ion-icon name="close-circle" (click)="clearText()"></ion-icon>
+            </div>
+            <!-- <button ion-button type="button" block class="btn-search-record"  (click)="listenForSpeech()">
+                    <ion-icon name="microphone"></ion-icon>
+                  </button> -->
+            <button ion-button type="submit" block class="btn-search-location">
+                <ion-icon name="search"></ion-icon>
+            </button>
+
+        </form>
+    </div>
+    <div class="list-loc" *ngIf="news.length > 0">
+        <div class="loc-item item" *ngFor="let location of news" (click)="gotoDetail(location)">
+            <div class="loc-img">
+                <img src="{{location?.IMAGE_URL | imageUrl}}" onerror="this.src='assets/iconImages/noimage.png'" />
+                <!--<ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>-->
+                <div class="img-name">
+                    {{location.TITLE}}
+                </div>
+            </div>
+            <div class="loc-info">
+                <div class="name">
+                    {{location.TITLE}}
+                </div>
+                <div class="loc-para">
+                    {{location.CONTENT}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <ion-infinite-scroll *ngIf="pageCount == pageSize" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+    <!-- <div class="full-height" *ngIf="listlocation.length == 0">
+    <h2>
+      <ion-icon name="cart"></ion-icon>&nbsp;Không tìm thấy kết quả phù hợp</h2>
+  </div> -->
+</ion-content>

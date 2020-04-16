@@ -1,0 +1,21 @@
+<!--
+  Generated template for the UserNotePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <span class="title-top">{{'un.title' | translate}} {{name}}</span>
+    <div class="submit top-btn" (click)="saveNote()"><img src="assets/images/icon-design/icon-54.png"/></div>
+    <div class="close top-btn" (click)="nullNote()"><img src="assets/images/icon-design/icon-55.png"/></div>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content padding>
+  <textarea class="note-content" placeholder="{{'un.description' | translate}}" [(ngModel)]="content"></textarea>
+  
+</ion-content>

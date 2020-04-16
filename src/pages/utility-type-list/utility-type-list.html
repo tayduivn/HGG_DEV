@@ -1,0 +1,47 @@
+<!--
+  Generated template for the LocationMapShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'utl.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="page-container">
+    <div id="list-ultilities" class="item-border">
+      <div class="utility-title" *ngIf="isback==true">
+        <div class="turn-back" (click)="goBack()"><ion-icon name="arrow-round-back"></ion-icon></div><div class="page-tray-name">{{title}}</div>
+      </div>
+      <div class="utility-title" *ngIf="isback==false">
+        <div class="page-tray-name">{{title}}</div>
+      </div>
+      <div class="box-utility" *ngFor="let item of listUtilities" (click)="gotoDetail(item)">
+        <img src="{{item.imgURL | imageUrl}}" />
+        <h5 class="utility-name">{{item.name}}</h5>
+      </div>
+      <div class="box-utility" (click)="gotoWeather()" *ngIf="isback==false">
+        <img src="assets/images/weather.png">
+        <h5 class="utility-name">{{'utl.weather' | translate}}</h5>
+      </div>
+      <div class="box-utility" (click)="gotoTranslatePage()" *ngIf="isback==false">
+        <img src="assets/images/icon-design/icon-49.png">
+        <h5 class="utility-name">{{'utl.translate' | translate}}</h5>
+      </div>
+      <div class="box-utility" (click)="gotoSearchTourGuide()" *ngIf="isback==false">
+        <img src="assets/iconImages/icon-tourguide.png">
+        <h5 class="utility-name">{{'utl.tourguide' | translate}}</h5>
+      </div>
+      <!--<div class="box-utility" *ngIf="isback==false">
+        <img src="assets/images/exchange-rate.png" (click)="gotoExchangeRate()">
+        <h5 class="utility-name">Tỷ giá tiền tệ</h5>
+      </div>-->
+    </div>
+  </div>
+</ion-content>

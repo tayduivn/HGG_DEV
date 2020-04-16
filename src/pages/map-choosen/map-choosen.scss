@@ -1,0 +1,205 @@
+page-map-choosen {
+    #map {
+        height: 100%;
+        width: 100%;
+    }
+    #current-button {
+        position: absolute;
+        bottom: 15px;
+        right: 5px;
+        width: 40px;
+        height: 40px;
+    }
+    #current-button button, #filterChoice button {
+        border-radius: 50%; 
+        width: 100%;
+        height: 100%;
+        font-size: 1.5em;
+        color: #e07d13;
+        background-color: rgba(255,255,255,.6);
+        border: #9a9a9a 1px solid;
+        box-shadow: 5px 5px 5px #888888;
+    }
+    #filterChoice button {
+        background: #e07d13;
+        color: #fff;
+    }
+    #filterChoice {
+      position: absolute;
+      top: 125px;
+      right: 5px;
+      width: 40px;
+      height: 40px;
+    }
+    #description {
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    #infowindow-content .title {
+      font-weight: bold;
+    }
+
+    #infowindow-content {
+      display: none;
+    }
+
+    #map #infowindow-content {
+      display: inline;
+    }
+
+    #title {
+      color: #fff;
+      background-color: #e07d13;
+      font-size: 25px;
+      font-weight: 500;
+      padding: 6px 12px;
+    }
+    #target {
+      width: 345px;
+    }
+    .filter-label {
+      font-size: .9em; font-family: Lato, Arial, sans-serif; color: #9a9a9a; height: 30px; float: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 27px;
+    }
+    .filter-label.col-3 {
+      width: 33.3%;
+    }
+    .filter-label.col-2 {
+      width: 50%;
+    }
+    .filter-label.active { color: #e07d13; font-weight: bold; font-size: 1em; }
+    .my-custom-class-for-label {
+      color: #820101;
+      font-family: Tahoma, Geneva, sans-serif;
+      background: rgba(255, 255, 255, 0.3);
+      font-size: 11px;
+      font-weight: bold;
+      text-align: center;
+      width: auto;
+      white-space: nowrap;
+      padding-top: 5px;
+    }
+    .popup {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      z-index: 99;
+      background: rgba(255,255,255,0.6);
+    }
+    .closepopup { background: #e07d13; height: 60px; display: flex; align-items: center; }
+    .closepopup button.btn-back {
+      height: 45px;
+      width: 45px;
+      color: #fff;
+      float: left;
+      margin: 0;
+      font-size: 1.5em;
+      padding: 0; 
+      box-shadow: initial;
+      background: #e07d13;
+    }
+    .closepopup button.btn-show-all {
+      height: 45px;
+      width: 120px;
+      color: #fff;
+      float: right;
+      margin: 0;
+      font-size: 1em;
+      padding: 0; 
+      box-shadow: initial;
+      background: #e07d13;
+      display: flex;
+      align-items: center;
+    }
+    .closepopup h2 {
+      height: 45px;
+      width: calc(100% - 170px);
+      color: #fff;
+      float: left;
+      margin: 0;
+      line-height: 45px;
+      font-size: 1.1em;
+    }
+    .searchBody {
+      margin-top: 10px;
+    }
+    .searchBox {
+      display: inline-block;
+      width: 100%;
+    }
+    .searchBox ion-input {
+      width: calc(100% - 50px);
+      border: 1px solid #ccc; 
+      border-radius: 15px;
+      float: left;
+    }
+    .searchBox button.searchButton {
+      width: 45px;
+      padding-right: 0;
+      padding-left: 0;
+      height: 45px;
+      float: right;
+      margin: 0;
+      font-size: 2em;
+      background: #e07d13;
+    }
+    .search-item, .searchBox {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      background: #fff;
+    }
+    .btn-open-popup {
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      padding: 10px 12px;
+      background: #e07d13;
+      color: #fff;
+      font-size: 1.1em;
+    }
+    .openPopupSearch {
+      position: absolute;
+      top: 65px;
+      right: 5px;
+    }
+    .img-presentive {
+      width: 80px;
+      height: 80px;
+      float: left;
+    }
+    .info {
+      width: calc(100% - 100px);
+      height: 80px;
+      float: right;
+    }
+    .info .name {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 0;
+    }
+    .info .type {
+      font-size: .9em;
+      font-weight: bold;
+      color: #777;
+      margin-top: 0;
+    }
+    .before-btn-area {
+      height: calc(100% - 100px);
+    }
+    .btn-area button {width: 100%;}
+
+    .filter-name { color: #e07d13; font-size: 1.2em; margin: 0; padding: .5em 0; }
+    .btn-filter { width: 48%; display: block; float: left; margin: 0 0.5%; }
+    .btn-filter button { width: 100%; margin: 2px 0; background: #9d9d9d; }
+    .btn-filter.active button { width: 100%; margin: 2px 0; background: #e07d13; }
+    .btn-filter ion-icon { font-size: 2.2em; }
+    .filter-area { background: #fff; margin-top: 5px; margin-bottom: 5px; }
+    .filter-content { display: inline-block; width: 100%; }
+
+}

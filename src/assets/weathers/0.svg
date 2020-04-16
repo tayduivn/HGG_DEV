@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg version="1.1" id="tornado" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="climacon climacon_tornado" viewBox="15 15 80 80">
+	<defs>
+		<style type="text/css">
+		<![CDATA[
+			/*
+			** WIND
+			*/
+			
+			.climacon_component-stroke {
+			  fill: #56A0EE;
+			  stroke-width: 0%;
+			  stroke: black;
+			}
+
+			.climacon_component-fill {
+			  fill: #aedef4;
+			  stroke-width: 0%;
+			  stroke: black;
+			}
+
+			/* GLOBAL */
+			*, *:after, *:before {
+			  box-sizing: border-box;
+			}
+
+			/* SVG GLOBAL */
+			svg {
+			  display: inline-block;
+			  width: 64px;
+			  height: 64px;
+			  shape-rendering: geometricPrecision;
+			}
+
+			g, path, circle, rect {
+			  -webkit-animation-iteration-count: infinite;
+					  animation-iteration-count: infinite;
+			  -webkit-animation-timing-function: linear;
+					  animation-timing-function: linear;
+			  -webkit-transform-origin: 50% 50%;
+					  transform-origin: 50% 50%;
+			  -webkit-animation-duration: 18s;
+					  animation-duration: 18s;
+			  -webkit-animation-direction: normal;
+					  animation-direction: normal;
+			}
+
+
+			/* tornado */
+			.climacon_component-stroke_tornadoLine {
+			  -webkit-animation-name: translateTornado1;
+					  animation-name: translateTornado1;
+			  -webkit-animation-iteration-count: infinite;
+					  animation-iteration-count: infinite;
+			  -webkit-animation-direction: alternate;
+					  animation-direction: alternate;
+			  -webkit-animation-timing-function: ease-in-out;
+					  animation-timing-function: ease-in-out;
+			  -webkit-animation-duration: 18s;
+					  animation-duration: 18s;
+			}
+
+			.climacon_component-stroke_tornadoLine:nth-child(1) {
+			  -webkit-animation-name: translateTornado1;
+					  animation-name: translateTornado1;
+			}
+
+			.climacon_component-stroke_tornadoLine:nth-child(2) {
+			  -webkit-animation-name: translateTornado2;
+					  animation-name: translateTornado2;
+			}
+
+			.climacon_component-stroke_tornadoLine:nth-child(3) {
+			  -webkit-animation-name: translateTornado3;
+					  animation-name: translateTornado3;
+			}
+
+			.climacon_component-stroke_tornadoLine:nth-child(4) {
+			  -webkit-animation-name: translateTornado4;
+					  animation-name: translateTornado4;
+			}
+
+			.climacon_component-stroke_tornadoLine:nth-child(5) {
+			  -webkit-animation-name: translateTornado5;
+					  animation-name: translateTornado5;
+			}
+
+			.climacon_component-stroke_tornadoLine:nth-child(6) {
+			  -webkit-animation-name: translateTornado6;
+					  animation-name: translateTornado6;
+			}
+
+			.climacon_componentWrap-sunsetAlt {
+			  -webkit-animation-name: translateSunset;
+					  animation-name: translateSunset;
+			  -webkit-animation-duration: 4.5s;
+					  animation-duration: 4.5s;
+			  -webkit-animation-iteration-count: 1;
+					  animation-iteration-count: 1;
+			  -webkit-animation-timing-function: ease-out;
+					  animation-timing-function: ease-out;
+			}
+
+			.climacon_componentWrap-sunsetAlt {
+			  -webkit-animation-name: translateSunset;
+					  animation-name: translateSunset;
+			  -webkit-animation-iteration-count: 1;
+					  animation-iteration-count: 1;
+			}
+
+			.climacon_iconWrap-sun .climacon_component-stroke_sunSpoke, .climacon_iconWrap-sunFill .climacon_component-stroke_sunSpoke {
+			  fill-opacity: 1;
+			  -webkit-animation-name: scale;
+					  animation-name: scale;
+			  -webkit-animation-duration: 3s;
+					  animation-duration: 3s;
+			  -webkit-animation-iteration-count: infinite;
+					  animation-iteration-count: infinite;
+			  -webkit-animation-delay: 0;
+					  animation-delay: 0;
+			  -webkit-animation-fill-mode: both;
+					  animation-fill-mode: both;
+			  -webkit-animation-direction: alternate;
+					  animation-direction: alternate;
+			}
+
+			.climacon_iconWrap-sun .climacon_component-stroke_sunSpoke:nth-child(even), .climacon_iconWrap-sunFill .climacon_component-stroke_sunSpoke:nth-child(even) {
+			  -webkit-animation-delay: 4.5s;
+					  animation-delay: 4.5s;
+			}
+
+			.climacon-iconWrap_sunFill .climacon_component-stroke_sunSpoke {
+			  fill-opacity: 1;
+			  -webkit-animation-name: scale;
+					  animation-name: scale;
+			  -webkit-animation-iteration-count: infinite;
+					  animation-iteration-count: infinite;
+			  -webkit-animation-delay: 0;
+					  animation-delay: 0;
+			  -webkit-animation-fill-mode: both;
+					  animation-fill-mode: both;
+			  -webkit-animation-direction: alternate;
+					  animation-direction: alternate;
+			}
+
+			.climacon-iconWrap_sunFill .climacon_component-stroke_sunSpoke:nth-child(even) {
+			  -webkit-animation-delay: 4.5s;
+					  animation-delay: 4.5s;
+			}
+
+			.climacon_component-stroke_arrow-up {
+			  fill-opacity: 0;
+			  -webkit-animation-name: fillOpacity2, translateArrowUp;
+					  animation-name: fillOpacity2, translateArrowUp;
+			  -webkit-animation-duration: 4.5s;
+					  animation-duration: 4.5s;
+			}
+
+			.climacon_component-stroke_arrow-down {
+			  fill-opacity: 0;
+			  -webkit-animation-name: fillOpacity2, translateArrowDown;
+					  animation-name: fillOpacity2, translateArrowDown;
+			  -webkit-animation-duration: 4.5s;
+					  animation-duration: 4.5s;
+			}
+
+			.climacon_componentWrap-sunrise .climacon_component-stroke_sunSpoke, .climacon_componentWrap-sunset .climacon_component-stroke_sunSpoke {
+			  -webkit-animation-name: scale;
+					  animation-name: scale;
+			  -webkit-animation-direction: alternate;
+					  animation-direction: alternate;
+			  -webkit-animation-iteration-count: infinite;
+					  animation-iteration-count: infinite;
+			  -webkit-animation-duration: 4.5s;
+					  animation-duration: 4.5s;
+			  -webkit-animation-delay: 0;
+					  animation-delay: 0;
+			  -webkit-animation-fill-mode: both;
+					  animation-fill-mode: both;
+			}
+
+			.climacon_componentWrap-sunrise .climacon_component-stroke_sunSpoke:nth-child(even), .climacon_componentWrap-sunset .climacon_component-stroke_sunSpoke:nth-child(even) {
+			  -webkit-animation-delay: 4.5s;
+					  animation-delay: 4.5s;
+			}
+
+			.climacon_componentWrap-sunriseAlt {
+			  -webkit-animation-name: translateSunrise, fillOpacity;
+					  animation-name: translateSunrise, fillOpacity;
+			  -webkit-animation-duration: 18s, 9s;
+					  animation-duration: 18s, 9s;
+			  -webkit-animation-direction: normal;
+					  animation-direction: normal;
+			  -webkit-animation-iteration-count: 1;
+					  animation-iteration-count: 1;
+			  -webkit-animation-fill-mode: forwards;
+					  animation-fill-mode: forwards;
+			}
+
+			.climacon_componentWrap-sunriseAlt .climacon_component-stroke_sunSpoke {
+			  fill-opacity: 0;
+			  -webkit-animation-name: fillOpacity, scale;
+					  animation-name: fillOpacity, scale;
+			  -webkit-animation-direction: normal, alternate;
+					  animation-direction: normal, alternate;
+			  -webkit-animation-iteration-count: 1, infinite;
+					  animation-iteration-count: 1, infinite;
+			  -webkit-animation-duration: 4.5s;
+					  animation-duration: 4.5s;
+			  -webkit-animation-delay: 4.5s, 0;
+					  animation-delay: 4.5s, 0;
+			  -webkit-animation-fill-mode: both;
+					  animation-fill-mode: both;
+			}
+
+			.climacon_componentWrap-sunriseAlt .climacon_component-stroke_sunSpoke:nth-child(even) {
+			  -webkit-animation-delay: 4.5s, 4.5s;
+					  animation-delay: 4.5s, 4.5s;
+			}
+
+			.climacon_componentWrap-sunsetAlt {
+			  -webkit-animation-name: translateSunset;
+					  animation-name: translateSunset;
+			  -webkit-animation-delay: 0;
+					  animation-delay: 0;
+			  -webkit-animation-duration: 18s;
+					  animation-duration: 18s;
+			  -webkit-animation-direction: normal;
+					  animation-direction: normal;
+			  -webkit-animation-iteration-count: 1;
+					  animation-iteration-count: 1;
+			  -webkit-animation-fill-mode: forwards;
+					  animation-fill-mode: forwards;
+			}
+			
+
+			/* ANIMATIONS */
+			@-webkit-keyframes translateTornado1 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(3.997px);
+						transform: translateX(3.997px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-3.997px);
+						transform: translateX(-3.997px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@keyframes translateTornado1 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(3.997px);
+						transform: translateX(3.997px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-3.997px);
+						transform: translateX(-3.997px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@-webkit-keyframes translateTornado2 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(2.002px);
+						transform: translateX(2.002px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-2.002px);
+						transform: translateX(-2.002px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@keyframes translateTornado2 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(2.002px);
+						transform: translateX(2.002px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-2.002px);
+						transform: translateX(-2.002px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@-webkit-keyframes translateTornado3 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(8.001px);
+						transform: translateX(8.001px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-8.001px);
+						transform: translateX(-8.001px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@keyframes translateTornado3 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(8.001px);
+						transform: translateX(8.001px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-8.001px);
+						transform: translateX(-8.001px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@-webkit-keyframes translateTornado4 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(5.999px);
+						transform: translateX(5.999px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-5.999px);
+						transform: translateX(-5.999px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@keyframes translateTornado4 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(5.999px);
+						transform: translateX(5.999px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-5.999px);
+						transform: translateX(-5.999px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@-webkit-keyframes translateTornado5 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(10.003px);
+						transform: translateX(10.003px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-10.003px);
+						transform: translateX(-10.003px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@keyframes translateTornado5 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(10.003px);
+						transform: translateX(10.003px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-10.003px);
+						transform: translateX(-10.003px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@-webkit-keyframes translateTornado6 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(5.999px);
+						transform: translateX(5.999px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-5.999px);
+						transform: translateX(-5.999px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@keyframes translateTornado6 {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(5.999px);
+						transform: translateX(5.999px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-5.999px);
+						transform: translateX(-5.999px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@-webkit-keyframes fillOpacityLightning {
+			  0% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  1% {
+				fill-opacity: 1;
+				stroke-opacity: 1;
+			  }
+			  7% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  50% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  51% {
+				fill-opacity: 1;
+				stroke-opacity: 1;
+			  }
+			  53% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  54% {
+				fill-opacity: 1;
+				stroke-opacity: 1;
+			  }
+			  60% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  100% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			}
+			@keyframes fillOpacityLightning {
+			  0% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  1% {
+				fill-opacity: 1;
+				stroke-opacity: 1;
+			  }
+			  7% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  50% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  51% {
+				fill-opacity: 1;
+				stroke-opacity: 1;
+			  }
+			  53% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  54% {
+				fill-opacity: 1;
+				stroke-opacity: 1;
+			  }
+			  60% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			  100% {
+				fill-opacity: 0;
+				stroke-opacity: 0;
+			  }
+			}
+			@-webkit-keyframes translateFog {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(2.499px);
+						transform: translateX(2.499px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-2.499px);
+						transform: translateX(-2.499px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@keyframes translateFog {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(2.499px);
+						transform: translateX(2.499px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-2.499px);
+						transform: translateX(-2.499px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@-webkit-keyframes fillOpacityFog {
+			  0% {
+				fill-opacity: 0.5;
+				stroke-opacity: 0.5;
+			  }
+			  50% {
+				fill-opacity: 1;
+				stroke-opacity: 1;
+			  }
+			  100% {
+				fill-opacity: 0.5;
+				stroke-opacity: 0.5;
+			  }
+			}
+			@keyframes fillOpacityFog {
+			  0% {
+				fill-opacity: 0.5;
+				stroke-opacity: 0.5;
+			  }
+			  50% {
+				fill-opacity: 1;
+				stroke-opacity: 1;
+			  }
+			  100% {
+				fill-opacity: 0.5;
+				stroke-opacity: 0.5;
+			  }
+			}
+			@-webkit-keyframes translateSunrise {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateY(-16.002px);
+						transform: translateY(-16.002px);
+			  }
+			  100% {
+				-webkit-transform: translateY(-16.002px);
+						transform: translateY(-16.002px);
+			  }
+			}
+			@keyframes translateSunrise {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateY(-16.002px);
+						transform: translateY(-16.002px);
+			  }
+			  100% {
+				-webkit-transform: translateY(-16.002px);
+						transform: translateY(-16.002px);
+			  }
+			}
+			@-webkit-keyframes translateSunset {
+			  0% {
+				-webkit-transform: translateY(-16.002px);
+						transform: translateY(-16.002px);
+			  }
+			  25% {
+				-webkit-transform: translateY(-3.997px);
+						transform: translateY(-3.997px);
+			  }
+			  100% {
+				-webkit-transform: translateY(-3.997px);
+						transform: translateY(-3.997px);
+			  }
+			}
+			@keyframes translateSunset {
+			  0% {
+				-webkit-transform: translateY(-16.002px);
+						transform: translateY(-16.002px);
+			  }
+			  25% {
+				-webkit-transform: translateY(-3.997px);
+						transform: translateY(-3.997px);
+			  }
+			  100% {
+				-webkit-transform: translateY(-3.997px);
+						transform: translateY(-3.997px);
+			  }
+			}
+			@-webkit-keyframes translateArrowDown {
+			  0% {
+				-webkit-transform: translateY(2.002px);
+						transform: translateY(2.002px);
+			  }
+			  100% {
+				-webkit-transform: translateY(4.998px);
+						transform: translateY(4.998px);
+			  }
+			}
+			@keyframes translateArrowDown {
+			  0% {
+				-webkit-transform: translateY(2.002px);
+						transform: translateY(2.002px);
+			  }
+			  100% {
+				-webkit-transform: translateY(4.998px);
+						transform: translateY(4.998px);
+			  }
+			}
+			@-webkit-keyframes translateArrowUp {
+			  0% {
+				-webkit-transform: translateY(-2.002px);
+						transform: translateY(-2.002px);
+			  }
+			  100% {
+				-webkit-transform: translateY(-4.998px);
+						transform: translateY(-4.998px);
+			  }
+			}
+			@keyframes translateArrowUp {
+			  0% {
+				-webkit-transform: translateY(-2.002px);
+						transform: translateY(-2.002px);
+			  }
+			  100% {
+				-webkit-transform: translateY(-4.998px);
+						transform: translateY(-4.998px);
+			  }
+			}
+			@-webkit-keyframes translateWind {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(4.998px);
+						transform: translateX(4.998px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-4.998px);
+						transform: translateX(-4.998px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			@keyframes translateWind {
+			  0% {
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			  }
+			  25% {
+				-webkit-transform: translateX(4.998px);
+						transform: translateX(4.998px);
+			  }
+			  75% {
+				-webkit-transform: translateX(-4.998px);
+						transform: translateX(-4.998px);
+			  }
+			  100% {
+				-webkit-transform: translateX(0);
+						transform: translateX(0);
+			  }
+			}
+			
+        ]]>
+		</style>
+	</defs>
+	
+    <g class="climacon_iconWrap climacon_iconWrap-tornado">
+      <g class="climacon_componentWrap climacon_componentWrap-tornado">
+        <path class="climacon_component climacon_component-stroke climacon_component-stroke_tornadoLine" d="M68.997,36.459H31.002c-1.104,0-2-0.896-2-1.999c0-1.104,0.896-2,2-2h37.995c1.104,0,2,0.896,2,2C70.997,35.563,70.102,36.459,68.997,36.459z"></path>
+        <path class="climacon_component climacon_component-stroke climacon_component-stroke_tornadoLine" d="M35.002,40.459h29.996c1.104,0,2,0.896,2,2s-0.896,1.999-2,1.999H35.002c-1.104,0-2-0.896-2-1.999C33.002,41.354,33.898,40.459,35.002,40.459z"></path>
+        <path class="climacon_component climacon_component-stroke climacon_component-stroke_tornadoLine" d="M39.001,48.458h21.998c1.104,0,1.999,0.896,1.999,1.999c0,1.104-0.896,2-1.999,2H39.001c-1.104,0-1.999-0.896-1.999-2C37.002,49.354,37.897,48.458,39.001,48.458z"></path>
+        <path class="climacon_component climacon_component-stroke climacon_component-stroke_tornadoLine" d="M47,64.456h5.999c1.104,0,2,0.896,2,1.999s-0.896,2-2,2H47c-1.104,0-2-0.896-2-2S45.896,64.456,47,64.456z"></path>
+        <path class="climacon_component climacon_component-stroke climacon_component-stroke_tornadoLine" d="M40.869,58.456c0-1.104,0.896-1.999,2-1.999h13.998c1.104,0,2,0.896,2,1.999c0,1.104-0.896,2-2,2H42.869C41.765,60.456,40.869,59.561,40.869,58.456z"></path>
+      </g>
+    </g>
+</svg><!-- tornado -->

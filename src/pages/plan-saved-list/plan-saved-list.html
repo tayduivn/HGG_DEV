@@ -1,0 +1,69 @@
+<!--
+  Generated template for the PlanSavedList page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'psl.title' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="plan-list">
+    <div class="plan-item" *ngFor="let item of listShow" (click)="gotoDetail(item)">
+      <div class="plan-name">{{item.Name}}</div>
+      <div class="plan-time">{{'psl.fromdate' | translate}} {{item.FROM_DATE | dateFormat:  "DD/MM/YYYY" }}</div>
+      <div class="plan-time">{{'psl.todate' | translate}} {{item.TO_DATE | dateFormat:  "DD/MM/YYYY" }}</div>
+      <div class="remove" (click)="remove($event, item)"><ion-icon name="trash"></ion-icon></div>
+      <!--<div class="plan-budget">{{item.T_TOTAL}} VND</div>-->
+      <div class="plan-create">{{'psl.createddate' | translate}}: {{item.DATE_CREATE | dateFormat:  "DD/MM/YYYY HH:mm:ss" }}</div>
+    </div>
+  </div>
+</ion-content>
+<!--<div class="custom-tab">
+  <div id="tab-map" class="custom-tab-item" (click)="changeToOverViewPage()">
+    <div>
+      <ion-icon name="bookmark"></ion-icon>
+      <span>
+        Tổng quan
+      </span>
+    </div>
+  </div>
+  <div id="tab-home" class="custom-tab-item" (click)="changeToHomePage()">
+    <div>
+      <ion-icon name="cube"></ion-icon>
+      <span>
+        Sự kiện
+      </span>
+    </div>
+  </div>
+  <div id="tab-lookup" class="custom-tab-item" (click)="changeToLookUpPage()">
+    <div>
+      <ion-icon name="search"></ion-icon>
+      <span>
+        Tra cứu
+      </span>
+    </div>
+  </div>
+  <div id="tab-map" class="custom-tab-item" (click)="changeToMapPage()">
+    <div>
+      <ion-icon name="map"></ion-icon>
+      <span>
+        Bản đồ
+      </span>
+    </div>
+  </div>
+  <div id="tab-plan" class="custom-tab-item" (click)="changeToPlanPage()">
+    <div>
+      <ion-icon name="clipboard"></ion-icon>
+      <span>
+        Lịch trình
+      </span>
+    </div>
+  </div>
+</div>-->

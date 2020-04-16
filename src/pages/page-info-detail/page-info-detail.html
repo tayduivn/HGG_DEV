@@ -1,0 +1,21 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{item.TITLE}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <div *ngIf="item.CONTENT != '' && item.CONTENT != null && type != 'N_VIDEOS'" padding (click)="openLink($event)">
+        <h2 style="text-align:center;"><span style="color:#ff8c00; font-weight: bold;">{{item.TITLE}}</span></h2>
+        <span [innerHtml]="item.CONTENT"></span>
+    </div>
+
+    <div *ngIf="type == 'N_VIDEOS'" id="video">
+        <iframe id="custom-frame" style="width: 100%; height: 100%;" [src]="urlSantiz" frameborder="0" allowfullscreen></iframe>
+    </div>
+</ion-content>

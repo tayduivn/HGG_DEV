@@ -1,0 +1,166 @@
+page-user {
+    // .scroll-content {
+    //     background: url('https://images6.alphacoders.com/568/thumb-1920-568500.jpg');
+    //     background-position: center;
+    //     background-repeat: no-repeat;
+    //     background-attachment: fixed;
+    // }
+    // .container {
+    //     min-height: calc(100vh - 50px);
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
+
+    // .btn-area:nth-of-type(2n+1)  {
+    //     width: calc(50% - 15px);
+    //     margin: 5px 5px 5px 10px;
+    // }
+    // .btn-area:nth-of-type(2n)  {
+    //     width: calc(50% - 15px);
+    //     margin: 5px 10px 5px 5px;
+    // }
+    // .btn-area {
+    //     float: left;
+    //     position: relative;
+    //     min-height: 16em;
+    //     padding: 10px;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     background: rgba(255,255,255,.7);
+    //     border-radius: 10px;
+    //     .btn-content {
+    //         ion-icon {
+    //             font-size: 5em;
+    //             padding: 5px calc(0.115em + 5px);
+    //             // border: 1px solid #ccc;
+    //             // border-radius: 50%;
+    //             // background: rgba(0,0,198,.5);
+    //             // color: #fff;
+    //         }
+    //     }
+    //     text-align: center;
+    //     h5 {
+    //         font-size: 1em;
+    //         color: #bd0000;
+    //     }
+    //     p {
+    //         font-size: .8em;
+    //         color: #6d6d6d;
+    //     }
+    // }
+    // .border-top-left {
+    //     border-top-left-radius: 10px;
+    //     border-top: 4px solid #8d8d8d;
+    //     border-left: 4px solid #8d8d8d;
+    //     width: 25px;
+    //     height: 25px;
+    //     position: absolute;
+    //     top: 0; left: 0;
+    // }
+    // .border-top-right {
+    //     border-top-right-radius: 10px;
+    //     border-top: 4px solid #8d8d8d;
+    //     border-right: 4px solid #8d8d8d;
+    //     width: 25px;
+    //     height: 25px;
+    //     position: absolute;
+    //     top: 0; right: 0;
+    // }
+    // .border-bottom-left {
+    //     border-bottom-left-radius: 10px;
+    //     border-bottom: 4px solid #8d8d8d;
+    //     border-left: 4px solid #8d8d8d;
+    //     width: 25px;
+    //     height: 25px;
+    //     position: absolute;
+    //     bottom: 0; left: 0;
+    // }
+    // .border-bottom-right {
+    //     border-bottom-right-radius: 10px;
+    //     border-bottom: 4px solid #8d8d8d;
+    //     border-right: 4px solid #8d8d8d;
+    //     width: 25px;
+    //     height: 25px;
+    //     position: absolute;
+    //     bottom: 0; right: 0;
+    // }
+    // .btn-area-blue {
+    //     color: #3473ff;
+    // }
+    // .btn-area-red {
+    //     color: #00CC6A;
+    // }
+    // .btn-area-orange {
+    //     color: #ff911e;
+    // }
+    // .btn-area-wishlist {
+    //     color: #bd0000;
+    // }
+    .scroll-content {
+        background: #eaefef;
+    }
+    .btn-area {
+        .btn-content {
+            padding: 18px 10px;
+            margin: 5px 10px;
+            border-radius: 5px;
+            background: #fff;
+            display: inline-block;
+            width: calc(100% - 20px);
+            p {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                margin: 5px 0;
+                padding: 2px;
+            }
+            h5 {
+                margin: 5px 0;
+            }
+            img {
+                display: inline-block;
+                width: 48px;
+            }
+        }
+        
+        &:nth-child(1) {
+            color: #b3b;
+            .btn-content {
+                margin-top: 10px;
+            }
+        }
+        &:nth-child(4) {
+            color: #f11;
+        }
+        &:nth-child(3) {
+            color: #1b1;
+        }
+        &:nth-child(2) {
+            color: #d83;
+        }
+        &:nth-child(5) {
+            color: #3ab;
+        }
+        &:nth-child(2n+1) {
+            text-align: left;
+            .btn-text {
+                float: right;
+            }
+        }
+        &:nth-child(2n) {
+            text-align: right;
+            .btn-text {
+                float: left;
+            }
+        }
+        ion-icon {
+            font-size: 4em;
+            width: 50px;
+        }
+        .btn-text {
+            width: calc(100% - 50px);
+        }
+    }
+}

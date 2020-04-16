@@ -1,0 +1,130 @@
+<!--
+  Generated template for the Plan page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'pv2.title' | translate}}</ion-title>
+  </ion-navbar>
+
+  <div class="header-button">
+    <div (click)="checkHistory()" class="btn btn-history">{{'pv2.viewhistory' | translate}}</div>
+  </div>
+
+</ion-header>
+
+
+<ion-content class="has-nav-bot">
+  <ion-item>
+    <ion-label>{{'pv2.place' | translate}}</ion-label>
+    <ion-input type="text" [(ngModel)]="plan.placename" readonly></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>{{'pv2.datefrom' | translate}}</ion-label>
+    <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="plan.checkindate" (ionChange)="changeCheckoutDate()"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>{{'pv2.dateto' | translate}}</ion-label>
+    <ion-select [(ngModel)]="plan.lengthDate">
+      <ion-option value="1">1 {{'pv2.singleday' | translate}}</ion-option>
+      <ion-option value="2">2 {{'pv2.pluralday' | translate}}</ion-option>
+      <ion-option value="3">3 {{'pv2.pluralday' | translate}}</ion-option>
+      <ion-option value="4">4 {{'pv2.pluralday' | translate}}</ion-option>
+	  <ion-option value="5">5 {{'pv2.pluralday' | translate}}</ion-option>
+      <ion-option value="6">6 {{'pv2.pluralday' | translate}}</ion-option>
+      <ion-option value="7">7 {{'pv2.pluralday' | translate}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!--<div class="range-container">
+    <h4>Ngân sách</h4>
+    <div class="choose-option" (click)="isRangePrice = !isRangePrice" [ngClass]="{'option-active': isRangePrice }" >Trong khoảng</div>
+    <div class="choose-option" (click)="isRangePrice = !isRangePrice" [ngClass]="{'option-active': !isRangePrice }">Bất kỳ</div>
+  </div>
+
+  <ion-item *ngIf="isRangePrice">
+    <ion-label>{{rangePrice.lower | number : '1.'}} VNĐ - {{rangePrice.upper | number : '1.'}} VNĐ</ion-label>
+    <ion-range dualKnobs="true" pin="true" [(ngModel)]="rangePrice" min="100000" max="2000000" step="100000" snaps="true"></ion-range>
+  </ion-item>-->
+
+  <div class="chooseHobby">
+    <h4 class="title">{{'pv2.hobby' | translate}}</h4>
+    <ul class="listHobby">
+        <li [ngClass]="{'hobby-active': item.checked }" class="{{item.id}}" (click)="item.checked = !item.checked" *ngFor="let item of listHobbiesChoice">{{item?.name}}</li>
+    </ul>
+  </div>
+
+  <div class="type">
+    <h4 class="title">{{'pv2.tourtype' | translate}}</h4>
+    <div class="btn-type-choice" (click)="setPlanType(1)">
+      <div class="choice choice-active" *ngIf="planType == 1">{{'pv2.relax' | translate}}</div>
+      <div class="choice" *ngIf="planType != 1">{{'pv2.relax' | translate}}</div>
+    </div>
+    <div class="btn-type-choice" (click)="setPlanType(2)">
+      <div class="choice choice-active" *ngIf="planType == 2">{{'pv2.normal' | translate}}</div>
+      <div class="choice" *ngIf="planType != 2">{{'pv2.normal' | translate}}</div>
+    </div>
+    <div class="btn-type-choice" (click)="setPlanType(3)">
+      <div class="choice choice-active" *ngIf="planType == 3">{{'pv2.full' | translate}}</div>
+      <div class="choice" *ngIf="planType != 3">{{'pv2.full' | translate}}</div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="button-area">
+    <button class="btn btn-create-plan" ion-button (click)="submit()">{{'pv2.createnew' | translate}}</button>
+  </div>
+</ion-content>
+<ion-custom-nav-bot [navCtrl]="navCtrl" currentPage="plan" [modalCtrl]="modalCtrl"></ion-custom-nav-bot>
+<!--<div class="custom-tab">
+  <div id="tab-map" class="custom-tab-item" (click)="changeToOverViewPage()">
+    <div>
+      <ion-icon name="bookmark"></ion-icon>
+      <span>
+        Tổng quan
+      </span>
+    </div>
+  </div>
+  <div id="tab-home" class="custom-tab-item" (click)="changeToHomePage()">
+    <div>
+      <ion-icon name="cube"></ion-icon>
+      <span>
+        Sự kiện
+      </span>
+    </div>
+  </div>
+  <div id="tab-plan" class="custom-tab-item custom-tab-active">
+    <div>
+      <ion-icon name="clipboard"></ion-icon>
+      <span>
+        Lịch trình
+      </span>
+    </div>
+  </div>
+  <div id="tab-map" class="custom-tab-item" (click)="changeToMapPage()">
+    <div>
+      <ion-icon name="map"></ion-icon>
+      <span>
+        Bản đồ
+      </span>
+    </div>
+  </div>
+  
+  <div id="tab-lookup" class="custom-tab-item" (click)="changeToUserPage()">
+    <div>
+      <ion-icon name="person"></ion-icon>
+      <span>
+        Tài khoản
+      </span>
+    </div>
+  </div>
+</div>-->

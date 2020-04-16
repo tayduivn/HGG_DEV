@@ -1,0 +1,33 @@
+<!--
+  Generated template for the MapRoute page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>{{'ur.title' | translate}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div text-center>
+        <div class="top-page-info-user">
+            <img src="http://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
+            <h2>{{user.username}}</h2>
+            <p>{{user.email}}</p>
+        </div>
+
+        <ion-list inset>
+            <button ion-item (click)="updateUserInfo()">Thay đổi thông tin cá nhân</button>
+            <button ion-item (click)="changePassword()">Đổi mật khẩu</button>
+            <button ion-item (click)="logout()">Đăng xuất</button>
+        </ion-list>
+    </div>
+</ion-content>

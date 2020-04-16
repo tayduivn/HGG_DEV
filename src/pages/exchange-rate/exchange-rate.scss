@@ -1,0 +1,153 @@
+exchange-rate-page {
+
+    #container_exchange {
+        background: #00A1FF;
+        padding: 0 !important;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 5000;
+        .key_board ion-col {
+            background: #1AB4FF;
+            color: #fff;
+            line-height: 45px;
+            margin: 0px 3px 3px 0px;
+            text-align: center;
+            font-size: 1.8em;
+            vertical-align: middle;
+            display: inline-block;
+            ion-icon {
+                font-size: 1.5em;
+                line-height: 50px;
+            }
+        }
+        .key_board ion-col{
+            -webkit-transition: color 150ms ease-out;
+            -moz-transition: color 150ms ease-out;
+            -o-transition: color 150ms ease-out;
+            -ms-transition: color 150ms ease-out;
+            transition: color 150ms ease-out;
+        }
+        .key_board ion-col:active {
+            background: rgba(#fff, 0.25);
+            transform: scale3d(0.95, 0.95, 1);
+        }
+        .key_board ion-col.bottom_col {
+            margin: 0px 3px 0px 0px;
+        }
+        .key_board ion-col:last-child {
+            margin-right: 0;
+        }
+        ion-note {
+            div {
+                color: #E7E8EA;
+                font-size: 0.9em;
+                text-decoration: underline;
+            }
+            div.text_key {
+                font-size: 1.1em;
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+        img {
+            position: relative;
+            top: 5px;
+        }
+        ion-row:first-child {
+            background: #0A2D49;
+        }
+    }
+
+    #list_rates {
+        padding: 0!important;
+        ion-row:first-child {
+            padding: 5px 0!important;
+        }
+        ion-row.item:nth-child(2n) {
+            background: #E7E8EA;
+            line-height: 30px;
+            padding: 3px 0;
+        }
+        ion-row.item:nth-child(2n + 1) {
+            background: #fff;
+            line-height: 30px;
+            padding: 3px 0;
+        }
+        ion-row {
+            img {
+                width: 40px;
+                height: 29px;
+                position: relative;
+                top: 4px;
+            }
+        }
+        ion-row.selected {
+            background: #0A2D49!important;
+            color: #fff!important;
+            font-weight: bold;
+        }
+    }
+
+    .banner_title {
+        font-size: 1.6em;
+    }
+    ion-note {
+        color: #000!important;
+    }
+    .exchange-board {
+        padding: 10px;
+        .exchange-from {
+            padding: 5px 0;
+            label {
+                font-weight: bold;
+                width: 100%;
+                display: block;
+                padding: 10px 0;
+            }
+        }
+        .exchange-board-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .selectCode-title {
+            width: 100%;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+        .selectCustom {
+            width: 100%;
+        }
+        .exchangebox {
+            width: calc(50% - 23px);
+            float: left;
+            text-align: center;
+            .exchangetolabel { font-weight: bold; }
+            .exchangetonumber {
+                border: 1px solid #4f8df6;
+                padding: 10px 0;
+                color: #4f2df6;
+                background: #ebffee;
+                border-radius: 5px;
+                min-height: 41px;
+                font-size: .8em;
+            }
+        }
+        .exchangebutton {
+            float: left;
+            padding: 5px;
+            margin-top: 19px;
+        }
+        .selectCustom, .textCustom {
+            padding: 10px;
+            border: #4f8df6 1px solid;
+            border-radius: 5px;
+        }
+        .result {
+            width: 100%;
+            display: inline-block;
+        }
+
+    }
+}

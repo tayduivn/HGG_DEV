@@ -1,0 +1,103 @@
+<!--
+  Generated template for the LocationMapShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="isNew == false">{{'pde.modify' | translate}}</ion-title>
+    <ion-title *ngIf="isNew == true">{{'pde.createnew' | translate}}</ion-title>
+  </ion-navbar>
+  <div class="header-toolbox-edit">
+    <button ion-button class="btn-header-custom-edit" (click)="save()" *ngIf="isNew == true"><ion-icon name="refresh"></ion-icon>&nbsp;{{'pde.create' | translate}}</button>
+    <button ion-button class="btn-header-custom-edit" (click)="update(true)" *ngIf="isNew == false"><ion-icon name="code-download"></ion-icon>&nbsp;{{'pde.savechange' | translate}}</button>
+    <!--<button ion-button class="btn-header-custom-edit" (click)="share()"><ion-icon name="share"></ion-icon>&nbsp;Chia sẻ</button>-->
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="tab-top" *ngIf="isSuggest == true">
+    <div class="tab-item-top tab-item-top-active" (click)="changeToEditTour()">
+      {{'pde.recommendedplan' | translate}}
+    </div>
+    <div class="tab-item-top" (click)="changeToListTour()">
+      {{'pde.sharedplan' | translate}}
+    </div>
+  </div>
+  <div class="tour-edit">
+    <h3>{{plan.TOUR_NAME}} <a class="change-name" (click)="changeName()"><ion-icon name="create"></ion-icon></a></h3>
+    <p class="showCount"><ion-icon name="clock"></ion-icon>&nbsp;{{plan.TOTAL_NUMBER_DAY}} {{'pde.dayl' | translate}}</p>
+    <p class="totalPlace"><ion-icon name="pin"></ion-icon>&nbsp;{{getTotalPlace()}} {{'pde.place' | translate}}</p>
+    <p class="fDate"><ion-icon name="calendar"></ion-icon>&nbsp;{{'pde.arrivaldate' | translate}} {{datestartshow}}</p>
+    <!--<p class="budget"><ion-icon name="cash"></ion-icon>&nbsp;{{plan.T_TOTAL}} VND</p>-->
+    
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="plan-list-edit">
+    <div *ngIf="plan.LIST_PLACE_OF_TOUR_IN_DAY != null">
+      <div class="plan-item-edit" *ngFor="let item of plan.LIST_PLACE_OF_TOUR_IN_DAY" (click)="gotoPlanDayDetail(item)">
+        <div class="plan-title-edit">
+          <h3 class="plan-date-edit">
+            {{'pde.dayu' | translate}} {{item.DAY}}
+          </h3>
+          <div class="remove-day" (click)="deleteDayFromPlan(item)">
+            <ion-icon name="trash"></ion-icon>
+          </div>
+          
+          <div class="plan-total-edit"><ion-icon name="pin"></ion-icon>&nbsp;{{getPlanTotalLocation(item)}} {{'pdd.place' | translate}}</div>
+        </div>
+        <div class="clearfix"></div>
+        <div *ngIf="item.LIST_DAY_DETAILS == null">
+          <div class="plan-content-edit displayblock">
+            <div class="plan-img-edit">
+              
+            </div>
+          </div>
+        </div>
+        <div *ngIf="item.LIST_DAY_DETAILS != null">
+          <div class="plan-content-edit" [ngClass]="item.LIST_DAY_DETAILS.length == 0 ? 'displayblock' : ''">
+            <div class="plan-img-edit" *ngFor="let planItem of item.LIST_DAY_DETAILS">
+              <img src="{{planItem.LOCATION_AVATAR | imageUrl}}" onerror="this.src='assets/iconImages/noimage.png'" alt="{{'pde.repimg' | translate}}" />
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="plan-footer-edit">
+          <button class="normal-link f-r"><ion-icon name="eye"></ion-icon> {{'pde.seemore' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!--<div *ngIf="plan.L_LIST_DETAIL == null">
+      <div class="plan-item-edit" *ngFor="let item of plan.L_LIST_DETAIL" (click)="gotoPlanDayDetail(item)">
+        <div class="plan-title-edit">
+          <h3 class="plan-date-edit">
+            Ngày {{item.DAY}}
+          </h3>
+          <div class="plan-total-edit"><ion-icon name="pin"></ion-icon>&nbsp;{{getPlanTotalLocation(item)}} địa điểm</div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="plan-content-edit displayblock">
+          
+        </div>
+        <div class="clearfix"></div>
+        <div class="plan-footer-edit" (click)="gotoPlanDayDetail(item)">
+          <button class="normal-link f-r"><ion-icon name="eye"></ion-icon> Xem chi tiết</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>-->
+    <div class="add-date" *ngIf="canEdit == true" (click)="addDayToPlan()">
+      <ion-icon name="add"></ion-icon>&nbsp;{{'pde.addday' | translate}}
+    </div>
+  </div>
+</ion-content>
+
+<div class="btn-share" (click)="shareTour()" *ngIf="isNew == false">
+  <div *ngIf="plan.IS_SHARE == 0"><ion-icon name="share"></ion-icon><div class="share-text">Share</div></div>
+  <div *ngIf="plan.IS_SHARE == 1"><ion-icon name="swap"></ion-icon><div class="share-text">Unshare</div></div>
+</div>

@@ -1,0 +1,213 @@
+<!--
+  Generated template for the LookUp page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img class="search-img-header" src="assets/images/icon-design/icon-08.png" (click)="moveToLocationLookup()"/>
+  </ion-navbar>
+
+  <div class="search-bar-button" (click)="moveToLocationLookup()">
+    <div class="search-input">
+      <span><em>{{'lctlk.search' | translate}}</em></span>
+    </div>
+  </div>
+  <div class="header-toolbox-custom">
+    <div class="type-top-choice">
+      <div class="title" (click)="showContentList($event, 'type')">
+        {{showTypeText(searchType)}}&nbsp;<img src="assets/images/icon-design/icon-28.png" />
+      </div>
+      <div id="type" class="type-top-list" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="type-top-row" (click)="updateType('2')">
+          <div class="choice">{{'lctlk.eat' | translate}}</div>
+        </div>
+        <div class="type-top-row" (click)="updateType('1')">
+          <div class="choice">{{'lctlk.stay' | translate}}</div>
+        </div>
+        <div class="type-top-row" (click)="updateType('3')">
+          <div class="choice">{{'lctlk.see' | translate}}</div>
+        </div>
+        <div class="type-top-row" (click)="updateType('5')">
+          <div class="choice">{{'lctlk.shopping' | translate}}</div>
+        </div>
+        <div *ngIf="useGT" class="type-top-row" (click)="updateType('8')">
+          <div class="choice">{{'lctlk.entertainment' | translate}}</div>
+        </div>
+        <div class="type-top-row" (click)="updateType('7')">
+          <div class="choice">{{'lctlk.event' | translate}}</div>
+        </div>
+        <!-- <div class="type-top-row" (click)="setEntertainment()">
+          <div class="choice">{{'overview.karaoke' | translate}}</div>
+        </div> -->
+
+        <div class="type-top-row" (click)="updateType(null)">
+          <div class="choice">{{'lctlk.all' | translate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div id="filter" class="headerFilter" *ngIf="searchType != null && searchType != '7' && !isEntertained">
+    <div class="list-filter" [ngClass]="[locationMenu? 'active': '', searchType == '1' || searchType == '2' || searchType == '3' || searchType == '8' ? 'col-4' : 'col-2']">
+      <div class="title location-arrow" (click)="showContentList($event, 'location')">
+        {{'lctlk.area' | translate}}
+        <!-- <img src="assets/images/icon-design/icon-27.png" width="10px" /> -->
+      </div>
+      <div id="location" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" (click)="allArea()">
+            <div class="choice" [ngClass]="{'selected': listChoiceAreaId.length == 0 }">{{'lctlk.all' | translate}}</div>
+          </div>
+          <div class="content-row" *ngFor="let itemArea of listArea" (click)="chooseArea(itemArea.id)">
+            <div class="choice" [ngClass]="{'selected': listChoiceAreaId[0] == itemArea.id }">{{itemArea.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-filter col-4" [ngClass]="[serviceMenu? 'active': '',  searchType == '1' || searchType == '2' || searchType == '3' ? 'block' : 'hidden']">
+      <div class="title service-arrow" (click)="showContentList($event, 'service')">
+        {{'lctlk.service' | translate}}
+        <!-- <img src="assets/images/icon-design/icon-27.png" width="10px" /> -->
+      </div>
+      <div id="service" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" *ngFor="let itemS of listServicesChoice">
+            <div class="choice active-choice" (click)="updateChoice(itemS)" *ngIf="itemS.checked == true"><p class="service-name">{{itemS.name}}</p><img class="active-choice" src="assets/images/icon-design/icon-38.png" width="15px" /></div>
+            <div class="choice" (click)="updateChoice(itemS)" *ngIf="itemS.checked == false"><p class="service-name">{{itemS.name}}</p><img class="active-choice" src="assets/images/icon-design/icon-37.png" width="15px" /> </div>
+          </div>
+        </div>
+        <div class="button">
+          <div class="reset" (click)="resetServiceChoice()"><img class="active-choice" src="assets/images/icon-design/icon-39.png" />Reset</div>
+          <div class="search" (click)="updateServiceChoice()"><img class="active-choice" src="assets/images/icon-design/icon-40.png"/>Tìm kiếm</div>
+        </div>
+      </div>
+    </div>
+    <div class="list-filter col-4" [ngClass]="[priceMenu? 'active': '',  searchType == '1' || searchType == '2' || searchType == '3' ? 'block' : 'hidden']">
+      <div class="title price-arrow" (click)="showContentList($event, 'price')">
+        {{'lctlk.price' | translate}}
+        <!-- <img src="assets/images/icon-design/icon-27.png" width="10px" /> -->
+      </div>
+      <div id="price" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" *ngFor="let item of listPrices" (click)="updatePriceRange(item.value)">
+            <div class="choice" [ngClass]="{'selected': priceRange == item.value }">{{item.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-filter" [ngClass]="[searchType == '8' ? 'block col-2' : 'hidden']">
+      <div class="title price-arrow" (click)="showContentList($event, 'price')">
+        {{'lctlk.session' | translate}}
+      </div>
+      <div id="service" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" *ngFor="let item of listSession" (click)="updatePlaceService(item)">
+            <div class="choice" [ngClass]="{'selected': itemservice == item.value }">{{item.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-filter" [ngClass]="[categoryMenu? 'active': '', searchType == '1' || searchType == '2' || searchType == '3' || searchType == '8' ? 'col-4' : 'col-2']">
+      <div class="title category-arrow" (click)="showContentList($event, 'category')">
+        {{'lctlk.type' | translate}}
+      </div>
+      <div id="category" class="content-list list-mutiple" style="visibility: hidden; opacity: 0; transform: translateY(-2em); z-index: 1; transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;">
+        <div class="content-list-row">
+          <div class="content-row" (click)="updatingFunction(null)">
+            <div class="choice" [ngClass]="{'selected':hotel_type == null}">{{'map.any' | translate}}</div>
+          </div>
+          <div class="content-row" *ngFor="let item of listCategoryChoice" (click)="updatingFunction(item)">
+            <div class="choice" [ngClass]="{'selected':hotel_type == item.id}">{{item.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+
+  <div class="clearfix"></div>
+
+  <!--<ion-list (window:resize)="changeWindowSize()" #virtualScroll [hidden]="listlocation.length == 0" class="list-loc" [virtualScroll]="listlocation" approxItemHeight="80px">
+    <ion-item *virtualItem="let location; let index = index" id="i-{{index}}" class="loc-item" (click)="gotoDetail(location)" (resize)="a()">
+      <div class="loc-img">
+        <ion-img (cache)="true" src="{{location?.imgURL}}"></ion-img>
+      </div>
+      <div class="loc-info">
+        <div class="name">
+          {{location?.name}}
+        </div>
+        <div class="address">
+          <span class="text-ad"><ion-icon name="pin"></ion-icon>{{location?.address}}</span>
+        </div>
+        <div class="action">
+          <span class="distance">
+            {{location.distance | number:'1.' }}m
+          </span>
+          <img (click)="toggleSaveWishList($event,location)" [src]="location.book_id == 0?'assets/iconImages/heart1.png':'assets/iconImages/heart2.png'" class="heart" />
+          <span class="direction" (click)="directionMap($event,location.googlemap)">
+            <ion-icon name="navigate"></ion-icon>
+            Chỉ đường
+          </span>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll *ngIf="listlocation.length < total" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>-->
+
+  <div class="list-loc" *ngIf="listlocation.length > 0">
+    <div class="loc-item item" *ngFor="let location of listlocation" (click)="gotoDetail(location)">
+      <div class="marked-seen" [ngClass]="location.seen ? 'active' : ''">
+        <div class="rms-container">
+          <img class="rms" src="assets/images/icon-seen.png" />
+          <span class="rms-text">{{'lctlk.seen' | translate}}</span>
+        </div>
+      </div>
+      <div class="loc-img">
+        <img src="{{location?.imgURL}}" onerror="this.src='assets/iconImages/noimage.png'" />
+        <!--<ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>-->
+        <div class="img-name">
+          {{location?.name}}
+        </div>
+      </div>
+      
+      <div class="loc-info">
+        <div class="name">
+          {{location?.name}}
+        </div>
+        <div class="address">
+          <!--{{'lctlk.address' | translate}}:-->
+          <span class="text-add"><ion-icon name="pin"></ion-icon> {{location?.address}}</span>
+        </div>
+        <div class="action">
+            <img class="img" src="assets/images/icon-design/icon-30.png"/>
+            <div class="distance">
+              {{location.distance | number:'1.' }}m
+            </div>
+            <div class="direction" (click)="directionMap($event,location.googlemap, location.type)">
+              <ion-icon name="navigate"></ion-icon>
+              {{'lctlk.route' | translate}}
+            </div>
+            <img (click)="toggleSaveWishList($event,location)" [src]="location.book_id == 0?'assets/iconImages/heart1.png':'assets/iconImages/heart2.png'" class="heart" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll *ngIf="total == 10" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <!-- <div class="full-height" *ngIf="listlocation.length == 0">
+    <h2>
+      <ion-icon name="cart"></ion-icon>&nbsp;Không tìm thấy kết quả phù hợp</h2>
+  </div> -->
+</ion-content>

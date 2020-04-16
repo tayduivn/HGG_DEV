@@ -1,0 +1,45 @@
+<ion-menu [content]="content" id="menu-side-box">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <div (click)="getInForUserLogin()" id="show-user-info">
+          
+        </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="custom-menu">
+      <div class="version-code">{{'menu.currVersion'|translate}}: {{version}}</div>
+      <div class="custom-menu-item" *ngFor="let p of pages" (click)="openPage(p)" style="">
+        <div class="custom-menu-item-title">
+          <img class="menu-icon" src="{{p.icon}}" />
+          &nbsp;{{p.title | translate}}
+          <img *ngIf="p.submenu.length > 0" class="f-r-c" src="assets/iconImages/right-color.png" />
+        </div>
+        <div id="{{p.submenuid}}" class="sub-menu" *ngIf="p.submenu.length > 0" style="display:none;">
+          <div class="sub-menu-item" *ngFor="let pc of p.submenu" (click)="openPage(pc)">
+            <img class="menu-icon" src="{{pc.icon}}" />
+            &nbsp;{{pc.title | translate}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<ion-list no-border>
+      <ion-item *ngFor="let p of pages" (click)="openPage(p)" style="">
+        <img class="menu-icon" src="{{p.icon}}" />
+          {{p.title | translate}}
+        <img item-right src="assets/iconImages/right-color.png" />
+        <div class="sub-menu" *ngIf="p.submenu.length > 0">
+          <div class="sub-menu-item" *ngFor="let pc of p.submenu" (click)="openPage(pc)">
+
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>-->
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

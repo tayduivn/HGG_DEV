@@ -1,0 +1,23 @@
+page-plan-choice {
+    .scroll-content {
+        background: #eaefef;
+    }
+    .list-item {
+        background: #fff;
+        padding: 5px;
+        margin: 10px 15px;
+        border-radius: 5px;
+        border: 1px dashed #2cbcf3;
+        h5 {
+            color: #2cbcf3;
+            font-size: 1.2em;
+            margin: 0.5em;
+            padding: 0;
+        }
+        p {
+            color: #8d8d8d;
+            font-size: .9em;
+            padding: 0px 10px;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+<!--
+  Generated template for the TourGuideSearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'tgs.title' | translate }}</ion-title>
+  </ion-navbar>
+  <div class="content-area">
+    <ion-row>
+      <ion-col col-6>
+        <ion-input [(ngModel)]="search.name" placeholder="{{ 'tgs.searchWithName' | translate }}"></ion-input>
+      </ion-col>
+      <ion-col col-6>
+        <ion-input [(ngModel)]="search.cardcode" placeholder="{{ 'tgs.searchWithCardCode' | translate }}"></ion-input>
+      </ion-col>
+    </ion-row>
+    
+    <button ion-button round icon-start (click)="searchListTourGuide()"><ion-icon name="search"></ion-icon>{{'tgs.searchByText' | translate}}</button>
+    <button ion-button round icon-start (click)="codescan()"><ion-icon name="md-qr-scanner"></ion-icon>{{'tgs.searchByScan' | translate}}</button>
+  </div>
+</ion-header>
+
+
+<ion-content>
+  <div class="tab-top">
+    <!-- <div class="tab tab-item">
+      {{ 'tgs.searchByText' | translate }}
+    </div>
+    <div class="tab tab-item">
+      {{ 'tgs.searchByScan' | translate }}
+    </div> -->
+
+    <div class="listTourGuide" *ngIf="listTourGuideDisplay.length > 0">
+      <ion-list>
+        <ion-item *ngFor="let item of listTourGuideDisplay">
+          <ion-row>
+            <ion-col col-3 left>
+              <img [src]="item.image" onerror="assets/iconImages/no-image.png" onerror="assets/iconImages/noimage.png" />
+            </ion-col>
+            <ion-col col-9 right>
+              <p>{{'tgs.name'|translate}} <span class="value">{{item.name}}</span></p>
+              <p>{{'tgs.cardcode'|translate}} <span class="value">{{item.cardnumber}}</span></p>
+              <p>{{'tgs.expired_date'|translate}} <span class="value">{{item.expired_date | dateFormat:'DD/MM/YYYY'}}</span></p>
+              
+              <p>{{'tgs.license_src'|translate}} <span class="value">{{item.issuedby}}</span></p>
+              <p>{{'tgs.type'|translate}} <span class="value">{{item.type}}</span></p>
+              
+              <p>{{'tgs.status'|translate}} <span class="value">{{item.status}}</span></p>
+              <p *ngIf="item.langs != null && item.langs.length > 0">{{'tgs.langs'|translate}} <span class="value" *ngFor="let itemLang of item.langs; let ind=index;">{{itemLang.Name}}<span *ngIf="ind < item.langs.length - 1">,</span> </span></p>
+              <p>{{'tgs.experience'|translate}} <span class="value">{{item.experience}}</span></p>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+      <ion-infinite-scroll *ngIf="pageIndex <= maxPage" (ionInfinite)="getMoreResult($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+</ion-content>

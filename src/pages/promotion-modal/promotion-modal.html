@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <button ion-button clear small navPop start class="button-back">
+            <img src="assets/images/try/icon-29.png" /> {{'login.form.back'| translate}}
+        </button>
+        <ion-title class="custom-title">{{'overview.detailpromotion'| translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="pro-list">
+        <div class="pro-item" *ngFor="let promotion of listPromotion">
+            <div class="pro-name">{{promotion.NAME}}</div>
+            <div class="pro-value">
+                <img src="assets/images/icon-design/saleoffimage.png">
+                <span>{{promotion.VALUE_CUSTOM}}</span>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

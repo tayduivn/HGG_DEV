@@ -1,0 +1,280 @@
+<!--<ion-fab left top style="margin-top: 64px;">
+  <button ion-fab color="primary" (click)="takePicture()">
+        <ion-icon name="md-camera"></ion-icon>
+    </button>
+</ion-fab>-->
+<!--
+  Generated template for the RestaurantDetail page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button clear small navPop start class="button-back">
+      <img src="assets/images/try/icon-29.png" /> Back
+    </button>
+    <ion-title class="custom-title">{{restaurant?.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button color="danger" (click)="gotoReport()">
+          <ion-icon name="alert"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <!--<ion-navbar>
+    <ion-title>Thông tin chi tiết</ion-title>
+    <ion-buttons end>
+      <button ion-button color="danger" (click)="gotoReport()">
+                <ion-icon name="alert"></ion-icon>
+            </button>
+    </ion-buttons>
+  </ion-navbar>-->
+
+</ion-header>
+
+
+<ion-content>
+  <div class="image-present">
+    <img class="restaurant" src="{{restaurant?.imgURL | imageUrl}}" onerror="this.src='assets/iconImages/noimage.png'" />
+    <!-- <ion-slides pager="true">
+      <ion-slide *ngFor="let image of listImage">
+          <img src="{{image}}" onerror="this.src='assets/iconImages/noimage.png'" />
+      </ion-slide>
+    </ion-slides> -->
+    <div *ngIf="!isUserWish && !disableAddPlan" class="love" (click)="toggleSaveWishList()">
+      <img class="heart" [src]="bookId == 0?'assets/iconImages/heart1.png':'assets/iconImages/heart2.png'" />
+      <span [style.color]="bookId == 0?'#27BBF2':'#F58387'" class="count-love">{{restaurant?.total_bookmark}}</span>
+    </div>
+    <h2>{{restaurant?.name}}</h2>
+    <button *ngIf="!disableAddPlan" ion-button class="btn-header" (click)="addToPlan()"><ion-icon name="add"></ion-icon>&nbsp;{{'rdt.addtoplan' | translate}}</button>  
+    <div class="ultilityBox">
+      <button ion-button (click)="note()"><img src="assets/images/icon-note.png" />&nbsp;{{'toolbox.note' | translate}}</button>
+    </div>
+  </div>
+
+  <div class="toolbox">
+    <div class="button-list">
+      <a *ngIf="restaurant?.phonenumber != null && restaurant?.phonenumber != ''" class="btn" href="tel:{{restaurant?.phonenumber}}">
+          <div class="image"><ion-icon name="call"></ion-icon></div>
+          <div class="text">{{'rdt.call' | translate}}</div>
+      </a>
+      <div class="btn" (click)="gotoRate()">
+        <div class="image"><ion-icon name="text"></ion-icon></div>
+        <div class="text">{{'rdt.rate' | translate}}</div>
+      </div>
+      
+      <!--<div class="btn" (click)="gotoUserImage()">
+        <div class="image"><ion-icon name="camera"></ion-icon></div>
+        <div class="text">{{'rdt.takephoto' | translate}}</div>
+      </div>-->
+      <div class="btn" (click)="showDirection()">
+        <div class="image"><ion-icon name="pin"></ion-icon></div>
+        <div class="text">{{'rdt.route' | translate}}</div>
+      </div>
+      <div class="btn" (click)="gotoRestaurantBooking()" *ngIf="restaurant?.use_app == 1">
+        <div class="image"><ion-icon name="cart"></ion-icon></div>
+        <div class="text">{{'rdt.booking' | translate}}</div>
+      </div>
+      <div class="btn" (click)="gotoShared()">
+        <div class="image">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </div>
+        <div class="text">{{ 'toolbox.shared' | translate }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div [ngClass]="restaurant?.url_3d != null && restaurant?.url_3d != '' ? 'arrow-down arrow-blue-2' : 'arrow-down arrow-blue'"></div>
+  <div class="clearfix"></div>
+
+  <div *ngIf="restaurant?.url_3d != null && restaurant?.url_3d != ''" class="watch-video" (click)="watchvideo()">{{'rdt.doCameraTour' | translate}} <ion-icon name="ios-arrow-forward-outline"></ion-icon><ion-icon name="ios-arrow-forward-outline"></ion-icon><ion-icon name="ios-arrow-forward-outline"></ion-icon><ion-icon name="ios-arrow-forward-outline"></ion-icon></div>
+
+  <div *ngIf="restaurant?.url_3d != null && restaurant?.url_3d != ''" class="arrow-down arrow-white-2"></div>
+
+  <div class="about-us">
+    <h3>{{'rdt.aboutus' | translate}}</h3>
+    <span class="label">{{'rdt.address' | translate}}</span>: <span>{{restaurant?.address}}</span><br/>
+    <span class="label">{{'rdt.operationtime' | translate}}</span>: <span>{{restaurant?.open_time | dateFormat : "HH:mm"}} - {{restaurant?.close_time | dateFormat : "HH:mm"}}</span><br/>
+    <span *ngIf="restaurant?.phonenumber != ''"><span class="label">{{'rdt.phoneno' | translate}}</span>: <span>{{restaurant?.phonenumber}}</span><br/></span>
+    <span *ngIf="restaurant?.website != ''"><span class="label">{{'rdt.website' | translate}}</span>: <span>{{restaurant?.website}}</span><br/></span>
+    <span *ngIf="restaurant?.email != ''"><span class="label">{{'rdt.email' | translate}}</span>: <span>{{restaurant?.email}}</span><br/></span>
+    <span class="label">{{'rdt.description' | translate}}</span>:<br/>
+    <div class="about-us-content"><span [innerHTML]="restaurant?.aboutus"></span></div>
+
+    <h3 class="label" *ngIf="listPromotion.length > 0">{{'toolbox.promotion' | translate}}:<br/></h3>
+    <div class="slideshow-img" *ngIf="listPromotion.length > 0">
+      <ion-scroll class="scroll-horizontal prolist" scrollX="true">
+        <ion-row nowrap>
+          <div *ngFor="let item of listPromotion; let i=index" [style.backgroundImage]="'url('+imgsPro[i%3]+')'"
+            class="scroll-item" text-right (click)="sp(item)">
+            <div class="information">
+              <h4>{{item.NAME}}</h4>
+              <p class="price">{{'overview.saleoff' | translate}}: <span>{{item.DESCRIPTION}} </span></p>
+            </div>
+          </div> 
+        </ion-row>
+      </ion-scroll>
+    </div>
+
+    <div class="slideshow-img" *ngIf="listImage.length > 0">
+      <h3>{{'slideshow.title'|translate}}</h3>
+      <ion-scroll class="scroll-horizontal" scrollX="true">
+        <ion-row nowrap>
+          <div *ngFor="let item of listImage" [style.backgroundImage]="'url('+item+')'"
+            class="scroll-item" text-right>
+            
+          </div>
+        </ion-row>
+      </ion-scroll>
+    </div>
+
+    <!--<div class="watch-video" (click)="watchvideo()">Watch video</div>-->
+
+    
+
+  </div>
+
+  <div class="arrow-down arrow-orange"></div>
+
+  <!-- <div class="foods" *ngIf="restaurant?.foodsArrayCount > 0">
+    <h3>{{'rdt.specialties' | translate}}</h3> -->
+
+    <!--<div class="food-item" *ngFor="let food of restaurant?.foods">
+      <div class="food-image">
+        <img src="{{food?.imgURL | imageUrl}}" />
+      </div>
+      <div class="information">
+        <h4>{{food?.name}}</h4>
+        <p class="price">{{food?.price}}</p>
+        <p>{{food?.description}}</p>
+      </div>
+    </div>-->
+  <!-- </div> -->
+  <div class="foods">
+    <h3>{{'rdt.specialties' | translate}}</h3>
+
+    <!-- <div class="foodlist" *ngIf="listFoods.length > 0">
+      <div class="food-item" *ngFor="let item of listFoods">
+        <div class="food-image">
+          <img src="{{item.IMAGE_URL | imageUrl}}" />
+        </div>
+        <div class="information">
+          <h4>{{item.NAME}}</h4>
+          <p class="price">{{'rdt.price' | translate}}: {{item.SALE_PRICE | number:0}} VND</p>
+          <p *ngIf="item.DESCRIPTION != null && item.DESCRIPTION != ''"><span [innerHTML]="item.DESCRIPTION"></span></p>
+        </div>
+      </div>
+    </div> -->
+    
+    <ion-scroll class="scroll-horizontal foodlistv2" scrollX="true" *ngIf="listFoods.length > 0">
+      <ion-row nowrap>
+        <div *ngFor="let item of listFoods" [style.backgroundImage]="'url('+item.IMAGE_URL+')'"
+          class="fooditemv2 scroll-item" text-right>
+          <div class="information">
+            <h4>{{item.NAME}}</h4>
+            <p class="price">{{'rdt.price' | translate}}: <span *ngIf="item.SALE_PRICE > 0">{{item.SALE_PRICE | number:0}} VND</span><span *ngIf="item.SALE_PRICE <= 0">Chưa cập nhật</span></p>
+            <!-- <p *ngIf="item.DESCRIPTION != null && item.DESCRIPTION != ''"><span [innerHTML]="item.DESCRIPTION"></span></p> -->
+          </div>
+        </div>
+      </ion-row>
+    </ion-scroll>
+
+    <p *ngIf="listFoods.length == 0">{{'rdt.unupdated' | translate}}</p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="arrow-down arrow-gray"></div>
+  <div class="nearby">
+    <h2>{{'toolbox.explorenearby' | translate}}</h2>
+    <div class="tab-list">
+      <div class="tab" [ngClass]="[current_type == 'TPLACE' ? 'active': '', useGT ? 'tab4' : 'tab3']" (click)="changeType('TPLACE')">{{'toolbox.see' | translate}}</div>
+      <div class="tab" [ngClass]="[current_type == 'RESTAURANT' ? 'active': '', useGT ? 'tab4' : 'tab3']" (click)="changeType('RESTAURANT')">{{'toolbox.eat' | translate}}</div>
+      <div class="tab" [ngClass]="[current_type == 'HOTEL' ? 'active': '', useGT ? 'tab4' : 'tab3']" (click)="changeType('HOTEL')">{{'toolbox.stay' | translate}}</div>
+      <div *ngIf="useGT" class="tab tab4" [ngClass]="[current_type == 'ENTERTAINMENT' ? 'active': '']" (click)="changeType('ENTERTAINMENT')">{{'lctlk.entertainment' | translate}}</div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="searchResult">
+      <!-- <div class="swiper-container swiper-container-4">
+        <div class="swiper-wrapper swiper-wrapper-4" (click)="onClickTopBooking($event)">
+
+        </div>
+      </div> -->
+
+      <ion-scroll #scroll class="scroll-horizontal foodlistv3" scrollX="true" *ngIf="listResult.length > 0">
+        <ion-row nowrap>
+          <div *ngFor="let item of listResult" [style.backgroundImage]="'url('+item.LOCATION_AVATAR_DP+')'"
+            class="fooditemv3 scroll-item" text-right (click)="gotoDetail(item.LOCATION_ID, item.LOCATION_TYPE)">
+            <div class="information">
+              <h4 class="l-name">{{item.LOCATION_NAME}}</h4>
+              <p class="l-distance-duration"><span class="icon distance-icon"></span> {{item.DISTANCE_CALC}} <span class="icon duration-icon"></span> {{item.DURATION_CALC}}</p>
+              <!-- <p class="l-duration"></p> -->
+              <!-- <p *ngIf="item.DESCRIPTION != null && item.DESCRIPTION != ''"><span [innerHTML]="item.DESCRIPTION"></span></p> -->
+            </div>
+          </div>
+        </ion-row>
+      </ion-scroll>
+
+      <!--<div class="full-content">
+        Không tìm thấy {{type}} gần đây
+      </div>-->
+      <!--<div id="see" class="list" data-value="see" *ngIf="listNearbySee.length > 0">
+        <div class="list-content">
+          <ion-slides slider="nearbyH" slidesPerView="2">
+            <ion-slide *ngFor="let item of listNearbySee">
+              <div class="list-item">
+                <img src="{{item.imgURL | imageUrl}}" />
+                <div class="name">{{item.name}}</div>
+                <div class="info">
+                  <span class="distance" *ngIf="item.distance != ''"><ion-icon name="trending-up"></ion-icon>&nbsp;{{item.distance}}</span>
+                  <span class="duration" *ngIf="item.duration != ''"><ion-icon name="timer"></ion-icon>&nbsp;{{item.duration}}</span>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+      <div id="see" class="list no-list" data-value="see" *ngIf="listNearbySee.length == 0">
+        <p>Không tìm thấy {{type}} gần đây</p>
+      </div>
+
+      <div id="stay" class="list" data-value="stay" *ngIf="listNearbyStay.length > 0">
+        <div class="list-content">
+          <ion-slides slider="nearbyHa" slidesPerView="2">
+            <ion-slide *ngFor="let item of listNearbyStay">
+              <div class="list-item">
+                <img src="{{item.imgURL | imageUrl}}" />
+                <div class="name">{{item.name}}</div>
+                <div class="info">
+                  <span class="distance" *ngIf="item.distance != ''"><ion-icon name="trending-up"></ion-icon>&nbsp;{{item.distance}}</span>
+                  <span class="duration" *ngIf="item.duration != ''"><ion-icon name="timer"></ion-icon>&nbsp;{{item.duration}}</span>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+      <div id="stay" class="list no-list" data-value="stay" *ngIf="listNearbyStay.length == 0">
+        <p>Không tìm thấy {{type}} gần đây</p>
+      </div>
+
+      <div id="eat" class="list" data-value="eat" *ngIf="listNearbyEat.length > 0">
+        <div class="list-content">
+          <ion-slides slider="nearbyHan" slidesPerView="2">
+            <ion-slide *ngFor="let item of listNearbyEat">
+              <div class="list-item">
+                <img src="{{item.imgURL | imageUrl}}" />
+                <div class="name">{{item.name}}</div>
+                <div class="info">
+                  <span class="distance" *ngIf="item.distance != ''"><ion-icon name="trending-up"></ion-icon>&nbsp;{{item.distance}}</span>
+                  <span class="duration" *ngIf="item.duration != ''"><ion-icon name="timer"></ion-icon>&nbsp;{{item.duration}}</span>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+      <div id="eat" class="list no-list" data-value="eat" *ngIf="listNearbyEat.length == 0">
+        <p>Không tìm thấy {{type}} gần đây</p>
+      </div>-->
+    </div>
+  </div>
+</ion-content>

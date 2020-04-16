@@ -1,0 +1,69 @@
+page-plan-direction {
+    .scroll-content {
+        background: #f4f5d1;
+        color: #d07d33;
+    }
+    .showInfo { 
+        height: 25px;
+        margin: 5px;
+        border-radius: 5px; 
+        .info {
+            width: 50%;
+            background: #fff;
+            float: left;
+            padding: 5px;
+            font-size: .8em;
+        }
+    }
+    #map {
+        width: 100%;
+        height: calc(100% - 180px);
+    }
+    .my-custom-class-for-label {
+      color: #820101;
+      font-family: Tahoma, Geneva, sans-serif;
+      background: rgba(255, 255, 255, 0.3);
+      font-size: 11px;
+      font-weight: bold;
+      text-align: center;
+      width: auto;
+      white-space: nowrap;
+      padding-top: 5px;
+      z-index: 0;
+    }
+    .from, .to {
+        width: 100vw;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 5px;
+        .list {
+            display: none;
+            background: #e07d13;
+            color: #fff;
+            .content {
+                padding: 5px;
+                border-bottom: 1px solid #fff;
+            }
+        }
+        .title-placeholder {
+            width: 45%;
+            float: left;
+            padding: 5px;
+        }
+        .placeholder {
+            width: 55%;
+            background: #e07d13;
+            padding: 5px;
+            border-bottom: 1px solid #fff;
+            color: #fff;
+            float: right;
+        }
+        .title { color: #3ea7fa; padding-left: 45%; padding-top: 10px; }
+    }
+    .full-row {
+        width: 100%;
+        button {
+            width: 100%;
+        }
+    }
+}

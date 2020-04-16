@@ -1,0 +1,156 @@
+<!--
+  Generated template for the MapRoute page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'user.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="has-nav-bot">
+  <div class="container">
+    <div class="inner-container">
+      
+      <div class="btn-area change-information" (click)="UserInfoChange()">
+        <div class="border-top-left"></div>
+        <div class="border-top-right"></div>
+        <div class="border-bottom-left"></div>
+        <div class="border-bottom-right"></div>
+        <div class="btn-content">
+          <ion-icon name="person"></ion-icon>
+          <div class="btn-text">
+            <h5>Tài khoản</h5>
+            <p>Thay đổi thông tin tài khoản tại đây</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="btn-area btn-area-red hobbies-update" (click)="UserHobbies()">
+        <div class="border-top-left"></div>
+        <div class="border-top-right"></div>
+        <div class="border-bottom-left"></div>
+        <div class="border-bottom-right"></div>
+        <div class="btn-content">
+          <ion-icon name="star"></ion-icon>
+          <div class="btn-text">
+            <h5>{{'user.hobby' | translate}}</h5>
+            <p>{{'user.hobbydescrition' | translate}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-area btn-area-blue booking-history" (click)="UserBooking()">
+        <div class="border-top-left"></div>
+        <div class="border-top-right"></div>
+        <div class="border-bottom-left"></div>
+        <div class="border-bottom-right"></div>
+        <div class="btn-content">
+          <ion-icon name="bookmarks"></ion-icon>
+          <div class="btn-text">
+            <h5>{{'user.bookinghistory' | translate}}</h5>
+            <p>{{'user.bookinghistorydescription' | translate}}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="btn-area btn-area-orange plan-history" (click)="UserPlanSaved()">
+        <div class="border-top-left"></div>
+        <div class="border-top-right"></div>
+        <div class="border-bottom-left"></div>
+        <div class="border-bottom-right"></div>
+        <div class="btn-content">
+          <ion-icon name="calendar"></ion-icon>
+          <div class="btn-text">
+            <h5>{{'user.planhistory' | translate}}</h5>
+            <p>{{'user.planhistorydescription' | translate}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-area btn-area-wishlist plan-history" (click)="UserWishList()">
+        <div class="border-top-left"></div>
+        <div class="border-top-right"></div>
+        <div class="border-bottom-left"></div>
+        <div class="border-bottom-right"></div>
+        <div class="btn-content">
+          <ion-icon name="heart"></ion-icon>
+          <div class="btn-text">
+            <h5>{{'user.mysaved' | translate}}</h5>
+            <p>{{'user.mysaveddescription' | translate}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-area btn-area-wishlist plan-history" (click)="UserNote()">
+        <div class="border-top-left"></div>
+        <div class="border-top-right"></div>
+        <div class="border-bottom-left"></div>
+        <div class="border-bottom-right"></div>
+        <div class="btn-content">
+          <img src="assets/images/icon-design/icon-note.png" />
+          <div class="btn-text">
+            <h5>{{'user.mynote' | translate}}</h5>
+            <p>{{'user.mynotedescription' | translate}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-custom-nav-bot [navCtrl]="navCtrl" currentPage="user" [modalCtrl]="modalCtrl"></ion-custom-nav-bot>
+
+<!--<div class="custom-tab">
+  <div id="tab-map" class="custom-tab-item" (click)="changeToOverViewPage()">
+    <div>
+      <ion-icon name="home"></ion-icon>
+      <span>
+        Tổng quan
+      </span>
+    </div>
+  </div>
+  <div id="tab-home" class="custom-tab-item" (click)="changeToHomePage()">
+    <div>
+      <ion-icon name="cube"></ion-icon>
+      <span>
+        Sự kiện
+      </span>
+    </div>
+  </div>
+  <div id="tab-plan" class="custom-tab-item" (click)="changeToPlanPage()">
+    <div>
+      <ion-icon name="clipboard"></ion-icon>
+      <span>
+        Lịch trình
+      </span>
+    </div>
+  </div>
+  <div id="tab-map" class="custom-tab-item" (click)="changeToMapPage()">
+    <div>
+      <ion-icon name="map"></ion-icon>
+      <span>
+        Bản đồ
+      </span>
+    </div>
+  </div>
+  
+  <div id="tab-lookup" class="custom-tab-item custom-tab-active">
+    <div>
+      <ion-icon name="person"></ion-icon>
+      <span>
+        Tài khoản
+      </span>
+    </div>
+  </div>
+</div>-->

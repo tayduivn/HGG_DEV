@@ -1,0 +1,76 @@
+
+
+<!--
+  Generated template for the BookingHotel page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'bkht.title' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <h5>{{ 'bkht.bookinginfo' | translate }}</h5>
+  <ion-item>
+    <ion-label>{{ 'bkht.fromdate' | translate }}</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="model.checkin" max="2030-12-31" placeholder="DD-MM-YYYY" (ionChange)="changeCheckoutDate()"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'bkht.todate' | translate }}</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="model.checkout" max="2030-12-31" placeholder="DD-MM-YYYY" (ionChange)="changeCheckinDate()"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'bkht.roomformat' | translate }}</ion-label>
+    <ion-select [(ngModel)]="model.category" (ionChange)="updateChecked()">
+      <ion-option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'bkht.roomtype' | translate }}</ion-label>
+    <ion-select [(ngModel)]="model.roomType" (ionChange)="updateChecked()">
+      <ion-option *ngFor="let roomType of roomTypes" value="{{roomType.id}}">{{roomType.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'bkht.noroom' | translate }}</ion-label>
+    <ion-input type="tel" class="quantity-input" placeholder="{{ 'bkht.noroom' | translate }}" [(ngModel)]="model.roomQuantity"></ion-input>
+  </ion-item>
+
+  <h5>{{ 'bkht.checkav' | translate }}</h5>
+  <button ion-button (click)="checkAllotment()">{{ 'bkht.check' | translate }}</button>
+  <p id="roomInForAfterCheck">
+    <span class="price-show"><span class="label">{{ 'bkht.price' | translate }}: </span><span class="value">{{checkInfo.price}}</span></span>
+    <span class="allotment-show"><span class="label">{{ 'bkht.noav' | translate }}: </span><span class="value">{{checkInfo.allotment}}</span> phòng</span>
+  </p>
+
+  <h5>{{ 'bkht.contactinfo' | translate }}</h5>
+  <div class="personal-info">
+    <ion-item>
+      <ion-label>{{ 'bkht.name' | translate }}</ion-label>
+      <ion-input type="text" placeholder="{{ 'bkht.name' | translate }}" [(ngModel)]="model.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ 'bkht.phoneno' | translate }}</ion-label>
+      <ion-input type="tel" placeholder="{{ 'bkht.phoneno' | translate }}" [(ngModel)]="model.telephone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ 'bkht.email' | translate }}</ion-label>
+      <ion-input type="email" placeholder="{{ 'bkht.email' | translate }}" [(ngModel)]="model.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ 'bkht.note' | translate }}</ion-label>
+      <ion-input type="text" placeholder="{{ 'bkht.note' | translate }}" [(ngModel)]="model.note"></ion-input>
+    </ion-item>
+  </div>
+  <p class="danger" *ngFor="let item of error">{{item}}</p>
+  <button ion-button (click)="submit()">{{ 'bkht.book' | translate }}</button>
+</ion-content>

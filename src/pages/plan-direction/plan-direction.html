@@ -1,0 +1,49 @@
+<!--
+  Generated template for the PlanDirection page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'pdirect.route' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="chooseWay">
+    <div class="from">
+      <div class="title-placeholder">{{'pdirect.departure' | translate}}</div>
+      <div class="placeholder" (click)="openBox('fromBox')">{{'pdirect.choosedeparture' | translate}}</div>
+      <div class="clearfix"></div>
+      <div id="fromBox" class="list" style="display: none;">
+        <div class="content" *ngFor="let itemF of listLocations" (click)="chooseFromLocation(itemF)">
+          {{itemF?.LOCATION_NAME}}
+        </div>
+      </div>
+      <div class="title">{{from?.LOCATION_NAME}}</div>
+    </div>
+    <div class="to">
+      <div class="title-placeholder">{{'pdirect.destination' | translate}}</div>
+      <div class="placeholder" (click)="openBox('toBox')">{{'pdirect.choosedestination' | translate}}</div>
+      <div class="clearfix"></div>
+      <div id="toBox" class="list" style="display: none;">
+        <div class="content" *ngFor="let itemT of listLocations" (click)="chooseToLocation(itemT)">
+          {{itemT?.LOCATION_NAME}}
+        </div>
+      </div>
+      <div class="title">{{to?.LOCATION_NAME}}</div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="full-row"><button ion-button (click)="route()">{{'pdirect.direction' | translate}}</button></div>
+  </div>
+  <div class="showInfo">
+    <div class="info">{{'pdirect.distance' | translate}}: {{totalDistance}}</div>
+    <div class="info">{{'pdirect.time' | translate}}: {{totalTime}}</div>
+  </div>
+  <div #map id="map"></div>
+</ion-content>

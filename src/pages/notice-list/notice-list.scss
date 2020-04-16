@@ -1,0 +1,35 @@
+page-notice-list {
+    h2 {
+        width: 100%;
+        word-wrap: break-word;
+        white-space: normal;
+        color: #fa9205;
+        font-weight: bold !important;
+    }
+    p {
+        color: #006afa !important;
+        &.right {
+            float: left;
+            padding-left: 15px;
+        }
+        &.left {
+            float: right;
+            font-style: italic;
+        }
+    }
+    .listNews {
+        ion-item {
+            padding: 10px;
+            border-bottom: 1px solid #006afa;
+            .item-inner {
+                border-bottom: none!important;
+            }
+        }
+        .block {
+            width: 100%;
+            display: block;
+            clear: both;
+        }
+    }
+    
+}

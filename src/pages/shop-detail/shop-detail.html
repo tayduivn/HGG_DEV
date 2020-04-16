@@ -1,0 +1,77 @@
+<!--
+  Generated template for the LocationMapShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'sd.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="image-present">
+    <img src="{{shop.IMAGE | imageUrl}}" onerror="this.src='assets/iconImages/noimage.png'" />
+    <!-- <ion-slides pager="true">
+      <ion-slide *ngFor="let image of listImage">
+          <img src="{{image}}" onerror="this.src='assets/iconImages/noimage.png'" />
+      </ion-slide>
+    </ion-slides> -->
+    <div *ngIf="!isUserWish" class="love" (click)="toggleSaveWishList()">
+      <img style="display:inline" class="heart" [src]="bookId == 0?'assets/iconImages/heart1.png':'assets/iconImages/heart2.png'" />
+      <span [style.color]="bookId == 0?'#27BBF2':'#F58387'" class="count-love">{{shop?.COUNT_LIKE}}</span>
+    </div>
+    <h2>{{shop.NAME}}</h2>
+    <button *ngIf="disableAddPlan != true" ion-button class="btn-header" (click)="addToPlan()"><ion-icon name="add"></ion-icon>&nbsp;<span>{{'toolbox.addtoplan' | translate}}</span></button>
+    <div class="ultilityBox">
+      <button ion-button (click)="note()"><img src="assets/images/icon-note.png" />&nbsp;{{'sd.note' | translate}}</button>
+    </div>
+    <!--<button ion-button class="btn-header" (click)="addToPlan()"><ion-icon name="add"></ion-icon>&nbsp;Thêm vào lịch trình</button>-->
+  </div>
+
+  <div class="toolbox">
+    <div class="button-list">
+      <a *ngIf="shop.PHONE_NO != null && shop.PHONE_NO != ''" class="btn" href="tel:{{shop.PHONE_NO}}">
+          <div class="image"><ion-icon name="call"></ion-icon></div>
+          <div class="text">{{'sd.call' | translate}}</div>
+      </a>
+      <div class="btn" (click)="gotoRate()">
+        <div class="image"><ion-icon name="text"></ion-icon></div>
+        <div class="text">{{'sd.rate' | translate}}</div>
+      </div>
+      
+      <!--<div class="btn" (click)="gotoUserImage()">
+        <div class="image"><ion-icon name="camera"></ion-icon></div>
+        <div class="text">{{'sd.takephoto' | translate}}</div>
+      </div>-->
+      <div class="btn" (click)="gotoLocation()">
+        <div class="image"><ion-icon name="pin"></ion-icon></div>
+        <div class="text">{{'sd.direction' | translate}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-down arrow-blue"></div>
+
+  <div class="about-us">
+    <h3>{{'sd.introduction' | translate}}</h3>
+    <span class="label">{{'sd.address' | translate}}</span>: <span>{{shop.ADDRESS}}</span><br/>
+    <!--<span class="label">Giờ mở cửa</span>: <span>{{shop.opentime}} - {{shop.closetime}}</span><br/>-->
+    <span *ngIf="shop.PHONE_NO != '' && shop.PHONE_NO != null"><span class="label">{{'sd.phoneno' | translate}}</span>:
+    <span>{{shop.Phone}}</span><br/></span>
+    <span *ngIf="sightseeing?.website != ''"><span class="label">{{'sd.website' | translate}}</span>: <span>{{shop?.Website}}</span><br/></span>
+    <span *ngIf="sightseeing?.email != ''"><span class="label">{{'sd.email' | translate}}</span>: <span>{{shop?.Email}}</span><br/></span>
+    <span class="label">{{'sd.description' | translate}}</span>:<br/>
+    <div class="about-us-content"><span [innerHTML]="shop.DESCRIPTION"></span></div>
+  </div>
+
+  <div class="product-list" *ngIf="listProduct.length > 0">
+    <div class="product-item" *ngFor="let item of listProduct">
+      <img src="{{item.IMAGE_URL | imageUrl}}" />
+      <div class="product-name" *ngIf="item.NAME != '' && item.NAME != null">{{item.NAME}}</div>
+    </div>
+  </div>
+</ion-content>

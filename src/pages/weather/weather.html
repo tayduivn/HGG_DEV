@@ -1,0 +1,99 @@
+<!--
+  Generated template for the LocationMapShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'newweather.title'| translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content class="weather">
+
+  <div class="current-weather">
+    <div *ngIf="listWeatherByDate != null && listWeatherByDate.length > 0">
+      <p class="center-txt f-p">{{listWeatherByDate[0].wd}}, {{listWeatherByDate[0].rdate|date: "dd-MM-yyyy"}}</p>
+      <p class="center-txt">{{'forecast.n3'| translate}}</p>
+      <p class="center-txt temp">{{listWeatherByDate[0].listTime[0].weather.temperature.toFixed(0)}}&deg;C</p>
+      <p class="center-txt img"><img src="assets/images/weather/{{listWeatherByDate[0].listTime[0].weather.icon}}.png" /></p>
+      <p class="center-txt"><img src="assets/images/weather/humidity.png" /> {{listWeatherByDate[0].listTime[0].weather.humidity}}%</p>
+      <p class="center-txt"><img src="assets/images/weather/wind.png" /> {{listWeatherByDate[0].listTime[0].weather.wind}}m/s</p>
+      <p class="center-txt"><img src="assets/images/weather/drizzle.png" /> {{listWeatherByDate[0].listTime[0].weather.name}}</p>
+    </div>
+  </div>
+
+  <div class="list-date" *ngIf="listWeatherByDate != null && listWeatherByDate.length > 0">
+    <div class="item-date" *ngFor="let item of listWeatherByDate">
+      <div class="item-title">{{item.wd}}, {{item.rdate|date: "dd-MM-yyyy"}}</div>
+      <div class="item-header">
+        <div class="item-weather row-odd">
+          <div class="item-time"><img src="assets/images/weather/time.png" /></div>
+          <div class="item-weather-icon"><img src="assets/images/weather/drizzle.png" /></div>
+          <div class="item-temp"><img src="assets/images/weather/thermometer.png" /></div>
+          <div class="item-humidity"><img src="assets/images/weather/humidity.png" /></div>
+          <div class="item-wind"><img src="assets/images/weather/wind.png" /></div>
+          <!-- <div class="item-weather-name">{{iw.weather.name}}</div> -->
+          <div class="item-weather-name"><img src="assets/images/weather/question.png" /></div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="list-item-weather">
+        <div class="item-weather" [ngClass]="i % 2 == 0 ? 'row-even' : 'row-odd'" *ngFor="let iw of item.listTime; let i = index" (click)="displayName(iw)">
+          <div class="item item-time">{{iw.time}}</div>
+          <div class="item item-weather-icon"><img src="assets/images/weather/{{iw.weather.icon}}.png" /></div>
+          <div class="item item-temp">{{iw.weather.temperature.toFixed(0)}}&deg;C</div>
+          <div class="item item-humidity">{{iw.weather.humidity}}%</div>
+          <div class="item item-wind">{{iw.weather.wind}}m/s</div>
+          <!-- <div class="item-weather-name">{{iw.weather.name}}</div> -->
+          <div class="item item-weather-name"><img src="assets/images/weather/question.png" /></div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <img class="cu_img" src="assets/weathers/{{currentWeather.code}}.svg" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="row_t">
+      <ion-col text-center class="str_t">
+        {{textString}} <span class="wea_oC">{{currentWeather.temp}}&deg;C</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row_t">
+      <ion-col text-center>
+        {{'weather.low' | translate}} {{currentWeather.low}}&deg;C | {{'weather.high' | translate}} {{currentWeather.high}}&deg;C
+      </ion-col>
+    </ion-row>
+    <ion-row class="row_t">
+      <ion-col text-center class="cu_da">
+        {{currentWeather.namedate}}, {{currentWeather.date}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="we_tt" full padding text-center>{{'weather.followingdays' | translate}}</div>
+
+  <ion-grid class="listForeCast">
+    <ion-row *ngFor="let we of listForeCast">
+      <ion-col>
+        <span full class="da_t">{{we.day}}</span>
+        <span full class="da_t_2">{{we.date}}</span>
+      </ion-col>
+      <ion-col class="lst_img" text-center>
+        <img src="assets/weathers/{{we.code}}.svg" />
+      </ion-col>
+      <ion-col class="lst_in" text-right>
+        {{we.high}}&deg;C - {{we.low}}&deg;C
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+</ion-content>

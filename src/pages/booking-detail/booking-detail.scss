@@ -1,0 +1,53 @@
+page-booking-detail {
+    .scroll-content {
+        background: #eaeaea;
+    }
+    .general-info {
+        background: #fff;
+        text-align: center;
+        min-height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 3px 4px 3px #888888;
+        margin: 5px;
+        border-radius: 7.5px;
+        .booking-name {
+            text-transform: uppercase;
+            color: #005500;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        .booking-time {
+            color: #99bb99;
+            font-size: .9em;
+        }
+    }
+    .detail-info {
+        box-shadow: 3px 4px 3px #888888;
+        background: #fff;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 7.5px;
+        .info-row {
+            margin-bottom: 10px;
+            margin-top: 10px;
+            display: inline-block;
+            width: 100%;
+            .label { float: left; color: #8d8d8d; }
+            .value { float: right; }
+        }
+        .info-row::after {
+            clear: both;
+            display: block;
+        }
+    }
+    .booking-info-label {
+        text-transform: uppercase;
+        font-size: 1.1em;
+        margin: 15px 0;
+        font-weight: 600;
+        text-align: center;
+    }
+}

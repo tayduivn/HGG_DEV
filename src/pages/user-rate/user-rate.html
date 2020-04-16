@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{'ur.title' | translate}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+    <form [formGroup]="todo" (ngSubmit)="submit()">
+        <input type="hidden" formControlName="PLACE_CODE" />
+        <input type="hidden" formControlName="PLACE_ID" />
+        <ion-grid>
+            <ion-row>
+                <ion-col col-7>
+                    <ion-item>
+                        <ion-input type="text" placeholder="{{'ur.content' | translate}}" formControlName="CONTENT"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-3>
+                    <ion-item>
+                        <ion-input type="number" placeholder="{{'ur.point' | translate}}" max="10" min="0" formControlName="RATE"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-2>
+                    <button ion-button type="submit" full [disabled]="!todo.valid">
+                        <ion-icon name="send"></ion-icon>
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+    <ion-list>
+        <ion-item *ngFor="let feedback of list">
+            <ion-item *ngIf="feedback.USER_ACCOUNT != null && feedback.USER_ACCOUNT.USER_PROFILE != null">
+                <ion-avatar item-start>
+                    <img [src]="feedback.USER_ACCOUNT.USER_PROFILE.IMAGE==null || feedback.USER_ACCOUNT.USER_PROFILE.IMAGE=='' ?'assets/images/banner.png':feedback.USER_ACCOUNT.USER_PROFILE.IMAGE | imageUrl">
+                </ion-avatar>
+                <h2>{{feedback.USER_ACCOUNT.USER_PROFILE.FIRST_NAME}} {{feedback.USER_ACCOUNT.USER_PROFILE.LAST_NAME}}</h2>
+                <p>{{feedback.CONTENT}}</p>
+                <ion-note item-end>
+                    {{feedback.RATE}}
+                    <br> {{feedback.CREATE_DATE | date:'dd/MM/yyyy'}}
+                </ion-note>
+            </ion-item>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
+<!--
+<ion-fab left top style="margin-top: 64px;">
+    <button ion-fab color="primary" (click)="takePicture()">
+        <ion-icon name="md-camera"></ion-icon>
+    </button>
+</ion-fab>-->

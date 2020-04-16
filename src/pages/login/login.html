@@ -1,0 +1,69 @@
+<ion-header>
+  <!--<ion-toolbar>
+    <ion-title>
+      Đăng nhập
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>-->
+  <ion-navbar hideBackButton>
+    <button ion-button clear small navPop start class="button-back">
+      <img src="assets/images/try/icon-29.png" /> Back
+    </button>
+    <ion-title class="custom-title">{{'login.form.title'| translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="login-content">
+  <div class="login-page-header">
+    <div class="full-row">
+      <img src="assets/images/banner2.png"/>
+    </div>
+  </div>
+  <div class="login-custom">
+    <div>
+      <div class="login-box">
+        <div class="label-text">
+          <img src="assets/images/icon-design/icon-52.png" />
+          <ion-input type="email" clearInput name="username" [(ngModel)]="registerCredentials.UserName" required [minlength]="6" placeholder="{{'login.form.username'| translate}}"></ion-input>
+        </div>
+        <div class="clearfix"></div>
+        <div class="label-text">
+          <img src="assets/images/icon-design/icon-53.png" />
+          <ion-input type="password" clearInput name="password" [(ngModel)]="registerCredentials.Password" required [minlength]="6" placeholder="{{'login.form.password'| translate}}"></ion-input>
+        </div>
+        <div class="clearfix"></div>
+        <!--<form (ngSubmit)="login()" #registerForm="ngForm">
+          <ion-item>
+            <ion-label>{{'login.form.username'| translate}}</ion-label>
+            <ion-input type="text" clearInput name="username" [(ngModel)]="registerCredentials.username" required [minlength]="6"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>{{'login.form.password'| translate}}</ion-label>
+            <ion-input type="password" clearInput name="password" [(ngModel)]="registerCredentials.password" required [minlength]="6"></ion-input>
+          </ion-item>
+          
+          
+        </form>-->
+        <!--<button ion-button icon-left block (click)="fblogin()">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <span class="text-type">đăng nhập bằng facebook</span>
+        </button>-->
+        <button ion-button class="submit-btn" full type="submit" (click)="login()">{{'login.form.submitButton'| translate}}</button>
+
+        <button ion-button icon-start class="submit-btn login-fb" full type="submit" (click)="loginWithFacebook()">
+          <ion-icon name="logo-facebook"></ion-icon>
+          {{'login.form.loginFacebook'| translate}}</button>
+
+        <button ion-button icon-start class="submit-btn login-gg" full type="submit" (click)="loginWithGoogle()">
+          <ion-icon name="logo-googleplus"></ion-icon>
+          {{'login.form.loginGoogle'| translate}}</button>
+
+        <button ion-button class="submit-btn" full type="submit" (click)="createAccount()" block clear>{{'login.form.createButton'| translate}}</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

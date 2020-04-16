@@ -1,0 +1,45 @@
+import { RestaurantImage } from "./RestaurantImage";
+import { RestaurantService } from "./RestaurantService";
+import { RestaurantProduct } from "./RestaurantProduct";
+
+export class Restaurant {
+    Restaurant_Id: number;
+    Phone: string;
+    Email: number;
+    Tax_Code: string;
+    Bank: string;
+    Bank_Account_Number: string;
+    Location_Id: string;
+    Restaurant_Type_Id: string;
+    National_Id: string;
+    Open_Time: string;
+    Close_Time: string;
+    Avg_Price: number;
+    Restaurant_Name: string;
+    Restaurant_Description: string;
+    Restaurant_Note: string;
+    Address: string;
+    Location_Name: string;
+    Nationality_Name: string;
+    Location_Level1_Name: string;
+    Location_Level2_Name: string;
+    Location_Level3_Name: string;
+    Image_Url: string;
+    Travel_Service_Food: string;
+    Travel_Service_Bestfor: string;
+    Travel_Service_Foodtype: string;
+    Travel_Service_Hobby: string;
+    Travel_Service_FB: string;
+    Rate: number;
+    Group_Id: number;
+    Distance_Sort: number;
+    Location_Level2_Id: number;
+    Distance: number;
+    Use_App: number;
+    Google_Location: string;
+    Restaurant_Image: RestaurantImage[];
+    Restaurant_Service: RestaurantService[];
+    Restaurant_Product: RestaurantProduct[];
+    Total_Bookmark: number;
+    Url_3D: string;
+}

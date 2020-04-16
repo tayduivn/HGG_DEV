@@ -1,0 +1,71 @@
+<!--
+  Generated template for the PlanDateChoice page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'pdc.title' | translate}}</ion-title>
+  </ion-navbar>
+  <div id="alert-popup" (click)="closePopup()" style="display:none;">
+    <div id="popupDateTime">
+      <span class="chosen-place-name" *ngIf="this.location != null">{{this.location.name}}</span>
+      <div class="date-choose">
+        <ion-icon name="calendar"></ion-icon>
+      </div>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="itemAdd.LOCATION_START_TIME" (ionChange)="submit(itemAdd)" *ngIf="itemAdd != null"></ion-datetime>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="plan-day-list">
+    <!--<div class="plan-day-item" *ngFor="let item of plan.L_LIST_DETAIL" (click)="submit(item)">
+      <div class="plan-date-title"><h5></h5></div>
+    </div>-->
+
+    <div *ngIf="plan.LIST_PLACE_OF_TOUR_IN_DAY != null">
+      <div class="plan-item-edit" *ngFor="let item of plan.LIST_PLACE_OF_TOUR_IN_DAY" (click)="popupDateOn(item)">
+        <div class="plan-title-edit">
+          <h3 class="plan-date-edit">
+            {{'pdc.day' | translate}} {{item.DAY}}
+          </h3>
+          
+          <div class="plan-total-edit"><ion-icon name="pin"></ion-icon>&nbsp;{{getPlanTotalLocation(item)}} {{'pdc.place' | translate}}</div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="plan-content-edit">
+          <div class="plan-img-edit" *ngFor="let planItem of item.LIST_DAY_DETAILS">
+            <img src="{{planItem.LOCATION_AVATAR | imageUrl}}" onerror="this.src='assets/iconImages/noimage.png'" alt="{{'pdc.repimg' | translate}}" />
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="plan-footer-edit">
+          <button class="normal-link f-r"><ion-icon name="disc"></ion-icon> {{'pdc.choose' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div *ngIf="plan.LIST_PLACE_OF_TOUR_IN_DAY == null">
+      <div class="plan-item-edit" *ngFor="let item of plan.LIST_PLACE_OF_TOUR_IN_DAY" (click)="submit(item)">
+        <div class="plan-title-edit">
+          <h3 class="plan-date-edit">
+            {{'pc.day' | translate}} {{item.DAY}}
+          </h3>
+          <div class="plan-total-edit"><ion-icon name="pin"></ion-icon>&nbsp;{{getPlanTotalLocation(item)}} {{'pc.place' | translate}}</div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="plan-content-edit">
+          
+        </div>
+        <div class="clearfix"></div>
+        <div class="plan-footer-edit">
+          <button class="normal-link f-r"><ion-icon name="disc"></ion-icon> {{'pdc.choose' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</ion-content>

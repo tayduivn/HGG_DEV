@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ListNotePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton>
+    <button ion-button clear small navPop start class="button-back">
+      <img src="assets/images/try/icon-29.png" /> Back
+    </button>
+    <ion-title class="custom-title">{{'note-list.title' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="list-loc" *ngIf="listlocation.length > 0">
+    <div class="loc-item item" *ngFor="let location of listlocation" (click)="gotoDetail(location)">
+      <div class="loc-img">
+        <img src="{{(location.Avatar_Url != null && location.Avatar_Url != '') ? this.changeURL(location.Avatar_Url) : (location.Image_Url != null && location.Image_Url != '') ? this.changeURL(location.Image_Url) : 'assets/iconImages/noimage.png'}}" onerror="this.src='assets/iconImages/noimage.png'" />
+      </div>
+      <div class="loc-info">
+        <div class="name">
+          {{location.Location_Name}}
+        </div>
+        <div class="address">
+          <!-- <ion-icon name="pin"></ion-icon> -->
+          <div class="text-add"><ion-icon name="pin"></ion-icon></div>
+          <span class="text-add">{{location.Location_Address}}</span>
+        </div>
+        <div class="btn-opennote" (click)="openNote($event, location)">{{'note-list.viewnote' | translate}}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>

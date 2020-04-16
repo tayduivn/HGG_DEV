@@ -1,0 +1,24 @@
+page-event-show {
+    /*.scroll-content {
+        background: url('http://www.hotrodulichdalat.com/Content/Images/uploaded/kinhnghiemdulichdalat/mua-da-lat.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }*/
+    .item-list { color: #fff; position: relative; margin-bottom: 1px; }
+    .item-list .event-info { position: absolute; left: 0; bottom: 0px; width: 100%; background: rgba(0,0,0,.5); display: flex; align-items: flex-end; justify-content: flex-end; }
+    .item-list h2 { font-size: 1em; text-align: center; margin: .5em; };
+    .btn-load-more { width: calc(100%); background: #2CBCF3; color: #fff; border: 1px solid #ccc; min-height: 50px; margin: 0px; }
+    ion-content.p-a .scroll-content { padding: 0; }
+    .event-image { min-height: 120px; overflow: hidden; }
+    .event-image img { margin: 0; display: block; width: 100%; height: 100%; }
+    .item-list .event-name { flex-basis: 55%; margin: 0; float: left; padding: 10px 5px; text-align: left; font-size: .95em; }
+    .item-list p {
+        flex-basis: 45%;
+        margin: 0;
+        text-align: right;
+        float: right;
+        padding: 10px 5px;
+        font-size: .8em;
+    }
+}

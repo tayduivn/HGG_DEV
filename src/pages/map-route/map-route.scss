@@ -1,0 +1,52 @@
+page-map-route {
+    .scroll-content {
+        background: #dadada;
+    }
+    .showInfo { 
+        height: 25px;
+        margin: 5px;
+        border-radius: 5px; 
+        .info {
+            width: 50%;
+            background: #fff;
+            float: left;
+            padding: 5px;
+            font-size: .8em;
+        }
+    }
+    #map {
+        width: 100%;
+        height: calc(100% - 40px);
+    }
+    .updateroute {
+        width: auto;
+        height: 28px;
+        font-size: 10px;
+        background: #fff;
+        color: #ea015e;
+        border: #ea015e 2px solid;
+        position: absolute;
+        top: 35px;
+        right: 5px;
+        box-shadow: none;
+        .button-inner {
+            font-weight: bold;
+        }
+    }
+
+    .btn-center-map {
+        position: absolute;
+        bottom: 50px;
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        border-radius: 50%;
+        border: 1px solid #ea015e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ea015e;
+        background: #fff;
+    }
+}

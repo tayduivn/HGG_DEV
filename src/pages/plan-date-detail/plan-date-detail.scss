@@ -1,0 +1,223 @@
+page-plan-date-detail {
+    .scroll-content { background: #ededed; }
+    .title-page { text-align: center; }
+    
+    .title-page h5 { font-size: 1.1em; color: #3d3d3d; }
+    // .location-item {
+    //     background: #fff;
+    //     padding: 5px;
+    //     border-radius: 5px;
+    //     position: relative;
+
+    //     .toolbox {
+    //         position: absolute;
+    //         top: 10px; right: 5px;
+    //         z-index: 2;
+    //         .btn-sub-menu { 
+    //             text-align: right; color: #fff; font-size: 1.5em; 
+    //             ion-icon { width: 25px; padding-right: 10px;}
+    //         }
+    //         .sub-menu {
+    //             background: #2CBCF3;
+    //             color: #fff;
+    //              margin-top: -4px;
+                 
+    //             .sub-menu-row {
+    //                 border-bottom: 1px solid #ccc;
+    //                 padding: 10px;
+    //             }
+    //         }
+    //         .hidden { display: none; }
+    //         .block { display: block; }
+    //     }
+
+    //     .location-name {
+    //         font-size: 1em;
+    //         color: #fff;
+    //         padding: 10px;
+    //         background: #e07d13;
+    //         margin: 0;
+    //         border-top-left-radius: 5px;
+    //         border-top-right-radius: 5px;
+    //         min-height: 36px;
+    //     }
+    //     .location-info {
+    //         position: relative;
+    //         background-image: url('../assets/iconImages/noimage.png');
+    //         background-repeat: no-repeat;
+    //         background-size: 100% 100%;
+    //         img { min-height: 45vw; width: 100%; display: block; }
+
+    //         .price { position: absolute; bottom: 10%; width: 100%; padding: 10px; margin: 0; background: rgba(0,0,0,.4); color: #fff; }
+    //     }
+
+    //     .location-action {
+    //         background: #e07d13;
+    //         padding: 10px;
+    //         text-align: right;
+    //         margin-top: -4px;
+    //         border-bottom-left-radius: 5px;
+    //         border-bottom-right-radius: 5px;
+    //     }
+    //     .normal-link {
+    //         background: transparent;
+    //         color: #fff;
+    //     }
+    // }
+    .location-list {
+        .location-item {
+            margin: 6px 8px 0 8px;
+            padding: 8px;
+            background: #fff;
+            display: inline-block;
+            width: calc(100% - 16px);
+            position: relative;
+            &.active {
+                background: #bcbcbc;
+            }
+            .remove {
+                width: 25px;
+                height: 25px;
+                border-radius: 4px;
+                position: absolute;
+                color: #fff;
+                background: #2c83f3;
+                font-size: 1em;
+                top: 3px;
+                right: 3px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .box-chosen {
+                width: 25px;
+                height: 25px;
+                border: 1px solid #009688;
+                border-radius: 4px;
+                position: absolute;
+                top: 30px;
+                right: 3px;
+                &.active {
+                    background-image: url('../assets/images/tick.jpg');
+                    background-size: 100% 100%;
+                }
+            }
+            .location-image {
+                width: 120px;
+                height: 80px;
+                float: left;
+                position: relative;
+
+                
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 2px;
+                    display: block;
+                }
+                .time {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.4em;
+                    background: rgba(0,0,0,.4);
+                    padding: 3px;
+                    color: #fff;
+                    .datetime-text {
+                        text-align: center;
+                    }
+                }
+            }
+            .location-info {
+                width: calc(100% - 130px);
+                float: right;
+                padding-right: 28px;
+                .location-name {
+                    margin: 0;
+                    padding: 0;
+                    font-size: .9em;
+                    font-weight: 600;
+                    color: #2b5fff;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .location-price {
+                    font-size: .9em;
+                    color: #bd0000;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .location-time {
+                    font-size: .85em;
+                    color: #456789;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .location-action {
+                    position: absolute;
+                    bottom: 8px;
+                    right: 8px;
+                    width: calc(100% - 146px);
+                    .normal-link {
+                        float: left;
+                        font-size: .8em;
+                        padding: 0 8px 0 0;
+                    }
+                }
+            }
+        }
+    }
+    
+    .location-item::after {
+        clear: both;
+        width: 100%;
+    }
+    
+    .toolbox {
+        width: 100%;
+        background: #015d89;
+        display: block;
+        margin: 0;
+        padding-top: 5px;
+        text-align: right;
+        .btn { 
+            display: inline-block;
+            padding: 0 10px 5px 10px;
+            text-align: center;
+            width: 70px;
+            .image {
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #dadada;
+                background: #0e3f5c;
+                margin-bottom: 2px;
+            }
+            .text {
+                color: #fff;
+                font-size: 11px;
+                width: 50px;
+            }
+        }
+        
+    }
+    
+    .hidden {
+        display: none;
+    }
+    .block {
+        display: block;
+    }
+}

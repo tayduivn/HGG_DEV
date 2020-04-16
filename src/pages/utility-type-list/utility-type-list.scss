@@ -1,0 +1,109 @@
+page-utility-type-list {
+    .scroll-content {
+        background: url('../assets/images/icon-design/utlities-banner.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .page-container {
+        display: flex;
+        min-height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        .item-border {
+            margin: 10px;
+            padding: 10px;
+            background: rgba(0,0,0,.5);
+            border-radius: 10px;
+            width: 100%;
+        }
+        .page-tray-name {
+            border-radius: 15px;
+            background: rgba(0,0,0,.6);
+            padding: 10px;
+            margin-bottom: 25px;
+            color: #fff;
+            font-weight: 600;
+        }
+        .page-tray-name.isback {
+            width: calc(100% - 45px);
+            float: right;
+        }
+    }
+    .box-utility {
+        float: left;
+        width: 25%;
+        min-height: 150px;
+        padding: 5px;
+        text-align: center;
+        overflow: hidden;
+        .utility-name {
+            color: #fff;
+            font-weight: normal;
+            font-size: .75em;
+            margin: 0;
+            // white-space: nowrap;
+            // text-overflow: ellipsis;
+            // overflow: hidden;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .turn-back {
+        background: #000;
+        color: #fff;
+        border-radius: 50%;
+        width: 37px;
+        height: 37px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: left;
+    }
+}
+@media screen and (min-width: 450px){
+    page-utility-type-list {
+        .box-utility {
+            width: 20%;
+            min-height: 200px;
+            .utility-name {
+                font-size: 1em;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px){
+    page-utility-type-list {
+        .box-utility {
+            width: 16.6666%;
+            min-height: 230px;
+            .utility-name {
+                font-size: 1.1em;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1024px){
+    page-utility-type-list {
+        .box-utility {
+            width: 12.5%;
+            min-height: 260px;
+            .utility-name {
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1280px){
+    page-utility-type-list {
+        .box-utility {
+            width: 12.5%;
+            min-height: 290px;
+            .utility-name {
+                font-size: 1.3em;
+            }
+        }
+    }
+}

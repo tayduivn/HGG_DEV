@@ -1,0 +1,368 @@
+<!--
+  Generated template for the EventShow page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <img (click)="clickSearch()" class="search-img-header" src="assets/images/icon-design/icon-08.png" />
+        <!--<ion-searchbar (click)="clickSearch()"></ion-searchbar>-->
+        <div class="search-bar-button" (click)="clickSearch()">
+            <!-- <ion-icon name="search"></ion-icon> -->
+            <div class="btn-name">{{'overview.search' | translate}} ...</div>
+        </div>
+        <!--<div class="language-bar" (click)="chooseLang()">
+      <img src="assets/images/icon-design/icon-lang.png" />
+    </div>-->
+        <div>
+
+        </div>
+        <!--<img (click)="clickSearch()" class="search-img-header-stick" src="assets/images/icon-design/icon-09.png" /> -->
+        <!--<ion-title>{{'overviewpage.title' | translate}}</ion-title>-->
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="has-nav-bot p-a">
+    <!--<div class="menu-lang">
+    <ion-list>
+      <button ion-item *ngFor="let lang of listLang" (click)="openPage(lang)">
+        <img class="lang-repimg" [src]="lang.icon" />{{lang.name | translate}}
+      </button>
+    </ion-list>
+  </div>-->
+    <div class="bg-body">
+        <!-- <div class="swiper-container swiper-container-0">
+
+      <div class="swiper-wrapper swiper-wrapper-0" (click)="onClickTopEvent($event)">
+
+      </div>
+    </div> -->
+        <!--<div class="swiper-container gallery-top">-->
+        <!--<div (click)="gotoUtilitiesWeather()" class="weather-container" [innerHtml]="stringWeather"></div>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of listTGP_Event" (click)="showDetailTGP_Event(item)" style="background-image: url('assets/iconImages/noimage.png')">
+          <div class="bg-info" [style.background-image]="getImgBackground(item.NewsImages[0]?.Url)"></div>
+          <div class="event-info">
+            <h2 class="event-name">{{item?.News_Title}}</h2>
+          </div>
+        </div>
+        <!--<div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/2)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/3)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/4)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/5)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/6)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/7)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/8)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/9)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/10)"></div>-->
+        <!--</div>-->
+        <!-- Add Arrows -->
+        <!-- <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-button-prev swiper-button-white"></div> -->
+        <!--</div>-->
+        <!--<div class="swiper-container gallery-thumbs" style="display:none;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of listTGP_Event" [style.background-image]="getImgBackground(item.NewsImages[0]?.Url)"></div>
+        <!--<div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/2)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/3)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/4)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/5)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/6)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/7)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/8)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/9)"></div>
+            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/1200/1200/nature/10)"></div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <div class="event-show-top">
+            <div (click)="gotoUtilitiesWeather()" class="weather-container" [innerHtml]="stringWeather"></div>
+            <ion-slides id="slider1" #slides1 slider="event" autoplay="3000" effect="slide" *ngIf="listTGP_Event.length > 0">
+                <ion-slide *ngFor="let item of listTGP_Event" (click)="showDetailTGP_Event(item.ID)">
+                    <div class="event-image">
+                        <img src="{{item.IMAGE_URL | imageUrl}}" />
+                    </div>
+                    <div class="event-info">
+                        <h2 class="event-name">{{item?.TITLE}}</h2>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+
+        <div class="search-area">
+
+
+            <!-- <h2>Khám phá</h2> -->
+            <div class="rectangle rectangle-blue"></div>
+            <div class="arrow-down arrow-blue"></div>
+            <div class="list-button">
+                <div class="image-button" (click)="findAllLocation(2)">
+                    <!-- <img (load)="loaded = true" [ngClass]="{'img-loaded':loaded}" [hidden]="!loaded" src="assets/images/bg_restaurant.jpg" />
+          <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner> -->
+                    <div class="btn-show-content border-blue">
+                        <img clas="img" src="assets/images/icon-design/icon-01.png"><span class="btn-name">{{'overview.eat' |
+              translate}}</span>
+                    </div>
+                </div>
+                <div class="image-button" (click)="findAllLocation(1)">
+                    <!-- <img (load)="loaded = true" [ngClass]="{'img-loaded':loaded}" [hidden]="!loaded" src="assets/images/bg_home.jpg" />
+          <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner> -->
+                    <div class="btn-show-content border-purple">
+                        <img src="assets/images/icon-design/icon-05.png"><span class="btn-name">{{'overview.stay' | translate}}</span>
+                    </div>
+                </div>
+                <div class="image-button" (click)="findAllLocation(3)">
+                    <!-- <img (load)="loaded = true" [ngClass]="{'img-loaded':loaded}" [hidden]="!loaded" src="assets/images/bg_see.jpg" />
+          <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner> -->
+                    <div class="btn-show-content border-pink">
+                        <img src="assets/images/icon-design/icon-02.png"><span class="btn-name">{{'overview.see' | translate}}</span>
+                    </div>
+                </div>
+
+                <!--<div class="image-button">
+          <img src="http://brunetteatsunset.com/wp-content/uploads/2016/12/getinspired-4-1024x1024.jpg" />
+          <div class="btn-show-content"><div class="btn-show"><ion-icon name="images"></ion-icon><span class="btn-name">Trải nghiệm</span></div></div>
+        </div>-->
+
+                <div class="image-button" (click)="findAllLocation(5)">
+                    <!-- <img (load)="loaded = true" [ngClass]="{'img-loaded':loaded}" [hidden]="!loaded" src="assets/images/bg_shop.jpg" />
+          <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner> -->
+                    <div class="btn-show-content border-red">
+                        <img src="assets/images/icon-design/icon-03.png"><span class="btn-name">{{'overview.shopping' | translate}}</span>
+                    </div>
+                </div>
+                <!-- Website -->
+                <a class="image-button " href="https://myhagiang.vn/ ">
+                    <div class="btn-show-content border-orange3 ">
+                        <img src="assets/images/icon-design/number-2.png "><span class="btn-name ">Website</span>
+                    </div>
+                </a>
+                <div *ngIf="useGT && !useVD" class="image-button" (click)="openFanPage()">
+                    <!-- <img (load)="loaded = true" [ngClass]="{'img-loaded':loaded}" [hidden]="!loaded" src="assets/images/bg_restaurant.jpg" />
+        <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner> -->
+                    <!-- onclick="window.open('https://www.facebook.com/checkinhagiangofficial/', '_system', 'location=no');" -->
+
+                    <a class="image-button btn-show-content border-blue">
+                        <img clas="img" src="assets/images/icon-design/icon-fb.png"><span class="btn-name">{{'menu.FanPage' | translate}}</span>
+                    </a>
+                </div>
+                <!-- Giải trí -->
+                <div *ngIf="useGT " class="image-button " (click)="findAllLocation(8) ">
+                    <!-- <img (load)="loaded=t rue " [ngClass]="{ 'img-loaded':loaded} " [hidden]="!loaded " src="assets/images/bg_restaurant.jpg " />
+          <ion-spinner [ngClass]="{ 'center':true} " *ngIf="!loaded "></ion-spinner> -->
+                    <div class="btn-show-content border-blue ">
+                        <img clas="img " src="assets/images/icon-design/icon-entertainment.png "><span class="btn-name ">{{'overview.entertainment' | translate}}</span>
+                    </div>
+                </div>
+                <div *ngIf="useVD " class="image-button " (click)="gotoPageEntertainment(9) ">
+                    <!-- <img (load)="loaded=t rue " [ngClass]="{ 'img-loaded':loaded} " [hidden]="!loaded " src="assets/images/bg_restaurant.jpg " />
+          <ion-spinner [ngClass]="{ 'center':true} " *ngIf="!loaded "></ion-spinner> -->
+                    <div class="btn-show-content border-blue ">
+                        <img clas="img " src="assets/images/icon-design/icon-nightlife.png "><span class="btn-name ">{{'overview.nightlife' | translate}}</span>
+                    </div>
+                </div>
+
+                <!-- End Giải trí -->
+                <div class="image-button " (click)="findAllLocation(7) ">
+                    <!-- <img (load)="loaded=t rue " [ngClass]="{ 'img-loaded':loaded} " [hidden]="!loaded " src="assets/images/bg_utilities.jpg " />
+           <ion-spinner [ngClass]="{ 'center':true} " *ngIf="!loaded "></ion-spinner>  -->
+                    <div class="btn-show-content border-newpurple ">
+                        <img src="assets/images/icon-design/icon-56.png "><span class="btn-name ">{{'overview.event' | translate}}</span>
+                    </div>
+                </div>
+                <div class="image-button " (click)="gotoUtilitiesPage() ">
+                    <!-- <img (load)="loaded=t rue " [ngClass]="{ 'img-loaded':loaded} " [hidden]="!loaded " src="assets/images/bg_utilities.jpg " />
+           <ion-spinner [ngClass]="{ 'center':true} " *ngIf="!loaded "></ion-spinner>  -->
+                    <div class="btn-show-content border-ocean ">
+                        <img src="assets/images/icon-design/icon-06.png "><span class="btn-name ">{{'overview.utilities' |
+              translate}}</span>
+                    </div>
+                </div>
+
+                <div class="image-button " (click)="gotoQuickbooking() ">
+                    <!--<img src="assets/images/bg_booking.jpg " />-->
+                    <!-- <img (load)="loaded=t rue " [ngClass]="{ 'img-loaded':loaded} " [hidden]="!loaded " src="assets/images/bg_booking.jpg " />
+          <ion-spinner [ngClass]="{ 'center':true} " *ngIf="!loaded "></ion-spinner> -->
+                    <div class="btn-show-content border-green ">
+                        <img src="assets/images/icon-design/icon-04.png "><span class="btn-name ">{{'overview.quickbooking' |
+              translate}}</span>
+                    </div>
+                </div>
+
+                <div class="image-button " (click)="viewExchangeRate() ">
+                    <div class="btn-show-content border-newgreen ">
+                        <img src="assets/images/icon-design/exchange-rate.png "><span class="btn-name ">{{'overview.exchangerate' |
+              translate}}</span>
+                    </div>
+                </div>
+
+
+                <div class="image-button " (click)="gotoComplaint() ">
+                    <div class="btn-show-content border-brown ">
+                        <img src="assets/images/icon-design/icon-33.png "><span class="btn-name ">{{'overview.complaints' |
+              translate}}</span>
+                    </div>
+                </div>
+                <!-- Liên hệ -->
+                <a class="image-button " (click)="gotoContact() ">
+                    <div class="btn-show-content border-orange ">
+                        <img src="assets/images/icon-design/icon-32.png "><span class="btn-name ">{{'overview.hotline' | translate}}</span>
+                    </div>
+                </a>
+
+
+                <!--<div class="image-button " (click)="changeToHomePage() ">
+          <img src="http://g04.a.alicdn.com/kf/HTB1vcP9LVXXXXX6XFXXq6xXFXXXl/2016-New-Fashion-1000pcs-Silk-Rose-Flower-Petals-Leaves-Wedding-Decorations-Party-font-b-Festival-b.jpg " />
+          <div class="btn-show-content "><div class="btn-show "><ion-icon name="calendar "></ion-icon><span class="btn-name ">Sự kiện</span></div></div>
+        </div>
+        <div class="image-button ">
+          <img src="https://img1.banxehoi.com/2016/05/03/20160503084331-1e46_wm.jpg " />
+          <div class="btn-show-content "><div class="btn-show "><ion-icon name="subway "></ion-icon><span class="btn-name ">Di chuyển</span></div></div>
+        </div>
+        <div class="image-button ">
+          <img src="https://tpitexas.com/wp-content/uploads/2017/01/ATM-ODL-Yellow-front-left-installed-800x800.jpg " />
+          <div class="btn-show-content "><div class="btn-show "><ion-icon name="cash "></ion-icon><span class="btn-name ">ATM</span></div></div>
+        </div>-->
+                <!--<div class="image-button ">
+          <img src="https://s3-ap-southeast-1.amazonaws.com/img.spiderum.com/sp-images/9e75e530d35b11e6adcf67d66892e165.png " />
+          <div class="btn-show-content "><div class="btn-show "><ion-icon name="beaker "></ion-icon><span class="btn-name ">Nhiên liệu</span></div></div>
+        </div>
+        <div class="image-button ">
+          <img src="https://media.foody.vn/res/g10/92123/s800/foody-sieu-thi-lotte-mart-tay-son-428-636237495315000204.jpg " />
+          <div class="btn-show-content "><div class="btn-show "><ion-icon name="cart "></ion-icon><span class="btn-name ">Mua sắm</span></div></div>
+        </div>
+        <div class="image-button ">
+          <img src="http://www.minikiwiland.co.nz/images/nominations/800/New-Plymouth-Post-Office.jpg " />
+          <div class="btn-show-content "><div class="btn-show "><ion-icon name="mail "></ion-icon><span class="btn-name ">Bưu điện</span></div></div>
+        </div>-->
+                <!--<button class="normal-link " (click)="findAllLocation(2) "><ion-icon name="restaurant "></ion-icon>&nbsp;Ăn uống</button>
+        <button class="normal-link " (click)="findAllLocation(1) "><ion-icon name="home "></ion-icon>&nbsp;Nghỉ ngơi</button>
+        <button class="normal-link " (click)="findAllLocation(3) "><ion-icon name="reverse-camera "></ion-icon>&nbsp;Tham quan</button>
+        <button class="normal-link " (click)="changeToHomePage() "><ion-icon name="calendar "></ion-icon>&nbsp;Sự kiện</button>-->
+            </div>
+        </div>
+
+        <!-- <div class="tourguide-area ">
+      <div class="tourguide-bg " (click)="gotoSearchTourGuide() ">
+          <p class="tourguide-title ">{{ 'overview.tourguide' | translate }}</p>
+          <p class="tourguide-des ">{{ 'overview.tourguidedes' | translate }}</p>
+      </div>
+    </div> -->
+
+        <div class="rectangle rectangle-white "></div>
+        <div class="arrow-down arrow-white "></div>
+        <!-- <div class="clearfix "></div> -->
+
+        <div class="promotion-travel-area " *ngIf="listPromotion.length> 0">
+            <h2>{{'overview.promotion' | translate}}</h2>
+            <img class="decorate" src="assets/images/icon-design/icon-25.png" />
+            <!-- <div class="swiper-container swiper-container-2">
+        <div class="swiper-wrapper swiper-wrapper-2" (click)="onClickTopBooking($event)">
+        </div>
+      </div> -->
+
+            <ion-slides #slides2 id="slider2" slider="promotion" slidesPerView="{{numberPerView}}">
+                <ion-slide *ngFor="let itemP of listPromotion" (click)="gotoDetail(itemP.ID, itemP.CODE)">
+                    <div class="info">
+                        <div class="pma">
+                            <img src="assets/images/try/promotion.jpg" />
+                            <span class="value-t">{{'overview.saleoff'|translate}}</span>
+                            <span class="value-a" *ngIf="itemP.PROMOTION != null && itemP.PROMOTION.length > 0">{{itemP.PROMOTION[0].VALUE_CUSTOM}}</span>
+                        </div>
+                        <div class="location-image">
+                            <img *ngIf="itemP.IMAGE != null" src="{{itemP.IMAGE | imageUrl}}" />
+                            <img *ngIf="itemP.IMAGE == null" src="assets/iconImages/noimage.png" />
+                        </div>
+                        <div class="location-name">
+                            <h5>{{itemP.NAME}}</h5>
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+
+        </div>
+
+        <!-- <div class="clearfix"></div> -->
+        <div class="rectangle rectangle-gray"></div>
+        <div class="arrow-down arrow-gray"></div>
+        <div class="top-popular-area">
+            <h2>{{'overview.popular' | translate}}
+                <img class="arrow-slide-3" src="assets/images/icon-design/icon-20.png" />
+            </h2>
+            <!-- <div class="swiper-container swiper-container-3">
+        <div class="swiper-wrapper swiper-wrapper-3" (click)="onClickTopBooking($event)">
+
+        </div>
+      </div> -->
+            <ion-slides #slides3 id="slider3" slider="top" slidesPerView="{{numberPerView}}">
+                <ion-slide *ngFor="let itemT of listTopBooking" (click)="gotoDetail(itemT.ID, itemT.CODE)">
+                    <div class="info">
+                        <div class="location-image">
+                            <img *ngIf="itemT.IMAGE != null" src="{{itemT.IMAGE | imageUrl}}" />
+                            <img *ngIf="itemT.IMAGE == null" src="assets/iconImages/noimage.png" />
+                        </div>
+                        <div class="location-name">
+                            <h5>{{itemT.NAME}}</h5>
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+</ion-content>
+
+<!--<div class="custom-tab">
+  <div id="tab-map" class="custom-tab-item custom-tab-active">
+    <div>
+      <ion-icon name="home"></ion-icon>
+      <span>
+        Tổng quan
+      </span>
+    </div>
+  </div>
+  <div id="tab-home" class="custom-tab-item" (click)="changeToHomePage()">
+    <div>
+      <ion-icon name="heart"></ion-icon>
+      <span>
+        Yêu thích
+      </span>
+    </div>
+  </div>
+
+  <div id="tab-plan" class="custom-tab-item" (click)="changeToPlanPage()">
+    <div>
+      <ion-icon name="clipboard"></ion-icon>
+      <span>
+        Lịch trình
+      </span>
+    </div>
+  </div>
+
+  <div id="tab-map" class="custom-tab-item" (click)="changeToMapPage()">
+    <div>
+      <ion-icon name="map"></ion-icon>
+      <span>
+        Bản đồ
+      </span>
+    </div>
+  </div>
+
+  <div id="tab-lookup" class="custom-tab-item" (click)="changeToUserpPage()">
+    <div>
+      <ion-icon name="person"></ion-icon>
+      <span>
+        Tài khoản
+      </span>
+    </div>
+  </div>
+</div>-->
+<ion-custom-nav-bot [navCtrl]="navCtrl" [modalCtrl]="modalCtrl" currentPage="overview"></ion-custom-nav-bot>

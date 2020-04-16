@@ -1,0 +1,18 @@
+page-booking-hotel {
+    #roomInForAfterCheck {
+        display: none;
+    }
+    .price-show, .allotment-show {
+        display: block;
+    }
+    .quantity-input input {
+        text-align: right;
+    }
+    .personal-info input[type="text"], .personal-info input[type="email"] {
+        text-align: right;
+    }
+
+    .text-input {
+        text-align: right;
+    }
+}

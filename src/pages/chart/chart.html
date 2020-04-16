@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Chart
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div style="width:100%">
+    <ion-item>
+      <ion-select (ionChange)="yearChangebar($event)">
+        <ion-option value="2017">2017</ion-option>
+        <ion-option value="2018" selected="true">2018</ion-option>
+      </ion-select>
+    </ion-item>
+    <div style="text-align:center">
+      <button ion-button round (click)="updateCharBar()">Xem</button>
+    </div>
+    <div>
+      <ion-card>
+        <ion-card-header>
+          Tổng số khách theo năm
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #barCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  <div style="width:100%">
+    <ion-item>
+      <ion-select (ionChange)="yearChangeCanvas($event)">
+        <ion-option value="2017">2017</ion-option>
+        <ion-option value="2018" selected="true">2018</ion-option>
+      </ion-select>
+    </ion-item>
+    <div style="text-align:center">
+      <button ion-button round (click)="updateCharCanvas()">Xem</button>
+    </div>
+    <div>
+      <ion-card>
+        <ion-card-header>
+         Chi tiết khách theo thời gian
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #lineCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  <div style="width:100%">
+    <ion-item>
+      <ion-select (ionChange)="yearChangeDoughnut($event)">
+        <ion-option value="2017">2017</ion-option>
+        <ion-option value="2018" selected="true">2018</ion-option>
+      </ion-select>
+    </ion-item>
+    <div style="text-align:center">
+      <button ion-button round (click)="updateCharDoughnut()">Xem</button>
+    </div>
+    <div>
+      <ion-card>
+        <ion-card-header>
+          Tổng số khách quốc nội/ quốc ngoại
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #doughnutCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+
+</ion-content>

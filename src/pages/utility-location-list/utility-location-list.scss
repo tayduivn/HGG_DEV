@@ -1,0 +1,132 @@
+page-utility-location-list {
+    .scroll-content {
+        background: #efeff4;
+    }
+    .bg-top {
+        background-image: url('../assets/images/utility-item-banner.jpg');
+        background-position: center;
+        background-size: cover;
+        height: 180px;
+        position: relative;
+        box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.39);
+        z-index: 5;
+    }
+    .list {
+        z-index: 20;
+        .image-presentative {
+            position: absolute;
+            top: 130px;
+            margin: 0 calc(50% - 150px);
+            width: 300px;
+            /*display: flex;
+            justify-content: center;*/
+            text-align: center;
+            z-index: 20;
+            .contain-image {
+                height: 100px;
+                width: 100px;
+                overflow: hidden;
+                margin: 0 calc(50% - 50px);
+            }
+            .image-title {
+                font-weight: 600;
+                color: #3d1afc;
+                font-size: 1.1em;
+            }
+        }
+        .lists {
+            margin-top: 100px;
+        }
+    }
+    .list-item {
+        z-index: 20;
+        border-top: 1px solid #a7a7a7;
+        border-bottom: 1px solid #a7a7a7;
+        min-height: 90px;
+        margin-bottom: 15px;
+        /*.image-representative {
+            width: 20%;
+            float: left;
+        }*/
+        .info {
+            width: 100%;
+            padding: 10px;
+            background: #fff;
+            .location-name {
+                font-size: 1.2em;
+                color: #bd0000;
+                font-weight: 600;
+                height: 50px;
+                overflow: hidden;
+            }
+            .location-address {
+                font-size: 1em;
+                color: #2C4CF3;
+                width: 100%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .location-range {
+                font-size: .95em;
+                text-align: right;
+                color: #7d7d7d; 
+                padding-top: 10px;
+            }
+        }
+        .utility-box {
+            .show-way {
+                float: right;
+                width: 50%;
+                text-align: center;
+                height: 45px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1em;
+                border-top: 1px solid #a7a7a7;
+                color: #5d5d5d;
+                background: #fff;
+            }
+            .show-way.full-row {
+                width: 100%;
+                justify-content: flex-end;
+                padding-right: 10px;
+            }
+            .call {
+                position: relative;
+                float: left;
+                width: 50%;
+                text-align: center;
+                height: 45px;
+                
+                font-size: .85em;
+                border-top: 1px solid #a7a7a7;
+                border-right: 1px solid #a7a7a7;
+                background: #fff;
+                a {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            ion-icon {
+                border: 1px solid #a7a7a7;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.4em;
+                margin-right: 5px;
+            }
+        }
+    }
+
+}
